@@ -47,7 +47,7 @@ invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **INVITE ME**
 
 tstmbd = discord.Embed(title="Your title\n___________", description="Your description\ndescreption2", color=000000)
 
-# badwrds =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ["fuck", "Fuck", "sex", "Sex", "porn", "Porn", "slut", "slut"]
+badwrds =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ["fuck", "Fuck", "sex", "Sex", "porn", "Porn", "slut", "slut"]
 
 @client.event
 async def on_ready():
@@ -134,7 +134,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="**Complex Calculation**:1234:\n▬▬▬▬▬▬▬▬▬▬", description="I can do a lot of **Complex Calculations**!\nThere are 2 types of Complex Calculations\n\n <a:ag_arrowgif:781395494127271947> Single input Calculation\nUse `a/ complexcal 1 help`\n\n <a:ag_arrowgif:781395494127271947> Double Input Calculation\n Use `a/ complexcal 2 help`", color=0xD705FC))
     if message.content == "a/ complexcal 1 help":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**Complex Calculator #1** :1234:\n▬▬▬▬▬▬▬▬▬▬", description="Single Input Functions\n All single Input variable = `a`\n▬▬▬▬▬▬▬▬▬▬\n`ceil` => Gives the Nearest Integer Greater than `a`\nExample: 'a/ ceil 2.4` Gives `3`\n\n`pi` => Gives the Value of `Pi`\n`e` => Gives the Value of `e`\n\n\n`floor` => Gives the Nearest Integer\
+        await message.channel.send(embed=discord.Embed(title="**Complex Calculator #1** :1234:\n▬▬▬▬▬▬▬▬▬▬", description="Single Input Functions\n All single Input variable = `a`\n▬▬▬▬▬▬▬▬▬▬\n`ceil` => Gives the Nearest Integer Greater than `a`\nExample: `a/ ceil 2.4` Gives `3`\n\n`pi` => Gives the Value of `Pi`\n`e` => Gives the Value of `e`\n\n\n`floor` => Gives the Nearest Integer\
          Lessser than `a`\nExample : `a/ floor 3.9` Gives `3`\n\n `sqrt` => Gives the Square Root of `a`\nExample : `a/ sqrt 9` Gives `3`\n\n `facto` => Gives the Factorial of `a`\nExample : `a/ facto 5` Gives `120`\n\n`exp` Gives the Value of `e^a`\nExample : `a/ exp 4` Gives `54.598150033144236`\n\n`log` => Gives the Natural Log of `a`\nExample : `a/ log 2` Gives `0.6931471805599453`\n\n`log10` => Gives the Log to the Base 10 of `a`\nExample : `a/ log10 2` Gives\
          `0.3010299956639812`\n\n`sin, cos, tan` => Gives the Trigonometric (sin or cos or tan as Specified) Values\nExample : `a/ sin 30` Gives `0.5`\n\nCommon\
          Syntax: `a/ <operator> <value(a)>`\n\n▬▬▬▬▬▬▬▬▬▬\n**More Calculations in `a/ complex 2 help`**\n\n If your Preffered Calculation is not available then plz Suggest using `a/ suggest help`", color=0xD705FC))
@@ -144,7 +144,7 @@ async def on_message(message):
         in Farenheit to Celcius\nExample : `a/ far 32` Gives `0`\n\n**Celcius to Farenheit**\nConverts Tempereture `a` in Celcius to Farenheit\nExample : `a/ cel 0` Gives `32`\n\n**Celcius to Kelvin**\nConverts Tempereture `a` in Celcius to Kelvin\nExample : `a/ cel 0` Gives `273`\n\n**Farenheit to Kelvin**\nConverts Tempereture `a` in Celcius to Farenheit\nExample : `a/ cel 0` Gives `32`", color=0xD705FC))
     if message.content == "a/ complexcal 2 help":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**Complex Calculator #2** :1234:\n▬▬▬▬▬▬▬▬▬▬", description="Single Input Functions\n All Double Input variable = `a` and `b`\n▬▬▬▬▬▬▬▬▬▬\n`bilog` => Gives the Value of Log `a` to the Base `b`\nExample: 'a/ bilog 100 2` Gives `6.643856189774725`\n\n`pow` => Gives the Value of `a` to the Power `b`\nExample: `a/ pow 5 2` Gives `25`", color=0xD705FC))
+        await message.channel.send(embed=discord.Embed(title="**Complex Calculator #2** :1234:\n▬▬▬▬▬▬▬▬▬▬", description="Single Input Functions\n All Double Input variable = `a` and `b`\n▬▬▬▬▬▬▬▬▬▬\n`bilog` => Gives the Value of Log `a` to the Base `b`\nExample: `a/ bilog 100 2` Gives `6.643856189774725`\n\n`pow` => Gives the Value of `a` to the Power `b`\nExample: `a/ pow 5 2` Gives `25`", color=0xD705FC))
     if message.content == "a/ afk help" or message.content == "a/ help afk":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="AFK Status :zzz:\n▬▬▬▬▬▬▬▬▬▬", description="If u set afk status all the Messages tht Ping U will be Deleted :x: with a msg U gave!\n\n**Syntax:**\n<a:ag_arrowgif:781395494127271947> Set AFK - `a/ afk =<reason>`\n<a:ag_arrowgif:781395494127271947> Remove AFK - `a/ afk remove`", color=0xA205FC))
@@ -170,7 +170,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="**『AG』》V!GNΣ$hᴰᵉᵛ#5105** <a:ag_flyn_hrts_cyn:781395468978356235>\nCreated me on 24th Nov 2020", description="**With The Help of:**\nRice Cake#9760\nLone#6015\nSUNAPANA™#3377",color=0x04FD03))
     if message.content.find("a/ chat help") != -1 or message.content == "a/ help chat":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="CHAT :speech_ballon:\n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> `a/ setup chat` will Create a New Channel to Chat mith Meee!\n<a:ag_arrowgif:781395494127271947> <More To be added here>", color=0xFC058C))
+        await message.channel.send(embed=discord.Embed(title="CHAT :speech_balloon:\n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> `a/ setup chat` will Create a New Channel to Chat mith Meee!\n<a:ag_arrowgif:781395494127271947> <More To be added here>", color=0xFC058C))
     if message.content.find("a/ today help") != -1 or message.content == "a/ help today":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Today :date:\n▬▬▬▬▬▬▬▬▬▬", description="**Commands:**\n<a:ag_arrowgif:781395494127271947> `a/ time` :clock3: Shows the Time Now\n<a:ag_arrowgif:781395494127271947> `a/ date` :date: Shows the Date Today\n<a:ag_arrowgif:781395494127271947> <More to be added here>", color=0x6E05FC))
@@ -645,13 +645,13 @@ async def on_message(message):
         await channel.send(embed=discord.Embed(title=f" <a:ag_reddot:781410740619051008> Suggestion by {message.author} <a:ag_reddot:781410740619051008> ", description=f"`{sugg}`", color=0x04FD03))
 
 # BAD WORD MODERATION
-#     for word in badwrds:
-#         if message.content.find(word) != -1:
-#             print("A bad word(", message.content, ") was said by =>", message.author, "in channel |", message.channel, "in server =>", message.guild)
-#             tempa = message.id
-            # await message.channel.purge(limit=1)
+    for word in badwrds:
+        if message.content.find(word) != -1:
+            print("A bad word(", message.content, ") was said by =>", message.author, "in channel |", message.channel, "in server =>", message.guild)
+            # tempa = message.id
+            await message.channel.purge(limit=1)
             # await message.delelte(tempa)
-            # await message.channel.send(embed=discord.Embed(title=" :x: **Bad Word Warning** :warning: ", description=f"{message.author}, Do NOT :x: Use Bad Words!, You Have been Warned :warning: ", color=0x04FD03))
+            await message.channel.send(embed=discord.Embed(title=" :x: **Bad Word Warning** :warning: ", description=f"{message.author}, Do NOT :x: Use Bad Words!, You Have been Warned :warning: ", color=0x04FD03))
 
 # MSG DELETE
     if message.content.startswith("a/ delete "):
