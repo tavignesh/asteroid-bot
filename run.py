@@ -458,7 +458,7 @@ async def on_message(message):
     #         await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Mute Members <a:ag_exc:781410611366985748>"))
 
 # BASIC CALCULATOR
-    if message.content.find('a/ calculate div') != -1:
+    if message.content.find('a/ div') != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         if message.content.split(' ')[-3] == 'divide' or message.content.split(' ')[-3] == 'div':
             divv = message.content.split(' ')[-2]
@@ -468,7 +468,7 @@ async def on_message(message):
         divans = divv/div
         await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"**{divv}** Divided by **{div}** =\n **{divans}** <a:ag_tickop:781395575962599445>\n\n{message.channel}", color=0x02FE95))
 
-    if message.content.find('a/ calculate add') != -1:
+    if message.content.find('a/ add') != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         if message.content.split(' ')[-3] == 'add' or message.content.split(' ')[-3] == 'addition':
             addd = message.content.split(' ')[-2]
@@ -478,7 +478,7 @@ async def on_message(message):
         addans = addd + adddd
         await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"**{addd}** Added to **{adddd}** =\n **{addans}** <a:ag_tickop:781395575962599445>", color=0x02FE95))
 
-    if message.content.find('a/ calculate sub') != -1:
+    if message.content.find('a/ sub') != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         if message.content.split(' ')[-3] == 'sub' or message.content.split(' ')[-3] == 'subtract':
             subb = message.content.split(' ')[-2]
@@ -488,7 +488,7 @@ async def on_message(message):
         subans = subb - subbb
         await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"**{subbb}** Subtracted from **{subb}** =\n **{subans}** <a:ag_tickop:781395575962599445>", color=0x02FE95))
 
-    if message.content.find('a/ calculate mult') != -1:
+    if message.content.find('a/ mult') != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         if message.content.split(' ')[-3] == 'mult' or message.content.split(' ')[-3] == 'multiply':
             mult = message.content.split(' ')[-2]
