@@ -1,12 +1,9 @@
 discord.py[voice]
 pynacl
-time
 asyncio
 random
 psutil
-youtube_dl
 json
 requests
 wikipedia
 datetime
-pprint
