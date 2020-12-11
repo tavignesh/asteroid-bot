@@ -1,0 +1,13 @@
+discord.py[voice]
+pynacl
+math
+time
+asyncio
+random
+psutil
+youtube_dl
+json
+requests
+from pprint import pprint
+wikipedia
+datetime

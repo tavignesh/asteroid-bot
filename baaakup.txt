@@ -1,0 +1,253 @@
+import discord
+import time
+import asyncio
+import math
+import random
+
+client = discord.Client()
+
+# TOKENS
+token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+betatoken = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+
+# ag srvr id      = 708329597141385229
+# id support srvr = 780625655657791518
+
+messages = joined = 0
+
+# PRE DECLARE
+hlpmbd = discord.Embed(title="***Hey,***\nI am ***Asteroid*** Made by:\n***『AG』》Vigne$hᴰᵉᵛ#8351***\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n▬▬▬▬▬▬▬▬▬▬", description="I am Under Construction!\n▬▬▬▬▬▬▬▬▬▬\nMy Commands \n▬▬▬▬▬▬▬▬▬▬\n***Moderation***\n Auto Delete of Bad Words<`More To Be added!`>\n\n***Deletet\
+ion*** :x: \n:x: Auto Delete of Bad Words with A Warn :warning: Message \n Manual Delete Messages. Use `a/ delete help` for more\n▬▬▬▬▬▬▬▬▬▬ \n\n***Quizz***\n▬▬▬▬▬▬▬▬▬▬\nAsks Some Interesting Multiple Chaoce Questions. Use `a/ quiz help` for more\n\n***Chat***\n▬▬▬▬▬▬▬▬▬▬\nJust Say `hi`\n\n***Sugggetions***\n▬▬▬▬▬▬▬▬▬▬\n Use `a/ suggest help` for more!\n\n***INVITE***\n▬▬▬▬▬▬▬▬▬▬\nYou can INVITE Me Using `a/ invite`", color=0x13FD03)
+invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> ***INVITE ME*** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="[Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n[Support Server Beta](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>", color=0x13FD03)
+
+tstmbd = discord.Embed(title="Your title\n___________", description="Your description\ndescreption2", color=000000)
+
+badwrds =                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ["fuck", "Fuck", "sex", "Sex", "porn", "Porn", "slut", "slut"]
+
+@client.event
+async def on_ready():
+    await client.change_presence(activity=discord.Game(name="With 『AG』》Vigne$hᴰᵉᵛ#8351 a/ help (I am Under Construction)"))
+    print("{} is ONLINE!!".format(client.user))
+
+
+async def update_stats():
+    await client.wait_until_ready()
+    global messages, joined
+
+    while not client.is_closed():
+        try:
+            with open("stats.txt", "a") as f:
+                f.write(f"Time: {int(time.time())}, Messages: {messages}, Member Joined: {joined}\n")
+
+            await asyncio.sleep(10)
+        except Exception as e:
+            print(e)
+            await asyncio.sleep(10)
+
+
+# @client.event
+# async def on_member_join(member):
+#     global joined
+#     joined += 1
+#     await client.send_messsage(f"""hi bro wlcome to my support server {member.mention}""")
+
+
+@client.event
+async def on_message(message):
+    global messages
+    messages += 1
+    serverid = client.get_guild(780625655657791518)
+
+    a = 0
+
+    print("The Message | ", message.content, " | Was sent in | ", message.channel, " | Channel by | ", message.author, "| in SERVER =>", message.guild)
+
+    if message.author == client.user:
+        return
+
+# HELPS
+    if message.content.find("a/ help") != -1:
+        await message.channel.send(embed=hlpmbd)
+    if message.content.find("a/ invite") != -1:
+        await message.channel.send(embed=invitembd)
+    if message.content == "a/ delete" != -1:
+        await message.channel.send(embed=discord.Embed(description="Use `a/ delete help` for Help Regarding Delete messges"))
+    if message.content == "a/ delete help" != -1:
+        await message.channel.send(embed=discord.Embed(title="***Delete Messages***\n▬▬▬▬▬▬▬▬▬▬", description="Maximum of 42 Messages can be Deleted at a Time <a:ag_reddot:781410740619051008> \n\nSyntax : `a/ delete <Number of msges in number>`\n\nExample:\n`a/ delete 15`", color=0x04FD03))
+    if message.content == "a/ suggest help" != -1:
+        await message.channel.send(embed=discord.Embed(title="***Suggesions on Me*** <a:ag_discord:781395597277134869> \n▬▬▬▬▬▬▬▬▬▬", description="Your Suggesions are Really Valuable to us , It helps in Improving The Bot! <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬\n\nSyntax : `a/ suggest <your suggesion>`\n\nExample:\n`a/ suggest plz include multiplayer`",color=0x04FD03))
+    if message.content == "a/ calculate help" != -1:
+        await message.channel.send(embed=discord.Embed(title="***Basic Calculator***\n▬▬▬▬▬▬▬▬▬▬", description="***Mathematical Operators***\n▬▬▬▬▬▬▬▬▬▬\n`+` => Addition\n `-` => Subtraction\n `*` => Multiplication \n `/` => Division\n\nSyntax: `a/ calculate <1st number> <mathamatical operator> <2nd number>`\nExample : `a/ calculate 13 * 2`\n\nComplex Calculations\n▬▬▬▬▬▬▬▬▬▬\n For More Use `a/ complexcal help`", color=000000))
+    if message.content == "a/ complexcal help" != -1:
+        await message.channel.send(embed=discord.Embed(title="***Complex Calculation***\n▬▬▬▬▬▬▬▬▬▬", description="I can do a lot of ***Complex Calculations***!\nThere are 2 types of Complex Calculations\n <a:ag_arrowgif:781395494127271947> Single input Calculation ( Use `a/ complexcal 1 help`)\n <a:ag_arrowgif:781395494127271947> Double Input Calculation"))
+    if message.content == "a/ complexcal 1 help" != -1:
+        await message.channel.send(embed=discord.Embed(title="***Complex Calculator***\n▬▬▬▬▬▬▬▬▬▬", description="Single Input Functions\n All single Input variable = `a`\n▬▬▬▬▬▬▬▬▬▬\n`ceil` => Gives the Nearest Integer Greater than `a`\nExample : `a/ complexcal ceil 2.3` Gives `3`\n\n`floor` => Gives the Nearest Integer Lessser than `a`\nExample : `a/ complexcal floor 3.9` Gives `3`\n\n `sqrt` => Gives the Square Root of `a`\nExample : `a/` complexcal sqrt 9' Gives `3`\n\n`exp` Gives the Value of `e^a`\nExample : `a/ complexcal exp 4' Gives `54.598150033144236`\n\n`log` => Gives the log to base 10 value of `a`\nExample : `a/ complexcal log 2` Gives `0.6931471805599453`\n\n'degrees' => Converts `a` in Radians to Degrees\n Example : `a/ complexcal degrees 5` Gives `286.4788975654116`\n\n`radians` => Converts `a` in Degrees to Radians\nExample : `a/ complexcal radians 90` Gives `1.5707963267948966`\n\n`sin, cos, tan` => Gives the Trigonometric (sin or cos or tan as Specified) Values GIVE THE ANGLE IN RADIANS NOT DEGREES!!(You can Convert Degrees into Radians and vice-versa with the above Complex Calculations Available)\nExample : `a/ complexcal sin 1.5707963267948966` Gives `1.0`\n\nCommon Syntax: `a/ complexcal <operator> <value(a)>`\n\nMore Calculations in `a/ complexcal 2 help`\n\n If your Preffered Calculation is not available then plz Suggest using `a/ suggest help`"))
+
+# CALCULATE
+    a = b = c = 0
+    if message.content == "a/ cal" != -1:
+        await message.channel.send("aaaaah")
+
+        c = a+b
+
+# Complex CALCULATE
+
+
+# SUGGEST
+    if message.content.startswith("a/ suggest "):
+        await message.channel.send(embed=discord.Embed(title=" <a:ag_reddot:781410740619051008> Suggested! <a:ag_reddot:781410740619051008> ", description="Thanks for Your Valuable Suggestion!\nYour Suggestion Has Been Submitted! <a:ag_tickop:781395575962599445> ", color=0x04FD03))
+        try:
+            with open("suggest.txt", 'x') as f:
+                f.write(f"User => | {message.author} | => | {message.content} |")
+            await asyncio.sleep(5)
+        except Exception as e:
+            print(e, "exeption")
+            print(message.content, "is exeption")
+
+# BAD WORD MODERATION
+    for word in badwrds:
+        if message.content.find(word) != -1:
+            print("A bad word(", message.content, ") was said by =>", message.author, "in channel |", message.channel, "in server =>", message.guild)
+            await message.channel.purge(limit=1)
+            await message.channel.send(embed=discord.Embed(title=" :x: ***Bad Word Warning*** :warning: ", description=f"{message.author}, Do NOT :x: Use Bad Words!, You Have been Warned :warning: ", color=0x04FD03))
+
+# MSG DELETE
+    if message.content.startswith("a/ delete "):
+        delee = 0
+        delee = message.content.split(' ')[-1]
+        delee = int(delee)
+        await message.channel.purge(limit=delee)
+        await message.channel.send(embed=discord.Embed(description=f"{delee} Messages :x: Deleted! <a:ag_tickop:781395575962599445> "))
+
+
+# CHAT
+    if message.content.find("Hi") != -1:
+        await message.channel.send(embed=discord.Embed(description="<a:ag_hoi:781395433842409473> , How Are You?\n Plz Use MY Prefix `a/`", color=0x04FD03))
+    if message.content.find("A/") != -1:
+        await message.channel.send(embed=discord.Embed(description="My prefix is `a/`", color=0x04FD03))
+    if message.content.find("die") != -1:
+        await message.channel.send(embed=discord.Embed(title="<a:ag_stv_dnc:781410697825222686>"))
+    if message.content.find("loading") != -1:
+        await message.channel.send(embed=discord.Embed(title="<a:ag_ldingwin:781410586138902529>"))
+    if message.content == "a/ hi":
+        await message.channel.send(embed=discord.Embed(description="<a:ag_hoi:781395433842409473> , How Are You?", color=0x04FD03))
+    if message.content.find("hi") != -1 and message.content != "a/ hi":
+        await message.channel.send(embed=discord.Embed(description="<a:ag_hoi:781395433842409473> , How Are You?\n Plz Use MY Prefix `a/`", color=0x04FD03))
+    if message.content.find("a/ fine") != -1:
+        await message.channel.send(embed=discord.Embed(description="Oh Nice!", color=0x04FD03))
+    if message.content.find("a/ Fine") != -1:
+        await message.channel.send(embed=discord.Embed(description="Oh Nice!", color=0x04FD03))
+
+# WISHES
+    if message.content.find("Good morning") != -1:
+        await message.channel.send(embed=discord.Embed(description="Good Morning!!", color=0x04FD03))
+    if message.content.find("good morning") != -1:
+        await message.channel.send(embed=discord.Embed(description="Good Morning!!", color=0x04FD03))
+    if message.content.find("Good afternoon") != -1:
+        await message.channel.send(embed=discord.Embed(description="Good Afternoon!!", color=0x04FD03))
+    if message.content.find("good afternoon") != -1:
+        await message.channel.send(embed=discord.Embed(description="Good Afternoon!!", color=0x04FD03))
+    if message.content.find("Good evening") != -1:
+        await message.channel.send(embed=discord.Embed(description="Good Evening!!", color=0x04FD03))
+    if message.content.find("good evening") != -1:
+        await message.channel.send(embed=discord.Embed(description="Good Evening!!", color=0x04FD03))
+    if message.content.find("Good night") != -1:
+        await message.channel.send(embed=discord.Embed(description="Good Night!!", color=0x04FD03))
+    if message.content.find("good night") != -1:
+        await message.channel.send(embed=discord.Embed(description="Good Night!!", color=0x04FD03))
+
+    if message.content.find("a/ you?") != -1:
+        await message.channel.send(embed=discord.Embed(description="<a:ag_imfn:781058534543589376>", color=0x04FD03))
+    if message.content.find("a/ You?") != -1:
+        await message.channel.send(embed=discord.Embed(description="<a:ag_imfn:781058534543589376>", color=0x04FD03))
+    if message.content.find("ok") != -1:
+        await message.channel.send(embed=discord.Embed(description="Hmm oh then?", color=0x04FD03))
+    if message.content.find("Ok") != -1:
+        await message.channel.send(embed=discord.Embed(description="Hmm oh then?", color=0x04FD03))
+    if message.content.find("bye") != -1:
+        await message.channel.send(embed=discord.Embed(description="No plzz Don't go :pleading_face:", color=0x04FD03))
+    if message.content.find("Bye") != -1:
+        await message.channel.send(embed=discord.Embed(description="No plzz Don't go :pleading_face:", color=0x04FD03))
+    if message.content.find("a/ hmm") != -1:
+        await message.channel.send(embed=discord.Embed(description="hmmmmmmm so what next?", color=0x04FD03))
+
+    if message.content.find("lol") != -1:
+        await message.channel.send(embed=discord.Embed(description=":rofl:", color=0x04FD03))
+    if message.content.find("Lol") != -1:
+        await message.channel.send(embed=discord.Embed(description=":rofl:", color=0x04FD03))
+    if message.content.find("cry") != -1:
+        await message.channel.send(embed=discord.Embed(description=":sob:", color=0x04FD03))
+    if message.content.find("Cry") != -1:
+        await message.channel.send(embed=discord.Embed(description=":sob:", color=0x04FD03))
+    if message.content.find("-_-") != -1:
+        await message.channel.send(embed=discord.Embed(description=":expressionless:", color=0x0803FD))
+    if message.content.find("How r u?") != -1:
+        await message.channel.send(embed=discord.Embed(description="Fine\n Plz Use My Prefix!!", color=0x04FD03))
+    if message.content.find("how r u?") != -1:
+        await message.channel.send(embed=discord.Embed(description="Fine\n Plz Use My Prefix!!", color=0x04FD03))
+    if message.content.find("How are u?") != -1:
+        await message.channel.send(embed=discord.Embed(description="Fine\n Plz Use My Prefix!!", color=0x04FD03))
+    if message.content.find("how are u?") != -1:
+        await message.channel.send(embed=discord.Embed(description="Fine\n Plz Use My Prefix!!", color=0x04FD03))
+    if message.content.find("How are you?") != -1:
+        await message.channel.send(embed=discord.Embed(description="Fine\n Plz Use My Prefix!!", color=0x04FD03))
+    if message.content.find("how are you?") != -1:
+        await message.channel.send(embed=discord.Embed(description="Fine\n Plz Use My Prefix!!", color=0x04FD03))
+    if message.content.find("How r you?") != -1:
+        await message.channel.send(embed=discord.Embed(description="Fine\n Plz Use My Prefix!!", color=0x04FD03))
+    if message.content.find("how r you?") != -1:
+        await message.channel.send(embed=discord.Embed(description="Fine\n Plz Use My Prefix!!", color=0x04FD03))
+    if message.content.find("sad") != -1:
+        await message.channel.send(embed=discord.Embed(description="C'mon Don't be Sad!! Be Happy Always!!", color=0x0803FD))
+    if message.content.find("Sad") != -1:
+        await message.channel.send(embed=discord.Embed(description="C'mon Don't be Sad!! Be Happy Always!!", color=0x0803FD))
+
+# TESTS
+    if message.content.startswith("blaaha"):
+        print(message.content)
+        await message.channel.send(message.content)
+
+
+    if message.content.find("a/ mention") != -1:
+        await message.channel.send("<@!641650868936245258>")
+    if message.content.find("a/ 2test") != -1:
+        await message.channel.send(embed=discord.Embed(title="Your title\n___________", description="Your description\ndescreption2", color=000000))
+    if message.content.find('a/ divide') != -1:
+        if message.content.split(' ')[-3] == 'divide':
+            weer = message.content.split(' ')[-2]
+            wer = message.content.split(' ')[-1]
+        weer = int(weer)
+        wer = int(wer)
+        anss = weer/wer
+        print(wer)
+        print(weer)
+        await message.channel.send(anss)
+
+# QUZZZZ
+    if message.content == "a/ quiz" != -1:
+        await message.channel.send(embed=discord.Embed(title="Quiz Not Yet Ready Sorry!", color=0xFDFC03))
+
+    if message.content == "a/ tstquiz" != -1:
+        await message.channel.send(embed=discord.Embed(title="Quiz Starting in 5 Secs!!", color=0xFDFC03))
+        await asyncio.sleep(5)
+        await message.channel.send(embed=discord.Embed(title="***Question 1***", description="Question here\n\nGive Your Answer as\na/ `your answer`", color=0xFD7803))
+        while a < 5:
+            a = a + 1
+            await asyncio.sleep(2)
+            if message.content == "a/ answer":
+                await message.channel.send(embed=discord.Embed(title=f"***Correct!!*** {message.author}"))
+                await message.channel.send(embed=discord.Embed(title="Next Question in 5 Secs!", color=0xFD7803))
+                await asyncio.sleep(2)
+        else:
+            await message.channel.send(embed=discord.Embed(title="you failed to answer in 5 Secs!"))
+
+
+# USER COUNT
+    elif message.content.find("a/ users") != -1:
+        await message.channel.send(f"""Number of Members: {serverid.member_count}""")
+
+
+client.loop.create_task(update_stats())
+
+
+client.run(betatoken)
