@@ -8,6 +8,6 @@ psutil
 youtube_dl
 json
 requests
-from pprint import pprint
 wikipedia
 datetime
+pprint

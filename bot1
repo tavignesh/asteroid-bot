@@ -7,18 +7,12 @@ import asyncio
 import math
 import random
 import psutil
-from discord.ext import commands
-from discord.ext.commands import Bot
-import youtube_dl
 import json
 import requests
-from pprint import pprint
 import wikipedia
-import os
 import datetime
 
 client = discord.Client()
-cloient = commands.Bot(command_prefix='a/ ')
 
 # TOKENS
 token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
