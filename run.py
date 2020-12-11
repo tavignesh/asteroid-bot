@@ -235,6 +235,8 @@ async def on_message(message):
                 emoj = ":anger_right:"
             if stat == "Snow":
                 emoj = ":snowflake:"
+            if stat == "Haze":
+                emoj = ":white_sun_cloud:"
 
             print(stat)
 
