@@ -125,10 +125,10 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="**Delete Messages** :x:\n▬▬▬▬▬▬▬▬▬▬", description="Maximum of 500 Messages can be Deleted at a Time <a:ag_reddot:781410740619051008>\nYou need to Have Manage Messages Permisiion \n\nSyntax : `a/ delete <Number of msges in number>`\n\nExample:\n`a/ delete 15`", color=0x04FD03))
     if message.content == "a/ suggest help" or message.content == "a/ help suggest":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**Suggesions on Me** <a:ag_discord:781395597277134869> \n▬▬▬▬▬▬▬▬▬▬", description="Your Suggesions are Really Valuable to us , It helps in Improving The Bot! <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬\n\nSyntax : `a/ suggest =<your suggesion>`\n\nExample:\n`a/ suggest =plz include multiplayer`",color=0x04FD03))
+        await message.channel.send(embed=discord.Embed(title="**Suggesions on Me** <a:ag_discord:781395597277134869> \n▬▬▬▬▬▬▬▬▬▬", description="Your Suggesions are Really Valuable to us(me) , It helps in Improving The Bot! <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬\n\nSyntax : `a/ suggest =<your suggesion>`\n\nExample:\n`a/ suggest =plz include multiplayer`",color=0x04FD03))
     if message.content == "a/ calculate help" or message.content == "a/ help calculate":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**Basic Calculator** :1234:\n▬▬▬▬▬▬▬▬▬▬", description="**Mathematical Operators**\n▬▬▬▬▬▬▬▬▬▬\n`add` => Addition\n `sub` => Subtraction\n `mult` => Multiplication \n `div` => Division\n\nSyntax: `a/ <mathamatical operator>  <1st number>  <2nd number>`\nExample : `a/ add 13 2`\n\n**Complex Calculations**\n▬▬▬▬▬▬▬▬▬▬\n For More Use `a/ complexcal help`", color=0x05FCF1))
+        await message.channel.send(embed=discord.Embed(title="**Basic Calculator** :1234:\n▬▬▬▬▬▬▬▬▬▬", description="**Mathematical Operators**\n▬▬▬▬▬▬▬▬▬▬\n`add` => Addition\n `sub` => Subtraction\n `mult` => Multiplication \n `div` => Division\n\nSyntax: `a/ <mathamatical operator>  <1st number>  <2nd number>`\nExample : `a/ add 13 2`\n\n**LCM and HCF**\n▬▬▬▬▬▬▬▬▬▬\n`lcm` => Least Common Multiple\n `hcf` => Highest Common Factor\n\n**Complex Calculations**\n▬▬▬▬▬▬▬▬▬▬\n For More Use `a/ complexcal help`", color=0x05FCF1))
     if message.content == "a/ complexcal help" or message.content == "a/ help complexcal":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**Complex Calculation**:1234:\n▬▬▬▬▬▬▬▬▬▬", description="I can do a lot of **Complex Calculations**!\nThere are 2 types of Complex Calculations\n\n <a:ag_arrowgif:781395494127271947> Single input Calculation\nUse `a/ complexcal 1 help`\n\n <a:ag_arrowgif:781395494127271947> Double Input Calculation\n Use `a/ complexcal 2 help`", color=0xD705FC))
@@ -227,8 +227,6 @@ async def on_message(message):
                 emoj = ":cloud_rain:"
             if stat == "Clouds":
                 emoj = ":cloud:"
-            if stat == "Clear":
-                emoj == ":sunny:"
             if stat == "Mist":
                 emoj = "<:mistop:784711272369225728>"
             if stat == "Smoke":
@@ -500,7 +498,42 @@ async def on_message(message):
         multans = mult * multt
         await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"**{mult}** Multiplied by **{multt}** =\n **{multans}** <a:ag_tickop:781395575962599445>", color=0x02FE95))
 
-# COMPLEX CALCULATOR 1
+    if message.content.find('a/ lcm') != -1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.content.split(' ')[-3] == 'lcm':
+            aha1 = message.content.split(' ')[-2]
+            aha2 = message.content.split(' ')[-1]
+        aha1 = int(aha1)
+        aha2 = int(aha2)
+        if aha1 > aha2:
+            gr = aha1
+        else:
+            gr = aha2
+        while (True):
+            if ((gr % aha1 == 0) and (gr % aha2 == 0)):
+                lcm = gr
+                break
+            gr += 1
+        await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"LCM of **{aha1}** and **{aha2}** =\n **{lcm}** <a:ag_tickop:781395575962599445>", color=0x02FE95))
+
+    if message.content.find('a/ hcf') != -1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.content.split(' ')[-3] == 'hcf':
+            num1 = message.content.split(' ')[-2]
+            num2 = message.content.split(' ')[-1]
+        num1 = int(num1)
+        num2 = int(num2)
+        if num1 > num2:
+            smaller = num2
+        else:
+            smaller = num1
+        for i in range(1, smaller + 1):
+            if ((num1 % i == 0) and (num2 % i == 0)):
+                hcf = i
+        await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"HCF of **{num1}** and **{num2}** =\n **{hcf}** <a:ag_tickop:781395575962599445>", color=0x02FE95))
+
+
+    # COMPLEX CALCULATOR 1
     if message.content.find("a/ ceil ") != -1:
         ceil = message.content.split(" ")[-1]
         ceil = float(ceil)
@@ -870,4 +903,41 @@ async def on_message(message):
 client.loop.create_task(update_stats())
 
 
-client.run(token)
+client.run(betatoken)
+
+
+# import discord
+# import math
+# import asyncio
+#
+# client = discord.Client()
+#
+# @client.event
+# async def on_ready():
+#     game = discord.Game("iam back")
+#     await client.change_presence(status=discord.Status.idle, activity=game)
+#     print("{} is ONLINE!!".format(client.user))
+#
+# @client.event
+# async def on_message(message):
+#     global messages
+#
+#     if message.content.find("ss/ ping") != -1:
+#         ping = client.latency
+#         ping = ping * 1000
+#         ping = math.floor(ping)
+#         await message.channel.send(embed=discord.Embed(title="My PING ", description=f":hourglass: {ping}ms", color=0x02BDFE))
+#
+#     if message.content.find("hi") != -1:
+#         await message.channel.send(embed=discord.Embed(title="ss/ help", description="hi i dont know how to help", color=0x02BDFE))
+#     if message.content.find("iam fine") != -1:
+#         await message.channel.send(embed=discord.Embed(title="nice", description="iam bored ", color=0x02BDFE))
+#     if message.content.find("why") != -1:
+#         await message.channel.send(embed=discord.Embed(title="no one here to speak", description="no one is inviting me", color=0x02BDFE))
+#
+# client.run("NzcwOTAyODkzMzEwMTE1ODYx.X5kVRA.dAaRI6wtTN-lpodRIuc4YAmlq-0")
+
+
+
+
+
