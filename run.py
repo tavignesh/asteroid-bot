@@ -903,7 +903,7 @@ async def on_message(message):
 client.loop.create_task(update_stats())
 
 
-client.run(betatoken)
+client.run(token)
 
 
 # import discord
