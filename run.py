@@ -1,6 +1,6 @@
 # google search
 # image search
-# temprature converter
+
 import discord
 import time
 import asyncio
@@ -43,7 +43,7 @@ on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:
 me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (sugges\
 t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)", color=0x01FD14)
 
-invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **INVITE ME** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="[Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n[Support Server Beta](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>", color=0x13FD03)
+invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **INVITE ME** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="[Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n[Support Server Beta](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n[ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
 
 tstmbd = discord.Embed(title="Your title\n___________", description="Your description\ndescreption2", color=000000)
 
@@ -936,8 +936,5 @@ client.run(token)
 #         await message.channel.send(embed=discord.Embed(title="no one here to speak", description="no one is inviting me", color=0x02BDFE))
 #
 # client.run("NzcwOTAyODkzMzEwMTE1ODYx.X5kVRA.dAaRI6wtTN-lpodRIuc4YAmlq-0")
-
-
-
 
 
