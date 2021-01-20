@@ -35,12 +35,12 @@ at**\n▬▬▬▬▬▬▬▬▬▬\nJust Say `hi`\n\n<a:ag_arrw_hrt:7814106923
 
 helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『AG』》V!GNΣ$hᴰᵉᵛ#5105**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n**Example:**\n`a/ delete help`\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
 on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random:game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
-me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (sugges\
+me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (sugges\
 t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)", color=0x01FD14)
 
 hlpdmmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『AG』》V!GNΣ$hᴰᵉᵛ#5105**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module \nYou can Put Commands Here Also!\n**Example:**\n`a/ delete help`\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
 on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random:game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
-me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (sugges\
+me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (sugges\
 t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)", color=0x01FD14)
 
 invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **INVITE ME** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="[Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n[Support Server Beta](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n[ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
@@ -72,11 +72,11 @@ async def update_stats():
             print(e)
             await asyncio.sleep(10)
 
-# @client.event
-# async def on_member_join(member):
-#     global joined
-#     joined += 1
-#     await client.send_messsage(f"""hi bro wlcome to my support server {member.mention}""")
+@client.event
+async def on_member_join(member):
+    global joined
+    joined += 1
+    await client.send_messsage(f"""hi bro wlcome to my support server {member.mention}""")
 
 @client.event
 async def on_message(message):
@@ -161,7 +161,7 @@ async def on_message(message):
         if message.author.guild_permissions.administrator:
             await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
             await message.guild.create_text_channel('❄》💬asteroid-chat')
-            await message.channel.send(embed=discord.Embed(title="Chat Channel Created", description="You can Chat with Me in that channel without my Prefix!", color=0x01FD14))
+            await message.channel.send(embed=discord.Embed(title="Chat Channel Created", description="You can Chat with Me in that channel without my Prefix!\n**NOTE!**: Chat is not ready", color=0x01FD14))
             await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> Warning <a:ag_exc:781410611366985748>", description="DO NOT CHANGE NAME OF THE CHANNEL\nBut you Can Move It and Change Permissions", color=0x01FD14))
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Channels <a:ag_exc:781410611366985748>"))
@@ -391,10 +391,10 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title=f"{opt}", description=f"Evauated by {message.author}"))
 
 # OWNER
-    if message.content.find("a/ owner") != -1:
+    if message.content.find("a/ perm") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        owie = message.guild.owner
-        await message.channel.send(embed=discord.Embed(title=f"{owie}is the Owner Of {message.guild}"))
+        owie = message.author.guild_permissions
+        await message.channel.send(embed=discord.Embed(title=f"{message.author}'s Permissions in {message.guild}", description=f"{owie}"))
 
 # MODERATION
     if message.content.find("a/ kick") != -1:
@@ -429,33 +429,33 @@ async def on_message(message):
             if exp == ("Missing Permissions"):
                 await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> Missing Permissions <a:ag_exc:781410611366985748>", description="Possible Reasons:\n<a:ag_arrowgif:781395494127271947> I Don't have Ban Permissions\n<a:ag_arrowgif:781395494127271947> The Member You are trying to Ban has a Higher Role than Me", color=0xFD4201))
 
-    # if message.content.find("a/ unban") != -1:
-    #     await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-    #     try:
-    #         if message.author.guild_permissions.ban_members:
-    #             unbanser = message.mentions[0]
-    #             await unbanser.unban()
-    #             await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> UNBANNED <a:ag_exc:781410611366985748>", description=f"{message.author} has UNBANNED {unbanser} in {message.guild}", color=0xFD0101))
-    #
-    #         else:
-    #             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to UNBAN Members <a:ag_exc:781410611366985748>"))
-    #     except Exception as exp:
-    #         exp = str(exp)
-    #         exp = exp.split(': ')[-1]
-    #         if exp == ("Missing Permissions"):
-    #             await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> Missing Permissions <a:ag_exc:781410611366985748>", description="Possible Reasons:\n<a:ag_arrowgif:781395494127271947> I Don't have Kick Permissions\n<a:ag_arrowgif:781395494127271947> The Member You are trying to Kick has a Higher Role than Me", color=0xFD4201))
-    #         else:
-    #             await message.channel.send(embed=discord.Embed(title="An Error Occured"), color=0xFD4201)
+    if message.content.find("a/ unban") != -1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        try:
+            if message.author.guild_permissions.ban_members:
+                unbanser = message.mentions[0]
+                await unbanser.pardon()
+                await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> UNBANNED <a:ag_exc:781410611366985748>", description=f"{message.author} has UNBANNED {unbanser} in {message.guild}", color=0xFD0101))
 
-    # if message.content.find("a/ mute") != -1:
-    #     await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-    #     if message.author.guild_permissions.administrator:
-    #         mutser = message.mentions[0]
-    #         await mutser.mute()
-    #         await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> MUTED <a:ag_exc:781410611366985748>", description=f"**{message.author}** has MUTED **{mutser}**", color=0xFD0101))
-    #
-    #     else:
-    #         await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Mute Members <a:ag_exc:781410611366985748>"))
+            else:
+                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to UNBAN Members <a:ag_exc:781410611366985748>"))
+        except Exception as exp:
+            exp = str(exp)
+            exp = exp.split(': ')[-1]
+            if exp == ("Missing Permissions"):
+                await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> Missing Permissions <a:ag_exc:781410611366985748>", description="Possible Reasons:\n<a:ag_arrowgif:781395494127271947> I Don't have Kick Permissions\n<a:ag_arrowgif:781395494127271947> The Member You are trying to Kick has a Higher Role than Me", color=0xFD4201))
+            else:
+                await message.channel.send(embed=discord.Embed(title="An Error Occured"), color=0xFD4201)
+
+    if message.content.find("a/ mute") != -1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.author.guild_permissions.administrator:
+            mutser = message.mentions[0]
+            await mutser.mute()
+            await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> MUTED <a:ag_exc:781410611366985748>", description=f"**{message.author}** has MUTED **{mutser}**", color=0xFD0101))
+
+        else:
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Mute Members <a:ag_exc:781410611366985748>"))
 
 # BASIC CALCULATOR
     if message.content.find('a/ div') != -1:
@@ -905,36 +905,12 @@ client.loop.create_task(update_stats())
 
 client.run(token)
 
-
-# import discord
-# import math
-# import asyncio
-#
-# client = discord.Client()
-#
-# @client.event
-# async def on_ready():
-#     game = discord.Game("iam back")
-#     await client.change_presence(status=discord.Status.idle, activity=game)
-#     print("{} is ONLINE!!".format(client.user))
-#
-# @client.event
-# async def on_message(message):
-#     global messages
-#
-#     if message.content.find("ss/ ping") != -1:
-#         ping = client.latency
-#         ping = ping * 1000
-#         ping = math.floor(ping)
-#         await message.channel.send(embed=discord.Embed(title="My PING ", description=f":hourglass: {ping}ms", color=0x02BDFE))
-#
-#     if message.content.find("hi") != -1:
-#         await message.channel.send(embed=discord.Embed(title="ss/ help", description="hi i dont know how to help", color=0x02BDFE))
-#     if message.content.find("iam fine") != -1:
-#         await message.channel.send(embed=discord.Embed(title="nice", description="iam bored ", color=0x02BDFE))
-#     if message.content.find("why") != -1:
-#         await message.channel.send(embed=discord.Embed(title="no one here to speak", description="no one is inviting me", color=0x02BDFE))
-#
-# client.run("NzcwOTAyODkzMzEwMTE1ODYx.X5kVRA.dAaRI6wtTN-lpodRIuc4YAmlq-0")
-
+#   ||| CMD COMMANDS |||
+# do to directory in cmd
+# heroku login
+# git init
+# heroku git:remote -a asteroidgaming
+# git commit -am 'cool'
+# git add .
+# git push heroku master
 
