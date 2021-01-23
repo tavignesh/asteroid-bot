@@ -193,7 +193,12 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="Weather Reports\n▬▬▬▬▬▬▬▬▬▬", description="This Feature allows You to Get a weather Report Of your Preffered Location\n\n**Syntax:**\n`a/ weather =<location>`\n\n**Example:**\n`a/ weather =Chennai`", color=0x0527FC))
     if message.content == "a/ quiz help" != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title=":speech_balloon: QUIZ <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="Type `a/ quiz start` to start a quiz and after answering react with a :thumbsup: for next question\nMark Counting Feature Under Development Sorry..", color=0xFDDE01))
+        await message.channel.send(embed=discord.Embed(title=":speech_balloon: QUIZ <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="Type `a/ quiz start <level> <topic id>`\n**For Topic ID Type** `a/ list topic` (Default - General Knowledge) \nLevels :\nEasy: 1\nMedium: 2\nHard: 3\nExample: `a/ quiz start 2`\nTo start a quiz and after answering react with a :thumbsup: for next question\nMark Counting Feature Under Development Sorry..", color=0xFDDE01))
+    if message.content == "a/ list topic":
+        await message.channel.send(embed=discord.Embed(title="**Topic List**", description="ID |       TOPIC\n1  <a:ag_arrw_hrt:781410692321640530> General Knowledge\n2  <a:ag_arrw_hrt:781410692321640530> Entertainment: Books\n3  <a:ag_arrw_hrt:781410692321640530> Entertainment: Film\n4  <a:ag_arrw_hrt:781410692321640530> Entertainment: Music\n5  <a:ag_arrw_hrt:781410692321640530> Entertainment: Musicals &\
+         Theatres\n6  <a:ag_arrw_hrt:781410692321640530> Entertainment: Television\n7  <a:ag_arrw_hrt:781410692321640530> Entertainment: Video Games\n8  <a:ag_arrw_hrt:781410692321640530> Entertainment: Board Games\n9  <a:ag_arrw_hrt:781410692321640530> Science & Nature\n10 <a:ag_arrw_hrt:781410692321640530> Science: Computers\n11 <a:ag_arrw_hrt:781410692321640530> Science: Mathematics\n12\
+          <a:ag_arrw_hrt:781410692321640530> Mythology\n13 <a:ag_arrw_hrt:781410692321640530> Sports\n14 <a:ag_arrw_hrt:781410692321640530> Geography\n15 <a:ag_arrw_hrt:781410692321640530> History\n16 <a:ag_arrw_hrt:781410692321640530> Politics\n17 <a:ag_arrw_hrt:781410692321640530> Art\n18 <a:ag_arrw_hrt:781410692321640530> Celebrities\n19 <a:ag_arrwhrt:781410692321640530> Animals\n20\
+           <a:ag_arrw_hrt:781410692321640530> Vehicles\n21 <a:ag_arrw_hrt:781410692321640530> Entertainment: Comics\n22 <a:ag_arrw_hrt:781410692321640530> Science: Gadgets\n23 <a:ag_arrw_hrt:781410692321640530> Entertainment: Japanese Anime & Manga\n24 <a:ag_arrw_hrt:781410692321640530> Entertainment: Cartoon & Animations\n", color=0xFDDE01))
 
 # WIKIPEDIA
     if message.content.find("a/ wiki =") != -1:
@@ -886,16 +891,79 @@ async def on_message(message):
 
 # QUZZZZ
 
-    if message.content == "a/ quiz start" != -1:
+    if message.content == ("a/ quiz start") != -1:
+         await message.channel.send(embed=discord.Embed(title="**INVALID SYNTAX**", description="Syntax: `a/ quiz start <level> <topic id>`\nExample: `a/ quiz start 2 12` (Topic id is optional)", color=0xFC0505))
+    if message.content.startswith("a/ quiz start "):
+        diffc = message.content.split(" ")[3]
+        cat = 9
+        try:
+            cata = message.content.split(" ")[4]
+            if cata == "1":
+                cat = "9"
+            elif cata == "2":
+                cat = "10"
+            elif cata == "3":
+                cat = "11"
+            elif cata == "4":
+                cat = "12"
+            elif cata == "5":
+                cat = "13"
+            elif cata == "6":
+                cat = "14"
+            elif cata == "7":
+                cat = "15"
+            elif cata == "8":
+                cat = "16"
+            elif cata == "9":
+                cat = "17"
+            elif cata == "10":
+                cat = "18"
+            elif cata == "11":
+                cat = "19"
+            elif cata == "12":
+                cat = "20"
+            elif cata == "13":
+                cat = "21"
+            elif cata == "14":
+                cat = "22"
+            elif cata == "15":
+                cat = "23"
+            elif cata == "16":
+                cat = "24"
+            elif cata == "17":
+                cat = "25"
+            elif cata == "18":
+                cat = "26"
+            elif cata == "19":
+                cat = "27"
+            elif cata == "20":
+                cat = "28"
+            elif cata == "21":
+                cat = "29"
+            elif cata == "22":
+                cat = "30"
+            elif cata == "23":
+                cat = "31"
+            elif cata == "24":
+                cat = "32"
+        except Exception as e:
+            print("no topic given")
+        diff = 'easy'
+        if diffc == "2":
+            diff = 'medium'
+        elif diffc == "3":
+            diff = 'hard'
         topm = 1
         rp = 0
         while topm == 1:
             topm = 0
             await message.channel.send(embed=discord.Embed(title="Question in 2 secs!!", color=0xFDFC03))
             await asyncio.sleep(1)
-            url = f"https://opentdb.com/api.php?amount=1&category=9&difficulty=easy&type=boolean"
+            # if
+            url = f"https://opentdb.com/api.php?amount=1&category={cat}&difficulty={diff}&type=boolean"
             data = json.loads(requests.get(url).content)
             # data = {"response_code":0,"results":[{"category":"General Knowledge","type":"boolean","difficulty":"easy","question":"On average, at least 1 person is killed by a drunk driver in the United States every hour.","correct_answer":"True","incorrect_answers":["False"]}]}
+            # data = {"response_code":0,"results":[{"category":"General Knowledge","type":"boolean","difficulty":"medium","question":"An eggplant is a vegetable.","correct_answer":"False","incorrect_answers":["True"]}]}
             topic = data["results"]
             topic = topic[0]
             topic = topic["category"]
@@ -919,7 +987,7 @@ async def on_message(message):
                 return m.channel == channel and m.content.lower() in ["a/ true", "a/ false"]
 
             try:
-                msg = await client.wait_for('message', timeout=10, check=check)
+                msg = await client.wait_for('message', timeout=20.0, check=check)
                 if msg.content.lower() == f"a/ {cora}":
                     await channel.send(embed=discord.Embed(title="**CORRECT**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question"))
                 else:
@@ -934,7 +1002,7 @@ async def on_message(message):
                 return user == message.author and str(reaction.emoji) == '👍'
 
             try:
-                reaction, user = await client.wait_for('reaction_add', timeout=20.0, check=checkb)
+                reaction, user = await client.wait_for('reaction_add', timeout=30.0, check=checkb)
             except asyncio.TimeoutError:
                 print("rcn timeout")
             else:
