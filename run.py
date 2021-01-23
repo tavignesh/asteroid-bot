@@ -15,15 +15,15 @@ import datetime
 client = discord.Client()
 
 # TOKENS
-token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
-betatoken = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+# token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+# betatoken
+token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
 
 # user = message.mentions[0]
 # user.send("Your message")
-
 messages = joined = 0
 afkdic = {}
 
@@ -36,12 +36,12 @@ at**\n▬▬▬▬▬▬▬▬▬▬\nJust Say `hi`\n\n<a:ag_arrw_hrt:7814106923
 helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『AG』》V!GNΣ$hᴰᵉᵛ#5105**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n**Example:**\n`a/ delete help`\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
 on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random:game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
 me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (sugges\
-t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)", color=0x01FD14)
+t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)", color=0x01FD14)
 
 hlpdmmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『AG』》V!GNΣ$hᴰᵉᵛ#5105**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module \nYou can Put Commands Here Also!\n**Example:**\n`a/ delete help`\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
 on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random:game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
 me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (sugges\
-t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)", color=0x01FD14)
+t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)", color=0x01FD14)
 
 invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **INVITE ME** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="[Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n[Support Server Beta](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n[ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
 
@@ -49,13 +49,22 @@ tstmbd = discord.Embed(title="Your title\n___________", description="Your descri
 
 badwrds =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ["fuck", "Fuck", "sex", "Sex", "porn", "Porn", "slut", "slut"]
 
+rp = 0
+
 @client.event
 async def on_ready():
-    game = discord.Game("With 『AG』》Vigne$hᴰᵉᵛ#8351 a/ help")
-    await client.change_presence(status=discord.Status.idle, activity=game)
-    # await client.change_presence(status=discord.Status.online, activity=game)
-    # await client.change_presence(status=discord.Status.invisible, activity=game)
-    # await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
+    if token == "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM":
+        game = discord.Game("Having Fun Testing New Features")
+        # await client.change_presence(status=discord.Status.idle, activity=game)
+        # await client.change_presence(status=discord.Status.online, activity=game)
+        # await client.change_presence(status=discord.Status.invisible, activity=game)
+        await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
+    else:
+        game = discord.Game("With 『AG』》Vigne$hᴰᵉᵛ#8351 a/ help")
+        await client.change_presence(status=discord.Status.idle, activity=game)
+        # await client.change_presence(status=discord.Status.online, activity=game)
+        # await client.change_presence(status=discord.Status.invisible, activity=game)
+        # await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
     print("{} is ONLINE!!".format(client.user))
 
 async def update_stats():
@@ -72,20 +81,22 @@ async def update_stats():
             print(e)
             await asyncio.sleep(10)
 
-@client.event
-async def on_member_join(member):
-    global joined
-    joined += 1
-    await client.send_messsage(f"""hi bro wlcome to my support server {member.mention}""")
+# @client.event
+# async def on_member_join(member):
+#     global joined
+#     joined += 1
+#     await client.send_messsage(f"""hi bro wlcome to my support server {member.mention}""")
 
 @client.event
 async def on_message(message):
     global messages
     messages += 1
+    ans = "none"
 # serverid = client.get_guild(780625655657791518)
 
     chtchannel = ["❄》💬asteroid-chat"]
     a = 0
+    rp = 0
     # if message.content.startswith("a/") :
     print("The Message | ", message.content, " | Was sent in | ", message.channel, " | Channel by | ", message.author, "| in SERVER =>", message.guild)
 
@@ -180,6 +191,9 @@ async def on_message(message):
     if message.content == "a/ help weather" or message.content == "a/ weather help":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Weather Reports\n▬▬▬▬▬▬▬▬▬▬", description="This Feature allows You to Get a weather Report Of your Preffered Location\n\n**Syntax:**\n`a/ weather =<location>`\n\n**Example:**\n`a/ weather =Chennai`", color=0x0527FC))
+    if message.content == "a/ quiz help" != -1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        await message.channel.send(embed=discord.Embed(title=":speech_balloon: QUIZ <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="Type `a/ quiz start` to start a quiz and after answering react with a :thumbsup: for next question\nMark Counting Feature Under Development Sorry..", color=0xFDDE01))
 
 # WIKIPEDIA
     if message.content.find("a/ wiki =") != -1:
@@ -827,9 +841,29 @@ async def on_message(message):
 
 # TESTS
     if message.content.startswith("testit"):
-        await message.channel.send("reaction test")
-    if message.content == "reaction test":
+        channel = message.channel
+        await channel.send('say hello!')
+
+        def chlok(m):
+            return m.channel == channel and m.content.lower() in ["y", "n"]
+        try:
+            msg = await client.wait_for('message', timeout=10, check=chlok)
+            if msg.content.lower() == "y":
+                await channel.send("You said yes!")
+            else:
+                await channel.send("You said no!")
+            await channel.send("ok done op")
+        except asyncio.TimeoutError:
+            await channel.send("time pa")
+
+    if message.content == "play test":
+        await message.channel.send("something goes here")
+        message.content = "something goes here"
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        # source = await discord.AudioSource("testplay.mp3")
+        # voice_client.play(source)
+
+
 #         else:
 #             print("no perm lol")
 #
@@ -851,23 +885,80 @@ async def on_message(message):
 #         await message.channel.send("hillo")
 
 # QUZZZZ
-    if message.content == "a/ quiz help" != -1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="Quiz Not Yet Ready Sorry!", color=0xFDFC03))
 
-    if message.content == "a/ tstquiz" != -1:
-        await message.channel.send(embed=discord.Embed(title="Quiz Starting in 5 Secs!!", color=0xFDFC03))
-        await asyncio.sleep(5)
-        await message.channel.send(embed=discord.Embed(title="**Question 1**", description="Question here\n\nGive Your Answer as\na/ `your answer`", color=0xFD7803))
-        while a < 5:
-            a = a + 1
-            await asyncio.sleep(2)
-            if message.content == "a/ answer":
-                await message.channel.send(embed=discord.Embed(title=f"**Correct!!** {message.author}", color=0x05FCE2))
-                await message.channel.send(embed=discord.Embed(title="Next Question in 5 Secs!", color=0xFD7803))
-                await asyncio.sleep(2)
-        else:
-            await message.channel.send(embed=discord.Embed(title="you failed to answer in 5 Secs!", color=0xFC4905))
+    if message.content == "a/ quiz start" != -1:
+        topm = 1
+        rp = 0
+        while topm == 1:
+            topm = 0
+            await message.channel.send(embed=discord.Embed(title="Question in 2 secs!!", color=0xFDFC03))
+            await asyncio.sleep(1)
+            url = f"https://opentdb.com/api.php?amount=1&category=9&difficulty=easy&type=boolean"
+            data = json.loads(requests.get(url).content)
+            # data = {"response_code":0,"results":[{"category":"General Knowledge","type":"boolean","difficulty":"easy","question":"On average, at least 1 person is killed by a drunk driver in the United States every hour.","correct_answer":"True","incorrect_answers":["False"]}]}
+            topic = data["results"]
+            topic = topic[0]
+            topic = topic["category"]
+            ques = data["results"]
+            ques = ques[0]
+            ques = ques["question"]
+            cora = data["results"]
+            cora = cora[0]
+            cora = cora["correct_answer"]
+            if cora == "True":
+                cora = "true"
+                nocora = "false"
+            elif cora == "False":
+                cora = "false"
+                nocora = "true"
+            print(cora)
+            channel = message.channel
+            await channel.send(embed=discord.Embed(title=f"**Question 1 ({topic})**", description=f"**{ques}**\n\n**Give Your Answer within 10s as**\na/ true or a/ false", color=0xFD7803))
+        # <Message id=801741193565831218 channel=<TextChannel id=781754334571921438 name='beta-bot-testing-1' position=9 nsfw=False news=False category_id=781753841162518539> type=<MessageType.default: 0> author=<Member id=782624720989585409 name='『AG』》V!GПΣ$hᴰᵉᵛ' discriminator='5105' bot=False nick=None guild=<Guild id=780625655657791518 name='Asteroid Support Server' shard_id=None chunked=False member_count=14>> flags=<MessageFlags value=0>>
+            def check(m):
+                return m.channel == channel and m.content.lower() in ["a/ true", "a/ false"]
+
+            try:
+                msg = await client.wait_for('message', timeout=10, check=check)
+                if msg.content.lower() == f"a/ {cora}":
+                    await channel.send(embed=discord.Embed(title="**CORRECT**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question"))
+                else:
+                    await channel.send(embed=discord.Embed(title="**WRONG**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question"))
+            except asyncio.TimeoutError:
+                await channel.send(embed=discord.Embed(title="**YOU TOOK TOO LONG**", description="Time to answer : 20s\n\nReact with :thumbsup: For next Question"))
+
+            channel = message.channel
+            # await channel.send('Send me that 👍 reaction, mate')
+
+            def checkb(reaction, user):
+                return user == message.author and str(reaction.emoji) == '👍'
+
+            try:
+                reaction, user = await client.wait_for('reaction_add', timeout=20.0, check=checkb)
+            except asyncio.TimeoutError:
+                print("rcn timeout")
+            else:
+                topm = 1
+
+
+        # except asyncio.TimeoutError:
+        #     await channel.send(embed=discord.Embed(title="TOO LATE !!", description="Took Too Late to Answer\nFor nxt question "))
+        #     def checka(reaction, user):
+        #         return user == message.author and str(reaction.emoji) == '👍'
+        #     try:
+        #         reaction, user = await client.wait_for('reaction_add', timeout=20, check=checka)
+        #         rp = 1
+        #     except asyncio.TimeoutError:
+        #         print('timeout')
+        #     else:
+        #         print("error")
+        # else:
+        #     print("some error")
+        #     await channel.send(opt)
+        # else:
+        #     await channel.send(embed=discord.Embed(title="**Correct!!**",description=f'Answer Given by **{message.author}**', color=0x05FCE2))
+        # else:
+        #     await message.channel.send(embed=discord.Embed(title="you failed to answer in 5 Secs!", color=0xFC4905))
 
 # SAY
     if message.content.startswith("a/ say =") or message.content.startswith("a/ say="):
@@ -913,4 +1004,3 @@ client.run(token)
 # git commit -am 'cool'
 # git add .
 # git push heroku master
-
