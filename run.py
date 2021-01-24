@@ -425,7 +425,7 @@ async def on_message(message):
                 await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> KICKED <a:ag_exc:781410611366985748>", description=f"{message.author} has Kicked {kikser} from {message.guild}", color=0xFD0101))
 
             else:
-                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Kick Members <a:ag_exc:781410611366985748>"))
+                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Kick Members <a:ag_exc:781410611366985748>", color=0xFC4905))
         except Exception as exp:
             exp = str(exp)
             exp = exp.split(': ')[-1]
@@ -441,7 +441,7 @@ async def on_message(message):
                 await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> BANNED <a:ag_exc:781410611366985748>", description=f"**{message.author}** has Banned **{banser}** from {message.guild}", color=0xFD0101))
 
             else:
-                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Ban Members <a:ag_exc:781410611366985748>"))
+                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Ban Members <a:ag_exc:781410611366985748>", color=0xFC4905))
         except Exception as exp:
             exp = str(exp)
             exp = exp.split(': ')[-1]
@@ -457,7 +457,7 @@ async def on_message(message):
                 await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> UNBANNED <a:ag_exc:781410611366985748>", description=f"{message.author} has UNBANNED {unbanser} in {message.guild}", color=0xFD0101))
 
             else:
-                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to UNBAN Members <a:ag_exc:781410611366985748>"))
+                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to UNBAN Members <a:ag_exc:781410611366985748>", color=0xFC4905))
         except Exception as exp:
             exp = str(exp)
             exp = exp.split(': ')[-1]
@@ -474,7 +474,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> MUTED <a:ag_exc:781410611366985748>", description=f"**{message.author}** has MUTED **{mutser}**", color=0xFD0101))
 
         else:
-            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Mute Members <a:ag_exc:781410611366985748>"))
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Mute Members <a:ag_exc:781410611366985748>", color=0xFC4905))
 
 # BASIC CALCULATOR
     if message.content.find('a/ div') != -1:
@@ -887,7 +887,7 @@ async def on_message(message):
 #         print(weer)
 #         await message.channel.send(anss)
 #     if message.content.find("hillo") != -1:
-#         await message.channel.send("hillo")
+        await message.channel.send("hillo")
 
 # QUZZZZ
 
@@ -989,11 +989,11 @@ async def on_message(message):
             try:
                 msg = await client.wait_for('message', timeout=20.0, check=check)
                 if msg.content.lower() == f"a/ {cora}":
-                    await channel.send(embed=discord.Embed(title="**CORRECT**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question"))
+                    await channel.send(embed=discord.Embed(title="**CORRECT**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question", color=0x01FD14))
                 else:
-                    await channel.send(embed=discord.Embed(title="**WRONG**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question"))
+                    await channel.send(embed=discord.Embed(title="**WRONG**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question", color=0xFC4905))
             except asyncio.TimeoutError:
-                await channel.send(embed=discord.Embed(title="**YOU TOOK TOO LONG**", description="Time to answer : 20s\n\nReact with :thumbsup: For next Question"))
+                await channel.send(embed=discord.Embed(title="**YOU TOOK TOO LONG**", description="Time to answer : 20s\n\nReact with :thumbsup: For next Question", color=0xFD7803))
 
             channel = message.channel
             # await channel.send('Send me that 👍 reaction, mate')
