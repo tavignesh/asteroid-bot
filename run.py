@@ -11,13 +11,19 @@ import json
 import requests
 import wikipedia
 import datetime
+import pymongo
+from pymongo import MongoClient
 
 client = discord.Client()
 
+cluster = MongoClient("mongodb+srv://bot:1234@cluster0.5bkqm.mongodb.net/discord?retryWrites=true&w=majority")
+db = cluster["discord"]
+collection = db["bot"]
+
 # TOKENS
-token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+# token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-# token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -157,10 +163,10 @@ async def on_message(message):
     if message.content == "a/ complexcal 2 help":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**Complex Calculator #2** :1234:\n▬▬▬▬▬▬▬▬▬▬", description="Single Input Functions\n All Double Input variable = `a` and `b`\n▬▬▬▬▬▬▬▬▬▬\n`bilog` => Gives the Value of Log `a` to the Base `b`\nExample: `a/ bilog 100 2` Gives `6.643856189774725`\n\n`pow` => Gives the Value of `a` to the Power `b`\nExample: `a/ pow 5 2` Gives `25`", color=0xD705FC))
-    if message.content == "a/ afk help" or message.content == "a/ help afk":
+    if message.content == "a/ afk help" or message.content == "a/ help afk" or message.content == "a/ afk":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="AFK Status :zzz:\n▬▬▬▬▬▬▬▬▬▬", description="If u set afk status all the Messages tht Ping U will be Deleted :x: with a msg U gave!\n\n**Syntax:**\n<a:ag_arrowgif:781395494127271947> Set AFK - `a/ afk =<reason>`\n<a:ag_arrowgif:781395494127271947> Remove AFK - `a/ afk remove`", color=0xA205FC))
-    if message.content == "a/ say help" or message.content == "a/ help say":
+    if message.content == "a/ say help" or message.content == "a/ help say" or message.content == "a/ say":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="SAY :speech_balloon: \n▬▬▬▬▬▬▬▬▬▬", description="This Command Makes Me to Say or Delete and Say What U say!!\n\n**Syntax:**\n`a/ say = <text>` or `a/ delsay = <text>`\n\n**Example:**\n`a/ say =text this you bot!`", color=0x4805FC))
     if message.content == "a/ random help" or message.content == "a/ help random":
@@ -863,11 +869,11 @@ async def on_message(message):
             await channel.send("time pa")
 
     if message.content == "play test":
+        # client.connect()
         await message.channel.send("something goes here")
-        message.content = "something goes here"
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         # source = await discord.AudioSource("testplay.mp3")
-        # voice_client.play(source)
+        await client.connect()
+
 
 
 #         else:
