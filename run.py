@@ -1063,7 +1063,7 @@ async def on_message(message):
 
 # QUZZZZ
 
-    if message.content == ("a/ quiz start") != -1:
+    if message.content == ("a/ quiz start") != -1 or message.content == ("a/quiz start") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**INVALID SYNTAX**", description="Syntax: `a/ quiz start <level> <topic id>`\nExample: `a/ quiz start 2 12` (Topic id is optional)", color=0xFC0505))
     if message.content.startswith("a/ quiz start "):
