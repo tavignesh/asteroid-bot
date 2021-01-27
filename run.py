@@ -175,7 +175,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="Random :game_die: \n▬▬▬▬▬▬▬▬▬▬", description="This Chooses a number from 1 to `a` randomly.\n\n**Syntax:** \n`a/ random <Number>`\n\n**Example:**\n`a/ random 3`", color=0xFC058C))
     if message.content == 'a/ stats help' or message.content == "a/ help stats":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="My Statistics :level_slider:\n▬▬▬▬▬▬▬▬▬", description="**Syntax**\n`a/ <id>` The `id` is in (brackets)\n\n**Commands**\n<a:ag_arrowgif:781395494127271947> CPU Usage (cpu)\n<a:ag_arrowgif:781395494127271947> Server Count (server)\n<a:ag_arrowgif:781395494127271947> My Ping or Latency (ping)\n<a:ag_arrowgif:781395494127271947> Server ID (serverid)\n\n**Example:**\n`a/ cpu`", color=0x04FD03))
+        await message.channel.send(embed=discord.Embed(title="My Statistics :level_slider:\n▬▬▬▬▬▬▬▬▬", description="**Syntax**\n`a/ <id>` The `id` is in (brackets)\n\n**Commands**\n<a:ag_arrowgif:781395494127271947> Version Updates (updates)\n<a:ag_arrowgif:781395494127271947> CPU Usage (cpu)\n<a:ag_arrowgif:781395494127271947> Server Count (server)\n<a:ag_arrowgif:781395494127271947> My Ping or Latency (ping)\n<a:ag_arrowgif:781395494127271947> Server ID (serverid)\n\n**Example:**\n`a/ cpu`", color=0x04FD03))
     if message.content == "a/ setup chat":
         if message.author.guild_permissions.administrator:
             await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
@@ -1234,9 +1234,9 @@ async def on_message(message):
         if message.content.startswith(f"a/{i}"):
             await message.channel.send(embed=discord.Embed(title="Please leave a space between `a/` and command", description="Example: `a/ help`", color=0xFB1F1F))
 
-    if message.content == ("a/ update"):
+    if message.content.find("a/ update") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title=f"v1.4 UPDATES !!", description="<a:ag_arrowgif:781395494127271947> QUIZ Added\n<a:ag_arrowgif:781395494127271947> Minor Bug Fixes :tools:"))
+        await message.channel.send(embed=discord.Embed(title=f"v1.3 UPDATES !!", description="<a:ag_arrowgif:781395494127271947> QUIZ Added\n<a:ag_arrowgif:781395494127271947> Minor Bug Fixes :tools:\nv1.4 Is Going to be a Major update !!"))
 
 
 # PING
