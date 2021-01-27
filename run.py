@@ -118,7 +118,7 @@ async def on_message(message):
     if message.content.find("A/") != -1:
         await message.channel.send(embed=discord.Embed(description="My prefix is `a/`", color=0x04FD03))
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-    if message.content == ("a/") :
+    if message.content == ("a/") or message.content == ("a/ "):
         await message.channel.send(embed=discord.Embed(title="Yes? , How May i Help You?",description=("Use `a/ help` for More!\n Make sure there is a space between `a/` and `help`"), color=0x04FD03))
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
     if message.content == "<@!780472070072696852>":
