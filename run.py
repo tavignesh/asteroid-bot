@@ -873,7 +873,7 @@ async def on_message(message):
                     fin = fin["badwords"]
                     await message.channel.send(":underage: List of Blacklisted Words of this server :underage:")
                     for i in fin:
-                        await message.channel.send(embed=discord.Embed(description=f"{i}"))
+                        await message.channel.send(embed=discord.Embed(description=f"{i}", color=0xFD8805))
                 except asyncio.TimeoutError:
                     print("rcn timeout")
         else:
@@ -1236,7 +1236,7 @@ async def on_message(message):
 
     if message.content.find("a/ update") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title=f"v1.3 UPDATES !!", description="<a:ag_arrowgif:781395494127271947> QUIZ Added\n<a:ag_arrowgif:781395494127271947> Minor Bug Fixes :tools:\nv1.4 Is Going to be a Major update !!"))
+        await message.channel.send(embed=discord.Embed(title=f"v1.3 UPDATES !!", description="<a:ag_arrowgif:781395494127271947> QUIZ Added\n<a:ag_arrowgif:781395494127271947> Minor Bug Fixes :tools:\nv1.4 Is Going to be a Major update !!", color=0x05BAFD))
 
 
 # PING
