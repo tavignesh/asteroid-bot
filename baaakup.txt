@@ -11,8 +11,14 @@ import json
 import requests
 import wikipedia
 import datetime
+import pymongo
+from pymongo import MongoClient
 
 client = discord.Client()
+
+cluster = MongoClient("mongodb+srv://bot:1234@cluster0.5bkqm.mongodb.net/discord?retryWrites=true&w=majority")
+db = cluster["discord"]
+collection = db["bot"]
 
 # TOKENS
 # token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
@@ -26,6 +32,7 @@ wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # user.send("Your message")
 messages = joined = 0
 afkdic = {}
+mtlist = []
 
 # PRE DECLARE
 
@@ -47,7 +54,7 @@ invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **INVITE ME**
 
 tstmbd = discord.Embed(title="Your title\n___________", description="Your description\ndescreption2", color=000000)
 
-badwrds =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ["fuck", "Fuck", "sex", "Sex", "porn", "Porn", "slut", "slut"]
+badwrds =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ["fuck", "Fuck", "porn", "Porn", "slut", "slut", "FUCK"]
 
 rp = 0
 
@@ -60,7 +67,8 @@ async def on_ready():
         # await client.change_presence(status=discord.Status.invisible, activity=game)
         await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
     else:
-        game = discord.Game("With 『AG』》Vigne$hᴰᵉᵛ#8351 a/ help")
+        # game = discord.Game("With 『AG』》Vigne$hᴰᵉᵛ#8351 a/ help")
+        game = discord.Game("Quiz, Ya its Ready !! Try a/ quiz help")
         await client.change_presence(status=discord.Status.idle, activity=game)
         # await client.change_presence(status=discord.Status.online, activity=game)
         # await client.change_presence(status=discord.Status.invisible, activity=game)
@@ -125,12 +133,12 @@ async def on_message(message):
     if message.content.find("a/ invite") != -1 or message.content == "a/invite":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=invitembd)
-    if message.content == "a/ delete":
+    if message.content == "a/ delete" or message.content == "a/delete":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(description="Use `a/ delete help` for Help Regarding Delete messges"))
-    if message.content.startswith("a/ mod ") or message.content.startswith("a/ mod"):
+    if message.content.startswith("a/ mod ") or message.content.startswith("a/mod"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title=":tools: Moderation <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="All moderation Commands Needs You and Me to have Specific **Permissions** to perform Moderation!\n\n**Commands:**\n<a:ag_arrowgif:781395494127271947> <:ag_ban:774867115529469992> - `a/ ban <mention user>`\n<a:ag_arrowgif:781395494127271947> Kick - `a/ kick <mention user>`\n<a:ag_arrowgif:781395494127271947> Delete - Use `a/ delete help` For more!\n<a:ag_arrowgif:781395494127271947> Member Count - `a/ members`", color=0xFDDE01))
+        await message.channel.send(embed=discord.Embed(title=":tools: Moderation <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="All moderation Commands Needs You and Me to have Specific **Permissions** to perform Moderation!\n\n**Commands:**\n<a:ag_arrowgif:781395494127271947> <:ag_ban:774867115529469992> - `a/ ban <mention user>`\n<a:ag_arrowgif:781395494127271947> Kick - `a/ kick <mention user>`\n<a:ag_arrowgif:781395494127271947> Delete - Use `a/ delete help` For more!\nPls Use `a/ set help` for Chat and BadWord(Customisable) Moderation\n<a:ag_arrowgif:781395494127271947> Member Count - `a/ members`", color=0xFDDE01))
     if message.content == "a/ delete help" or message.content == "a/ help delete":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**Delete Messages** :x:\n▬▬▬▬▬▬▬▬▬▬", description="Maximum of 500 Messages can be Deleted at a Time <a:ag_reddot:781410740619051008>\nYou need to Have Manage Messages Permisiion \n\nSyntax : `a/ delete <Number of msges in number>`\n\nExample:\n`a/ delete 15`", color=0x04FD03))
@@ -156,10 +164,10 @@ async def on_message(message):
     if message.content == "a/ complexcal 2 help":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**Complex Calculator #2** :1234:\n▬▬▬▬▬▬▬▬▬▬", description="Single Input Functions\n All Double Input variable = `a` and `b`\n▬▬▬▬▬▬▬▬▬▬\n`bilog` => Gives the Value of Log `a` to the Base `b`\nExample: `a/ bilog 100 2` Gives `6.643856189774725`\n\n`pow` => Gives the Value of `a` to the Power `b`\nExample: `a/ pow 5 2` Gives `25`", color=0xD705FC))
-    if message.content == "a/ afk help" or message.content == "a/ help afk":
+    if message.content == "a/ afk help" or message.content == "a/ help afk" or message.content == "a/ afk":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="AFK Status :zzz:\n▬▬▬▬▬▬▬▬▬▬", description="If u set afk status all the Messages tht Ping U will be Deleted :x: with a msg U gave!\n\n**Syntax:**\n<a:ag_arrowgif:781395494127271947> Set AFK - `a/ afk =<reason>`\n<a:ag_arrowgif:781395494127271947> Remove AFK - `a/ afk remove`", color=0xA205FC))
-    if message.content == "a/ say help" or message.content == "a/ help say":
+    if message.content == "a/ say help" or message.content == "a/ help say" or message.content == "a/ say":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="SAY :speech_balloon: \n▬▬▬▬▬▬▬▬▬▬", description="This Command Makes Me to Say or Delete and Say What U say!!\n\n**Syntax:**\n`a/ say = <text>` or `a/ delsay = <text>`\n\n**Example:**\n`a/ say =text this you bot!`", color=0x4805FC))
     if message.content == "a/ random help" or message.content == "a/ help random":
@@ -167,7 +175,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="Random :game_die: \n▬▬▬▬▬▬▬▬▬▬", description="This Chooses a number from 1 to `a` randomly.\n\n**Syntax:** \n`a/ random <Number>`\n\n**Example:**\n`a/ random 3`", color=0xFC058C))
     if message.content == 'a/ stats help' or message.content == "a/ help stats":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="My Statistics :level_slider:\n▬▬▬▬▬▬▬▬▬", description="**Syntax**\n`a/ <id>` The `id` is in (brackets)\n\n**Commands**\n<a:ag_arrowgif:781395494127271947> CPU Usage (cpu)\n<a:ag_arrowgif:781395494127271947> Server Count (server)\n<a:ag_arrowgif:781395494127271947> My Ping or Latency (ping)\n\n**Example:**\n`a/ cpu`", color=0x04FD03))
+        await message.channel.send(embed=discord.Embed(title="My Statistics :level_slider:\n▬▬▬▬▬▬▬▬▬", description="**Syntax**\n`a/ <id>` The `id` is in (brackets)\n\n**Commands**\n<a:ag_arrowgif:781395494127271947> CPU Usage (cpu)\n<a:ag_arrowgif:781395494127271947> Server Count (server)\n<a:ag_arrowgif:781395494127271947> My Ping or Latency (ping)\n<a:ag_arrowgif:781395494127271947> Server ID (serverid)\n\n**Example:**\n`a/ cpu`", color=0x04FD03))
     if message.content == "a/ setup chat":
         if message.author.guild_permissions.administrator:
             await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
@@ -178,14 +186,14 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Channels <a:ag_exc:781410611366985748>"))
     if message.content.find("a/") != -1 and message.content.find("create") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**『AG』》V!GNΣ$hᴰᵉᵛ#5105** <a:ag_flyn_hrts_cyn:781395468978356235>\nCreated me on 24th Nov 2020", description="**With The Help of:**\nRice Cake#9760\nLone#6015\nSUNAPANA™#3377",color=0x04FD03))
+        await message.channel.send(embed=discord.Embed(title="**『AG』》V!GNΣ$hᴰᵉᵛ#5105** <a:ag_flyn_hrts_cyn:781395468978356235>\nCreated me on 23th Nov 2020", description="**With The Help of:**\nRice Cake#9760\nLone#6015\nSUNAPANA™#3377",color=0x04FD03))
     if message.content.find("a/ chat help") != -1 or message.content == "a/ help chat":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="CHAT :speech_balloon:\n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> `a/ setup chat` will Create a New Channel to Chat mith Meee!\n<a:ag_arrowgif:781395494127271947> <More To be added here>", color=0xFC058C))
     if message.content.find("a/ today help") != -1 or message.content == "a/ help today":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Today :date:\n▬▬▬▬▬▬▬▬▬▬", description="**Commands:**\n<a:ag_arrowgif:781395494127271947> `a/ time` :clock3: Shows the Time Now\n<a:ag_arrowgif:781395494127271947> `a/ date` :date: Shows the Date Today\n<a:ag_arrowgif:781395494127271947> <More to be added here>", color=0x6E05FC))
-    if message.content == "a/ wiki help" or message.content == "a/ help wiki":
+    if message.content == "a/ wiki help" or message.content == "a/ help wiki" or message.content == "a/ wiki":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Wikipedia Search :mag:\n▬▬▬▬▬▬▬▬▬▬", description="This commands Fetches Descreption about the Keyword you give.\n**Syntax:**\n`a/ wiki =keyword`\n\n**Example:**\n`a/ wiki =bot`", color=0x05B5FC))
     if message.content == "a/ help weather" or message.content == "a/ weather help":
@@ -194,11 +202,72 @@ async def on_message(message):
     if message.content == "a/ quiz help" != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title=":speech_balloon: QUIZ <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="Type `a/ quiz start <level> <topic id>`\n**For Topic ID Type** `a/ list topic` (Default - General Knowledge) \nLevels :\nEasy: 1\nMedium: 2\nHard: 3\nExample: `a/ quiz start 2`\nTo start a quiz and after answering react with a :thumbsup: for next question\nMark Counting Feature Under Development Sorry..", color=0xFDDE01))
-    if message.content == "a/ list topic":
+    if message.content == "a/ list topic" or message.content == "a/ topic list":
         await message.channel.send(embed=discord.Embed(title="**Topic List**", description="ID |       TOPIC\n1  <a:ag_arrw_hrt:781410692321640530> General Knowledge\n2  <a:ag_arrw_hrt:781410692321640530> Entertainment: Books\n3  <a:ag_arrw_hrt:781410692321640530> Entertainment: Film\n4  <a:ag_arrw_hrt:781410692321640530> Entertainment: Music\n5  <a:ag_arrw_hrt:781410692321640530> Entertainment: Musicals &\
          Theatres\n6  <a:ag_arrw_hrt:781410692321640530> Entertainment: Television\n7  <a:ag_arrw_hrt:781410692321640530> Entertainment: Video Games\n8  <a:ag_arrw_hrt:781410692321640530> Entertainment: Board Games\n9  <a:ag_arrw_hrt:781410692321640530> Science & Nature\n10 <a:ag_arrw_hrt:781410692321640530> Science: Computers\n11 <a:ag_arrw_hrt:781410692321640530> Science: Mathematics\n12\
           <a:ag_arrw_hrt:781410692321640530> Mythology\n13 <a:ag_arrw_hrt:781410692321640530> Sports\n14 <a:ag_arrw_hrt:781410692321640530> Geography\n15 <a:ag_arrw_hrt:781410692321640530> History\n16 <a:ag_arrw_hrt:781410692321640530> Politics\n17 <a:ag_arrw_hrt:781410692321640530> Art\n18 <a:ag_arrw_hrt:781410692321640530> Celebrities\n19 <a:ag_arrwhrt:781410692321640530> Animals\n20\
            <a:ag_arrw_hrt:781410692321640530> Vehicles\n21 <a:ag_arrw_hrt:781410692321640530> Entertainment: Comics\n22 <a:ag_arrw_hrt:781410692321640530> Science: Gadgets\n23 <a:ag_arrw_hrt:781410692321640530> Entertainment: Japanese Anime & Manga\n24 <a:ag_arrw_hrt:781410692321640530> Entertainment: Cartoon & Animations\n", color=0xFDDE01))
+    if message.content == "a/ help set" or message.content == "a/ set help":
+        await message.channel.send("chat mod,")
+
+# PREFERENCE
+    if message.content.find("a/ set chatmod false") != -1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.author.guild_permissions.manage_messages:
+            gid = int(message.guild.id)
+            fin = collection.find_one({"_id":gid})
+            if fin == None:
+                collection.insert({"_id":gid,"chatmod":0,"badwords":[],"moddel":0})
+                await message.channel.send(embed=discord.Embed(title="Chat Moderation Diabled", description="Chat in this Server will **NOT** be moderated with a warn message for the words you have added using `a/ badword =<badword>`\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+            else:
+                collection.update_one({"_id":gid},{"$set":{"chatmod":0}})
+            await message.channel.send(embed=discord.Embed(title="Chat Moderation Diabled", description="Chat in this Server will **NOT** be moderated with a warn message for the words you have added using `a/ badword =<badword>`\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+        else:
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+    if message.content.find("a/ set chatmod true") != -1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.author.guild_permissions.manage_messages:
+            gid = int(message.guild.id)
+            fin = collection.find_one({"_id":gid})
+            if fin == None:
+                collection.insert({"_id":gid,"chatmod":1,"badwords":[],"moddel":0})
+                await message.channel.send(embed=discord.Embed(title="Chat Moderation Enabled", description="Chat in this Server **WILL** be moderated with a warn message for the words you have added using `a/ badword =<badword>`\nIf you want to Delete AND warn pls type `a/ set delmod true`\n For more use `a/ mod help` or `a/ set help`"))
+            else:
+                collection.update_one({"_id":gid},{"$set":{"chatmod":1}})
+            await message.channel.send(embed=discord.Embed(title="Chat Moderation Enabled", description="Chat in this Server **WILL** be moderated with a warn message for the words you have added using `a/ badword =<badword>`\nIf you want to Delete AND warn pls type `a/ set delmod true`\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+        else:
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+    if message.content.find("a/ set delmod true") != -1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.author.guild_permissions.manage_messages:
+            gid = int(message.guild.id)
+            fin = collection.find_one({"_id":gid})
+            if fin == None:
+                collection.insert({"_id":gid,"chatmod":1,"badwords":[], "moddel":1})
+                await message.channel.send(embed=discord.Embed(title="DelMod and Chat Moderation Enabled", description="Blacklisted words in this Server **WILL** be Deleted with a warn message for the words you have added using `a/ badword =<badword>`\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+            else:
+                collection.update_one({"_id":gid},{"$set":{"chatmod":1,"moddel":1}})
+            await message.channel.send(embed=discord.Embed(title="DelMod and Chat Moderation Enabled", description="Blacklisted words in this Server **WILL** be Deleted with a warn message for the words you have added using `a/ badword =<badword>`\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+        else:
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+    if message.content == ("a/ set delmod false"):
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.author.guild_permissions.manage_messages:
+            gid = int(message.guild.id)
+            fin = collection.find_one({"_id": gid})
+            if fin == None:
+                collection.insert({"_id": gid, "chatmod": 0, "badwords": [], "moddel": 0})
+                await message.channel.send(embed=discord.Embed(title="DelMod and Chat Modertion Disabled", description="Blacklisted words in this Server will **NOT** be deleted\nFor more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+            else:
+                collection.update_one({"_id": gid}, {"$set": {"moddel": 0}})
+            await message.channel.send(embed=discord.Embed(title="DelMod Disabled", description="Blacklisted words in this Server will **NOT** be deleted\nFor more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+        else:
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+
 
 # WIKIPEDIA
     if message.content.find("a/ wiki =") != -1:
@@ -356,7 +425,7 @@ async def on_message(message):
         # await message.channel.send(cpuidk)
         await message.channel.send(embed=discord.Embed(title="CPU STATS :tools:", description=f"**Processor**\nCores = {cpun}\nSpeed = {cpui}Ghz\nTotal Usage = {cpupert}%\nCore 1 = {cpuo}%\nCore 2 = {cput}%\nCore 3 = {cpuy}%\nCore 4 = {cpuf}%\n\n**Swap Memory**\nTotal = {cpuswt} Gb\nUsed = {cpuswu} Gb\nPercentage = {cpuswp}%\nFree = {cpuswf} Gb\n\n**Battery**\nAvailable = {cpubatp}% :battery: \nCharging = {cpubatc}", color=0xFD9E01))
 
-# Date time
+# DATE TIME
     if message.content.find("a/ time") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         time = datetime.datetime.now()
@@ -425,7 +494,7 @@ async def on_message(message):
                 await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> KICKED <a:ag_exc:781410611366985748>", description=f"{message.author} has Kicked {kikser} from {message.guild}", color=0xFD0101))
 
             else:
-                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Kick Members <a:ag_exc:781410611366985748>"))
+                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Kick Members <a:ag_exc:781410611366985748>", color=0xFC4905))
         except Exception as exp:
             exp = str(exp)
             exp = exp.split(': ')[-1]
@@ -441,7 +510,7 @@ async def on_message(message):
                 await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> BANNED <a:ag_exc:781410611366985748>", description=f"**{message.author}** has Banned **{banser}** from {message.guild}", color=0xFD0101))
 
             else:
-                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Ban Members <a:ag_exc:781410611366985748>"))
+                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Ban Members <a:ag_exc:781410611366985748>", color=0xFC4905))
         except Exception as exp:
             exp = str(exp)
             exp = exp.split(': ')[-1]
@@ -457,7 +526,7 @@ async def on_message(message):
                 await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> UNBANNED <a:ag_exc:781410611366985748>", description=f"{message.author} has UNBANNED {unbanser} in {message.guild}", color=0xFD0101))
 
             else:
-                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to UNBAN Members <a:ag_exc:781410611366985748>"))
+                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to UNBAN Members <a:ag_exc:781410611366985748>", color=0xFC4905))
         except Exception as exp:
             exp = str(exp)
             exp = exp.split(': ')[-1]
@@ -474,7 +543,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> MUTED <a:ag_exc:781410611366985748>", description=f"**{message.author}** has MUTED **{mutser}**", color=0xFD0101))
 
         else:
-            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Mute Members <a:ag_exc:781410611366985748>"))
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Mute Members <a:ag_exc:781410611366985748>", color=0xFC4905))
 
 # BASIC CALCULATOR
     if message.content.find('a/ div') != -1:
@@ -552,7 +621,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"HCF of **{num1}** and **{num2}** =\n **{hcf}** <a:ag_tickop:781395575962599445>", color=0x02FE95))
 
 
-    # COMPLEX CALCULATOR 1
+# COMPLEX CALCULATOR 1
     if message.content.find("a/ ceil ") != -1:
         ceil = message.content.split(" ")[-1]
         ceil = float(ceil)
@@ -699,15 +768,89 @@ async def on_message(message):
         await channel.send(embed=discord.Embed(title=f" <a:ag_reddot:781410740619051008> Suggestion by \n{message.author} <a:ag_reddot:781410740619051008> ", description=f"`{sugg}`", color=0x04FD03))
 
 # BAD WORD MODERATION
-    for word in badwrds:
-        if message.content.find(word) != -1:
-            print("A bad word(", message.content, ") was said by =>", message.author, "in channel |", message.channel, "in server =>", message.guild)
-            # tempa = message.id
-            await message.channel.purge(limit=1)
-            # await message.delelte(tempa)
-            await message.channel.send(embed=discord.Embed(title=" :x: **Bad Word Warning** :warning: ", description=f"{message.author}, Do NOT :x: Use Bad Words!, You Have been Warned :warning: ", color=0x04FD03))
 
-# MSG DELETE
+    gid = message.guild.id
+    brds = collection.find_one({"_id":gid})
+    if brds != None and brds["chatmod"] == 1:
+        brdsa = brds["badwords"]
+        for word in brdsa:
+            if message.content.find(word) != -1:
+                print("A bad word(", message.content, ") was said by =>", message.author, "in channel |", message.channel, "in server =>", message.guild)
+                if brds["moddel"] == 1:
+                    await message.channel.purge(limit=1)
+                await message.channel.send(embed=discord.Embed(title=" :x: **Bad Word Warning** :warning: ", description=f"{message.author}, Do NOT :x: Use Bad Words!, You Have been Warned :warning: ", color=0x04FD03))
+
+    # add word
+    if message.content.startswith("a/ badword=") or message.content.startswith("a/ badword ="):
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.author.guild_permissions.manage_messages:
+            gid = int(message.guild.id)
+            fin = collection.find_one({"_id": gid})
+            if fin == None:
+                collection.insert({"_id": gid, "chatmod": 1, "badwords": [], "moddel": 0})
+                wordb = message.content.split("=")[-1]
+                fina = collection.find_one({"_id":gid})
+                fina = fina["badwords"]
+                fina.append(wordb)
+                collection.update_one({"_id": gid}, {"$set": {"badwords":fina}})
+                await message.channel.send(embed=discord.Embed(title="Bad word Added and Chat Moderation Enabled", description="Chat in this Server **WILL** be moderated with a warn message for the words you have added using `a/ badword =<badword>`\nIf you want to Delete AND Warn pls type `a/ set delmod true`\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+            else:
+                wordb = message.content.split("=")[-1]
+                fina = collection.find_one({"_id": gid})
+                fina = fina["badwords"]
+                fina.append(wordb)
+                collection.update_one({"_id": gid}, {"$set": {"badwords": fina, "chatmod":1}})
+                await message.channel.send(embed=discord.Embed(title="Bad word Added", description="Members will be warned on using the blacklisted words. If you want to Delete AND Warn For using Blacklisted words pls type `a/ set delmod true`\nIf Done already pls Ignore\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+        else:
+            await message.channel.send(
+                embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+    if message.content == ("a/ badword defaults"):
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.author.guild_permissions.manage_messages:
+            gid = int(message.guild.id)
+            fin = collection.find_one({"_id": gid})
+            if fin == None:
+                collection.insert({"_id": gid, "chatmod": 1, "badwords": [], "moddel": 0})
+                fina = collection.find_one({"_id":gid})
+                fina = fina["badwords"]
+                for i in badwrds:
+                    fina.append(i)
+                collection.update_one({"_id": gid}, {"$set": {"badwords":fina}})
+                await message.channel.send(embed=discord.Embed(title="Default Bad words Added and Chat Moderation Enabled", description="Chat in this Server **WILL** be moderated with a warn message for the words you have added using `a/ badword =<badword>`\nIf you want to Delete AND Warn pls type `a/ set delmod true`\nIf Done already pls Ignore\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+            else:
+                collection.update_one({"_id": gid}, {"$set": {"chatmod": 1, "moddel": 0}})
+                await message.channel.send(embed=discord.Embed(title="Default Bad words Added", description="Chat in this Server **WILL** be Moderated with a Warn message for the words you have added using `a/ badword =<badword>`\nIf Done already pls Ignore\nIf you want to Delete AND Warn pls type `a/ set delmod true`\nIf Done already pls Ignore\nFor more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+        else:
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+
+    if message.content == ("a/ badword list"):
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.author.guild_permissions.manage_messages:
+            gid = int(message.guild.id)
+            fin = collection.find_one({"_id": gid})
+            if fin == None:
+                await message.channel.send(embed=discord.Embed(title="Chat Modearation Disabled and No Badwords Found !!", description="Enable using `a/ chatmod true`\n For more use `a/ mod help` or `a/ set help`", color=0xFF6602))
+            elif fin["badwords"] == mtlist:
+                await message.channel.send(embed=discord.Embed(title="Chat Modearation Enabled BUT NO Badwords Found !!", description="Pls add using `a/ badword=<badword>` or load defaults using `a/ badword default`\n For more use `a/ mod help` or `a/ set help`", color=0xFF6602))
+            else:
+                await message.channel.send(embed=discord.Embed(title="This may Expose **NFSW** content You sure?",description="If yes React with :thumbsup: within 20 sec", color=0xFF6602))
+
+                def checkc(reaction, user):
+                    return user == message.author and str(reaction.emoji) == '👍'
+
+                try:
+                    reaction, user = await client.wait_for('reaction_add', timeout=30.0, check=checkc)
+                    fin = fin["badwords"]
+                    await message.channel.send(":underage: List of Blacklisted Words of this server :underage:")
+                    for i in fin:
+                        await message.channel.send(i)
+                except asyncio.TimeoutError:
+                    print("rcn timeout")
+        await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+    # MSG DELETE
     if message.content.startswith("a/ delete "):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         if message.author.guild_permissions.manage_messages:
@@ -862,11 +1005,11 @@ async def on_message(message):
             await channel.send("time pa")
 
     if message.content == "play test":
+        # client.connect()
         await message.channel.send("something goes here")
-        message.content = "something goes here"
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         # source = await discord.AudioSource("testplay.mp3")
-        # voice_client.play(source)
+        await client.connect()
+
 
 
 #         else:
@@ -892,8 +1035,10 @@ async def on_message(message):
 # QUZZZZ
 
     if message.content == ("a/ quiz start") != -1:
-         await message.channel.send(embed=discord.Embed(title="**INVALID SYNTAX**", description="Syntax: `a/ quiz start <level> <topic id>`\nExample: `a/ quiz start 2 12` (Topic id is optional)", color=0xFC0505))
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        await message.channel.send(embed=discord.Embed(title="**INVALID SYNTAX**", description="Syntax: `a/ quiz start <level> <topic id>`\nExample: `a/ quiz start 2 12` (Topic id is optional)", color=0xFC0505))
     if message.content.startswith("a/ quiz start "):
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         diffc = message.content.split(" ")[3]
         cat = 9
         try:
@@ -982,18 +1127,18 @@ async def on_message(message):
             print(cora)
             channel = message.channel
             await channel.send(embed=discord.Embed(title=f"**Question 1 ({topic})**", description=f"**{ques}**\n\n**Give Your Answer within 10s as**\na/ true or a/ false", color=0xFD7803))
-        # <Message id=801741193565831218 channel=<TextChannel id=781754334571921438 name='beta-bot-testing-1' position=9 nsfw=False news=False category_id=781753841162518539> type=<MessageType.default: 0> author=<Member id=782624720989585409 name='『AG』》V!GПΣ$hᴰᵉᵛ' discriminator='5105' bot=False nick=None guild=<Guild id=780625655657791518 name='Asteroid Support Server' shard_id=None chunked=False member_count=14>> flags=<MessageFlags value=0>>
+            # <Message id=801741193565831218 channel=<TextChannel id=781754334571921438 name='beta-bot-testing-1' position=9 nsfw=False news=False category_id=781753841162518539> type=<MessageType.default: 0> author=<Member id=782624720989585409 name='『AG』》V!GПΣ$hᴰᵉᵛ' discriminator='5105' bot=False nick=None guild=<Guild id=780625655657791518 name='Asteroid Support Server' shard_id=None chunked=False member_count=14>> flags=<MessageFlags value=0>>
             def check(m):
                 return m.channel == channel and m.content.lower() in ["a/ true", "a/ false"]
 
             try:
                 msg = await client.wait_for('message', timeout=20.0, check=check)
                 if msg.content.lower() == f"a/ {cora}":
-                    await channel.send(embed=discord.Embed(title="**CORRECT**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question"))
+                    await channel.send(embed=discord.Embed(title="**CORRECT**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question", color=0x01FD14))
                 else:
-                    await channel.send(embed=discord.Embed(title="**WRONG**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question"))
+                    await channel.send(embed=discord.Embed(title="**WRONG**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question", color=0xFC4905))
             except asyncio.TimeoutError:
-                await channel.send(embed=discord.Embed(title="**YOU TOOK TOO LONG**", description="Time to answer : 20s\n\nReact with :thumbsup: For next Question"))
+                await channel.send(embed=discord.Embed(title="**YOU TOOK TOO LONG**", description="Time to answer : 20s\n\nReact with :thumbsup: For next Question", color=0xFD7803))
 
             channel = message.channel
             # await channel.send('Send me that 👍 reaction, mate')
@@ -1040,16 +1185,21 @@ async def on_message(message):
         await message.channel.purge(limit=1)
         await message.channel.send(embed=discord.Embed(title=f"{delsay}", description=f"Asked to Delete and Say By: {message.author}", color=0x02BDFE))
 
-# USER COUNT and server
+# MISC
     if message.content.find("a/ member") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         servermem = message.guild.member_count
         await message.channel.send(embed=discord.Embed(title=f"{message.guild}", description=f"Number of Members: {servermem} <a:ag_reddot:781410740619051008>", color=0xFEE702))
 
-    if message.content.find("a/ server") != -1:
+    if message.content == ("a/ server"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         tserver = len(client.guilds)
         await message.channel.send(embed=discord.Embed(title="Server Count", description=f"Serving {tserver} Servers <a:ag_tickop:781395575962599445> Now \nWOW!!!" , color=0x01FD59))
+
+    if message.content.find("a/ serverid") != -1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        tserverid = message.guild.id
+        await message.channel.send(embed=discord.Embed(title=f"Server ID of {message.guild}", description=f"{tserverid} <a:ag_tickop:781395575962599445>", color=0x01FD59))
 
 # PING
     if message.content.find("a/ ping") != -1:
