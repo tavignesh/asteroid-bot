@@ -22,9 +22,9 @@ db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+# token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-# token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -35,20 +35,10 @@ messages = joined = 0
 mtlist = []
 
 # PRE DECLARE
-
-hlpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『AG』》Vigne$hᴰᵉᵛ#8351**\nMy Prefix is `a/`\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬\n▬▬▬▬▬▬▬▬▬▬", description="I am Under Construction!\n▬▬▬▬▬▬▬▬▬▬\nMy Commands \n▬▬▬▬▬▬▬▬▬▬\n\n :tools: **Moderation** :tools: \n Auto Delete of Bad Words<`More To Be added!`>\n▬▬▬▬▬▬▬▬▬▬\n\n:x: **Deletet\
-ion** :x: \nAuto Delete of Bad Words with A Warn :warning: Message \n Manual Delete Messages. Use `a/ delete help` for more\n▬▬▬▬▬▬▬▬▬▬ \n\n**AFK Status**\n▬▬▬▬▬▬▬▬▬▬\nFor more use \n\n**Quizz** :question:\n▬▬▬▬▬▬▬▬▬▬\nAsks Some Interesting Multiple Chaoce Questions. Use `a/ quiz help` for more\n\n**Calculator** :1234:\n▬▬▬▬▬▬▬▬▬▬\nUse `a/ calculate  help` for more!\n\n**Ch\
-at**\n▬▬▬▬▬▬▬▬▬▬\nJust Say `hi`\n\n<a:ag_arrw_hrt:781410692321640530> **Sugggetions**\n▬▬▬▬▬▬▬▬▬▬\n Use `a/ suggest help` for more!\n\n**INVITE**<a:ag_flyn_hrts_red:781395643134115852>\n▬▬▬▬▬▬▬▬▬▬\nYou can INVITE Me Using `a/ invite`", color=0x13FD03)
-
-helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『AG』》V!GNΣ$hᴰᵉᵛ#5105**\nMy Prefix is `a/`\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n**Example:**\n`a/ delete help`\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
+helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『AG』》V!GNΣ$hᴰᵉᵛ#5105**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
 on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random:game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
 me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (sugges\
-t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)", color=0x01FD14)
-
-hlpdmmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『AG』》V!GNΣ$hᴰᵉᵛ#5105**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module \nYou can Put Commands Here Also!\n**Example:**\n`a/ delete help`\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
-on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random:game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
-me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (sugges\
-t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)", color=0x01FD14)
+t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)\n▬▬▬▬▬▬▬▬▬▬\n**Example:**\n`a/ delete help`", color=0x01FD14)
 
 invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **INVITE ME** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="[Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n[Support Server Beta](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n[ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
 
@@ -129,7 +119,7 @@ async def on_message(message):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=helpmbd)
         userdm = client.get_user(message.author.id)
-        await userdm.send(embed=hlpdmmbd)
+        await userdm.send(embed=helpmbd)
     if message.content.find("a/ invite") != -1 or message.content == "a/invite":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=invitembd)
@@ -138,7 +128,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(description="Use `a/ delete help` for Help Regarding Delete messges"))
     if message.content.startswith("a/ mod ") or message.content.startswith("a/mod"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title=":tools: Moderation <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="All moderation Commands Needs You and Me to have Specific **Permissions** to perform Moderation!\n\n**Commands:**\n<a:ag_arrowgif:781395494127271947> <:ag_ban:774867115529469992> - `a/ ban <mention user>`\n<a:ag_arrowgif:781395494127271947> Kick - `a/ kick <mention user>`\n<a:ag_arrowgif:781395494127271947> Delete - Use `a/ delete help` For more!\nPls Use `a/ set help` for Chat and BadWord(Customisable) Moderation\n<a:ag_arrowgif:781395494127271947> Member Count - `a/ members`", color=0xFDDE01))
+        await message.channel.send(embed=discord.Embed(title=":tools: Moderation <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="All moderation Commands Needs You and Me to have Specific **Permissions** to perform Moderation!\n\n**Commands:**\n<a:ag_arrowgif:781395494127271947> <:ag_ban:774867115529469992> - `a/ ban <mention user>`\n<a:ag_arrowgif:781395494127271947> Kick - `a/ kick <mention user>`\n<a:ag_arrowgif:781395494127271947> Delete - Use `a/ delete help` For more!\n<a:ag_arrowgif:781395494127271947> Pls Use `a/ pref help` for Chat and BadWord (Customisable) Moderation\n<a:ag_arrowgif:781395494127271947> Member Count - `a/ members`", color=0xFDDE01))
     if message.content == "a/ delete help" or message.content == "a/ help delete":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**Delete Messages** :x:\n▬▬▬▬▬▬▬▬▬▬", description="Maximum of 500 Messages can be Deleted at a Time <a:ag_reddot:781410740619051008>\nYou need to Have Manage Messages Permisiion \n\nSyntax : `a/ delete <Number of msges in number>`\n\nExample:\n`a/ delete 15`", color=0x04FD03))
@@ -207,8 +197,8 @@ async def on_message(message):
          Theatres\n6  <a:ag_arrw_hrt:781410692321640530> Entertainment: Television\n7  <a:ag_arrw_hrt:781410692321640530> Entertainment: Video Games\n8  <a:ag_arrw_hrt:781410692321640530> Entertainment: Board Games\n9  <a:ag_arrw_hrt:781410692321640530> Science & Nature\n10 <a:ag_arrw_hrt:781410692321640530> Science: Computers\n11 <a:ag_arrw_hrt:781410692321640530> Science: Mathematics\n12\
           <a:ag_arrw_hrt:781410692321640530> Mythology\n13 <a:ag_arrw_hrt:781410692321640530> Sports\n14 <a:ag_arrw_hrt:781410692321640530> Geography\n15 <a:ag_arrw_hrt:781410692321640530> History\n16 <a:ag_arrw_hrt:781410692321640530> Politics\n17 <a:ag_arrw_hrt:781410692321640530> Art\n18 <a:ag_arrw_hrt:781410692321640530> Celebrities\n19 <a:ag_arrwhrt:781410692321640530> Animals\n20\
            <a:ag_arrw_hrt:781410692321640530> Vehicles\n21 <a:ag_arrw_hrt:781410692321640530> Entertainment: Comics\n22 <a:ag_arrw_hrt:781410692321640530> Science: Gadgets\n23 <a:ag_arrw_hrt:781410692321640530> Entertainment: Japanese Anime & Manga\n24 <a:ag_arrw_hrt:781410692321640530> Entertainment: Cartoon & Animations\n", color=0xFDDE01))
-    if message.content == "a/ help set" or message.content == "a/ set help":
-        await message.channel.send("chat mod,")
+    if message.content == "a/ help set" or message.content == "a/ set help" or message.content == "a/ pref help" or message.content == "a/ help pref":
+        await message.channel.send(embed=discord.Embed(title="Chat Moderation Preferences", description="<a:ag_arrowgif:781395494127271947> Chat Moderation Enable or Disable `a/ chatmod true(or)false`\n<a:ag_arrowgif:781395494127271947> Deletion of Blacklisted Words `a/ delmod true(or)false`\n<a:ag_arrowgif:781395494127271947> Add badwords to Blacklisted words `a/ badword=<word here>` Example : `a/ badword=die`\n<a:ag_arrowgif:781395494127271947> Remove Blacklisted word"))
 
 # PREFERENCE
     if message.content.find("a/ set chatmod false") != -1 or message.content.find("a/set chatmod false") != -1:
@@ -266,8 +256,6 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="DelMod Disabled", description="Blacklisted words in this Server will **NOT** be deleted\nFor more use `a/ mod help` or `a/ set help`", color=0x2AE717))
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
-
-
 
 # WIKIPEDIA
     if message.content.find("a/ wiki =") != -1:
@@ -841,17 +829,21 @@ async def on_message(message):
             gid = int(message.guild.id)
             fin = collection.find_one({"_id": gid})
             if fin == None:
-                await message.channel.send(embed=discord.Embed(title="NO Badwords Added", description="Pls add using `a/ badword =<badword>` or `a/ badword default` to add default words\nIf you want to Delete AND Warn for using blacklisted words pls type `a/ set delmod true`\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+                await message.channel.send(embed=discord.Embed(title="NO Badwords Found", description="Pls add using `a/ badword =<badword>` or `a/ badword default` to add default words\nIf you want to Delete AND Warn for using blacklisted words pls type `a/ set delmod true`\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
             else:
                 wordb = message.content.split("=")[-1]
                 fina = collection.find_one({"_id": gid})
                 fina = fina["badwords"]
-                fina.append(wordb)
-                collection.update_one({"_id": gid}, {"$set": {"badwords": fina, "chatmod":1}})
-                await message.channel.send(embed=discord.Embed(title="Bad word Added", description="Members will be warned on using the blacklisted words. If you want to Delete AND Warn For using Blacklisted words pls type `a/ set delmod true`\nIf Done already pls Ignore\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+                try:
+                    asfdaf = fina.pop(wordb)
+                    collection.update_one({"_id": gid}, {"$set": {"badwords": fina}})
+                    await message.channel.send(embed=discord.Embed(title="Bad word Removed", description="Members will be warned on using the blacklisted words. If you want to Delete AND Warn For using Blacklisted words pls type `a/ set delmod true`\nIf Done already pls Ignore\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+                except Exception as e:
+                    print(e)
+                    await message.channel.send(embed=discord.Embed(title="Bad word Removed", description="Members will be warned on using the blacklisted words. If you want to Delete AND Warn For using Blacklisted words pls type `a/ set delmod true`\nIf Done already pls Ignore\n For more use `a/ mod help` or `a/ set help`", color=0xFD2905))
+
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
-
 
     if message.content == ("a/ badword list") or message.content == ("a/ badwords list"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
@@ -1214,6 +1206,10 @@ async def on_message(message):
         await message.channel.purge(limit=1)
         await message.channel.send(embed=discord.Embed(title=f"{delsay}", description=f"Asked to Delete and Say By: {message.author}", color=0x02BDFE))
 
+    if message.content.startswith("a/ op say=") and int(message.author.id) == 782624720989585409:
+        temsay = message.content.split("=")[-1]
+        await message.channel.send(temsay)
+
 # MISC
     if message.content.find("a/ member") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
@@ -1236,7 +1232,10 @@ async def on_message(message):
 
     if message.content.find("a/ update") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title=f"v1.3 UPDATES !!", description="<a:ag_arrowgif:781395494127271947> QUIZ Added\n<a:ag_arrowgif:781395494127271947> Minor Bug Fixes :tools:\nv1.4 Is Going to be a Major update !!", color=0x05BAFD))
+        await message.channel.send(embed=discord.Embed(title="**v1.4 UPDATES !!**", description="Chat moderation enhanced so much! Use  `a/ mod help` for more\nYou can DM commands!!\nAdded Preferences for chat moderation (admin only). Use `a/ set help` or `a/ pref help`\nAdded Update viewer use `a/ updates`\nAdded a feature to add or remove words to blacklist\
+         which affects only the server use `a/ pref help`\nAdded a feature to add deafult badwords (admin only) Use `a/ badword defaults`\nAdded a feature to list blacklisted words (admin only). Use `a/ badword list`\nAdded a feature that blockes blaklisted words even in caps\nAdded Lot of topics to Quiz. Use `a/ topic list`\nAdded 3 levels of Quiz. Use\
+          `a/ quiz help`\nAdded more Features to Random. Use `a/ random help`\nAdded a feature to enable or disable deletion of blacklisted words\nAdded a feature to show list of afk people in that server. Use `a/ afk list`\nAdded a feature that responds to unknown msges with its prefix.\nAll blacklisted words and list of afk people will be stored in a \
+          cloud (never lost)\nAfk People get automatically out of afk after 24 hr\n`a/ serverid` Shows the respective Server's ID\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
 
 
 # PING
