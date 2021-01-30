@@ -12,4 +12,6 @@ post = {"_id": 23, "namehere": "op man", "haha": "pye", "num": 4}
 # for i in fio:
 # print(fio)
 a = list(string.ascii_letters)
+df = "Kglsdo dfaD"
+print(string.capwords(df))
 print(a)

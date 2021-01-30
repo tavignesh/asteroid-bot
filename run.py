@@ -765,17 +765,16 @@ async def on_message(message):
     brds = collection.find_one({"_id":gid})
     if brds != None and brds["chatmod"] == 1:
         brdsa = brds["badwords"]
-        for word in brdsa:
-            alist = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-            repd = message.content
-            for i in list(repd):
-                repd
-            if message.content.find(word) != -1 or message.content.find(string.capwords(word)) != -1:
-                print("A bad word(", message.content, ") was said by =>", message.author, "in channel |", message.channel, "in server =>", message.guild)
-                if brds["moddel"] == 1:
-                    await message.channel.purge(limit=1)
-                await message.channel.send(embed=discord.Embed(title=" :x: **Bad Word Warning** :warning: ", description=f"{message.author}, Do NOT :x: Use Bad Words!, You Have been Warned :warning: ", color=0x04FD03))
-            # elif
+        brdsa = str(brdsa)
+        brdsa = string.lower(brdsa)
+        word = str(message.content)
+        word = string.lower(word)
+        if message.content.find(word) != -1:
+            print("A bad word(", message.content, ") was said by =>", message.author, "in channel |", message.channel, "in server =>", message.guild)
+            if brds["moddel"] == 1:
+                await message.channel.purge(limit=1)
+            await message.channel.send(embed=discord.Embed(title=" :x: **Bad Word Warning** :warning: ", description=f"{message.author}, Do NOT :x: Use Bad Words!, You Have been Warned :warning: ", color=0x04FD03))
+
 
 # add word
     if message.content.startswith("a/ badword=") or message.content.startswith("a/ badword ="):
