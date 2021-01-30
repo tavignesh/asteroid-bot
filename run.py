@@ -198,7 +198,8 @@ async def on_message(message):
           <a:ag_arrw_hrt:781410692321640530> Mythology\n13 <a:ag_arrw_hrt:781410692321640530> Sports\n14 <a:ag_arrw_hrt:781410692321640530> Geography\n15 <a:ag_arrw_hrt:781410692321640530> History\n16 <a:ag_arrw_hrt:781410692321640530> Politics\n17 <a:ag_arrw_hrt:781410692321640530> Art\n18 <a:ag_arrw_hrt:781410692321640530> Celebrities\n19 <a:ag_arrwhrt:781410692321640530> Animals\n20\
            <a:ag_arrw_hrt:781410692321640530> Vehicles\n21 <a:ag_arrw_hrt:781410692321640530> Entertainment: Comics\n22 <a:ag_arrw_hrt:781410692321640530> Science: Gadgets\n23 <a:ag_arrw_hrt:781410692321640530> Entertainment: Japanese Anime & Manga\n24 <a:ag_arrw_hrt:781410692321640530> Entertainment: Cartoon & Animations\n", color=0xFDDE01))
     if message.content == "a/ help set" or message.content == "a/ set help" or message.content == "a/ pref help" or message.content == "a/ help pref":
-        await message.channel.send(embed=discord.Embed(title="Chat Moderation Preferences", description="<a:ag_arrowgif:781395494127271947> Chat Moderation Enable or Disable `a/ set chatmod true(or)false`\n<a:ag_arrowgif:781395494127271947> Deletion of Blacklisted Words `a/ set delmod true(or)false`\n<a:ag_arrowgif:781395494127271947> Add badwords to Blacklisted words `a/ badword=<word here>` Example : `a/ badword=die`\n<a:ag_arrowgif:781395494127271947> Remove Blacklisted word `a/ remove badword=<word>`\n<a:ag_arrowgif:781395494127271947> Add some Default Badwords `a/ badword defaults`\n<a:ag_arrowgif:781395494127271947> Clear All badwords `a/ badwords clear`"))
+        await message.channel.send(embed=discord.Embed(title="Chat Moderation Preferences\n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> Chat Moderation Enable or Disable `a/ set chatmod true(or)false`\n<a:ag_arrowgif:781395494127271947> Deletion of Blacklisted Words `a/ set delmod true(or)false`\n<a:ag_arrowgif:781395494127271947> Add badwords to Blacklisted words `a/ badword=<word here>` Example : `a/ badword=die`\n<a:ag_arrowgif:781395494127271947> \
+        Remove Blacklisted word `a/ remove badword=<word>`\n<a:ag_arrowgif:781395494127271947> Add some Default Badwords `a/ badword defaults`\n<a:ag_arrowgif:781395494127271947> Clear All badwords `a/ badwords clear`", color=0xBCFC09))
 
 # PREFERENCE
     if message.content.find("a/ set chatmod false") != -1 or message.content.find("a/set chatmod false") != -1:
@@ -766,9 +767,9 @@ async def on_message(message):
     if brds != None and brds["chatmod"] == 1:
         brdsa = brds["badwords"]
         brdsa = str(brdsa)
-        brdsa = string.lower(brdsa)
+        brdsa = brdsa.lower()
         word = str(message.content)
-        word = string.lower(word)
+        word = word.lower()
         if message.content.find(word) != -1:
             print("A bad word(", message.content, ") was said by =>", message.author, "in channel |", message.channel, "in server =>", message.guild)
             if brds["moddel"] == 1:
