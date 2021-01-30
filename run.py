@@ -766,15 +766,13 @@ async def on_message(message):
     brds = collection.find_one({"_id":gid})
     if brds != None and brds["chatmod"] == 1:
         brdsa = brds["badwords"]
-        brdsa = str(brdsa)
-        brdsa = brdsa.lower()
-        word = str(message.content)
-        word = word.lower()
-        if message.content.find(word) != -1:
-            print("A bad word(", message.content, ") was said by =>", message.author, "in channel |", message.channel, "in server =>", message.guild)
-            if brds["moddel"] == 1:
-                await message.channel.purge(limit=1)
-            await message.channel.send(embed=discord.Embed(title=" :x: **Bad Word Warning** :warning: ", description=f"{message.author}, Do NOT :x: Use Bad Words!, You Have been Warned :warning: ", color=0x04FD03))
+        for i in brdsa:
+            i = i.lower()
+            if message.content.find(i) != -1:
+                print("A bad word(", message.content, ") was said by =>", message.author, "in channel |", message.channel, "in server =>", message.guild)
+                if brds["moddel"] == 1:
+                    await message.channel.purge(limit=1)
+                await message.channel.send(embed=discord.Embed(title=" :x: **Bad Word Warning** :warning: ", description=f"{message.author}, Do NOT :x: Use Bad Words!, You Have been Warned :warning: ", color=0x04FD03))
 
 
 # add word
