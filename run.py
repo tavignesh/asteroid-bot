@@ -44,7 +44,7 @@ invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **INVITE ME**
 
 tstmbd = discord.Embed(title="Your title\n___________", description="Your description\ndescreption2", color=000000)
 
-badwrds =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ["fuck", "Fuck", "porn", "Porn", "slut", "slut", "FUCK"]
+badwrds =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ["fuck", "porn", "slut", "gangbang"]
 
 rp = 0
 
@@ -198,7 +198,7 @@ async def on_message(message):
           <a:ag_arrw_hrt:781410692321640530> Mythology\n13 <a:ag_arrw_hrt:781410692321640530> Sports\n14 <a:ag_arrw_hrt:781410692321640530> Geography\n15 <a:ag_arrw_hrt:781410692321640530> History\n16 <a:ag_arrw_hrt:781410692321640530> Politics\n17 <a:ag_arrw_hrt:781410692321640530> Art\n18 <a:ag_arrw_hrt:781410692321640530> Celebrities\n19 <a:ag_arrwhrt:781410692321640530> Animals\n20\
            <a:ag_arrw_hrt:781410692321640530> Vehicles\n21 <a:ag_arrw_hrt:781410692321640530> Entertainment: Comics\n22 <a:ag_arrw_hrt:781410692321640530> Science: Gadgets\n23 <a:ag_arrw_hrt:781410692321640530> Entertainment: Japanese Anime & Manga\n24 <a:ag_arrw_hrt:781410692321640530> Entertainment: Cartoon & Animations\n", color=0xFDDE01))
     if message.content == "a/ help set" or message.content == "a/ set help" or message.content == "a/ pref help" or message.content == "a/ help pref":
-        await message.channel.send(embed=discord.Embed(title="Chat Moderation Preferences", description="<a:ag_arrowgif:781395494127271947> Chat Moderation Enable or Disable `a/ chatmod true(or)false`\n<a:ag_arrowgif:781395494127271947> Deletion of Blacklisted Words `a/ delmod true(or)false`\n<a:ag_arrowgif:781395494127271947> Add badwords to Blacklisted words `a/ badword=<word here>` Example : `a/ badword=die`\n<a:ag_arrowgif:781395494127271947> Remove Blacklisted word"))
+        await message.channel.send(embed=discord.Embed(title="Chat Moderation Preferences", description="<a:ag_arrowgif:781395494127271947> Chat Moderation Enable or Disable `a/ set chatmod true(or)false`\n<a:ag_arrowgif:781395494127271947> Deletion of Blacklisted Words `a/ set delmod true(or)false`\n<a:ag_arrowgif:781395494127271947> Add badwords to Blacklisted words `a/ badword=<word here>` Example : `a/ badword=die`\n<a:ag_arrowgif:781395494127271947> Remove Blacklisted word `a/ remove badword=<word>`\n<a:ag_arrowgif:781395494127271947> Add some Default Badwords `a/ badword defaults`\n<a:ag_arrowgif:781395494127271947> Clear All badwords `a/ badwords clear`"))
 
 # PREFERENCE
     if message.content.find("a/ set chatmod false") != -1 or message.content.find("a/set chatmod false") != -1:
@@ -833,14 +833,11 @@ async def on_message(message):
                 wordb = message.content.split("=")[-1]
                 fina = collection.find_one({"_id": gid})
                 fina = fina["badwords"]
-                try:
-                    asfdaf = fina.pop(wordb)
-                    collection.update_one({"_id": gid}, {"$set": {"badwords": fina}})
-                    await message.channel.send(embed=discord.Embed(title="Bad word Removed", description="Members will be warned on using the blacklisted words. If you want to Delete AND Warn For using Blacklisted words pls type `a/ set delmod true`\nIf Done already pls Ignore\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
-                except Exception as e:
-                    print(e)
-                    await message.channel.send(embed=discord.Embed(title="Bad word Removed", description="Members will be warned on using the blacklisted words. If you want to Delete AND Warn For using Blacklisted words pls type `a/ set delmod true`\nIf Done already pls Ignore\n For more use `a/ mod help` or `a/ set help`", color=0xFD2905))
-
+                for i in range(0,len(fina)):
+                    if fina[i] == wordb:
+                        asfdaf = fina.pop(i)
+                        collection.update_one({"_id": gid}, {"$set": {"badwords": fina}})
+                await message.channel.send(embed=discord.Embed(title="Bad word Removed", description="Members will be warned on using the blacklisted words. If you want to Delete AND Warn For using Blacklisted words pls type `a/ set delmod true`\nIf Done already pls Ignore\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
 
@@ -867,6 +864,21 @@ async def on_message(message):
                         await message.channel.send(embed=discord.Embed(description=f"{i}", color=0xFD8805))
                 except asyncio.TimeoutError:
                     print("rcn timeout")
+        else:
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+    if message.content == "a/ badwords clear" or message.content == "a/ clear badwords":
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.author.guild_permissions.manage_messages:
+            gid = int(message.guild.id)
+            fin = collection.find_one({"_id": gid})
+            if fin == None:
+                await message.channel.send(embed=discord.Embed(title="NO Badwords Found", description="Pls add using `a/ badword =<badword>` or `a/ badword default` to add default words\nIf you want to Delete AND Warn for using blacklisted words pls type `a/ set delmod true`\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
+            else:
+                fina = collection.find_one({"_id": gid})
+                fina = fina["badwords"]
+                collection.update_one({"_id": gid}, {"$set": {"badwords": []}})
+                await message.channel.send(embed=discord.Embed(title="Bad words Cleared", description="Members will be warned on using the blacklisted words. If you want to Delete AND Warn For using Blacklisted words pls type `a/ set delmod true`\nIf Done already pls Ignore\n For more use `a/ mod help` or `a/ set help`", color=0x2AE717))
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
 
