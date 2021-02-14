@@ -28,9 +28,9 @@ db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-# token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+# token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -182,7 +182,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Channels <a:ag_exc:781410611366985748>"))
     if message.content.find("a/") != -1 and message.content.find("create") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**『AG』》V!GNΣ$hᴰᵉᵛ#5105** <a:ag_flyn_hrts_cyn:781395468978356235>\nCreated me on 23th Nov 2020", description="**With The Help of:**\nRice Cake#9760\nLone#6015\nSUNAPANA™#3377",color=0x04FD03))
+        await message.channel.send(embed=discord.Embed(title="**『AG』》V!GNΣ$hᴰᵉᵛ#5105** <a:ag_flyn_hrts_cyn:781395468978356235>\nCreated me on 23th Nov 2020", description="**With The Help of:**\nRice Cake#9760\nLone#6015\n\nTop Suggestor\n*SKY#4006*",color=0x04FD03))
     if message.content.find("a/ chat help") != -1 or message.content == "a/ help chat":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="CHAT :speech_balloon:\n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> `a/ setup chat` will Create a New Channel to Chat mith Meee!\n<a:ag_arrowgif:781395494127271947> <More To be added here>", color=0xFC058C))
