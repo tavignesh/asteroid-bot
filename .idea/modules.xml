@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/discordbot.iml" filepath="$PROJECT_DIR$/.idea/discordbot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../nitro/.idea/nitro.iml" filepath="$PROJECT_DIR$/../nitro/.idea/nitro.iml" />
     </modules>
   </component>
 </project>

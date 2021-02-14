@@ -14,17 +14,23 @@ import datetime
 import string
 import pymongo
 from pymongo import MongoClient
+import bs4
+import urllib
+import urllib3
 
-client = discord.Client()
+intents = discord.Intents.default()
+intents.members = True
+
+client = discord.Client(intents=intents)
 
 cluster = MongoClient("mongodb+srv://bot:1234@cluster0.5bkqm.mongodb.net/discord?retryWrites=true&w=majority")
 db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+# token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-# token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -35,12 +41,12 @@ messages = joined = 0
 mtlist = []
 
 # PRE DECLARE
-helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『AG』》V!GNΣ$hᴰᵉᵛ#5105**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
-on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random:game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
+helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『ȺG』*₊⋆》V!GПΣ$hᴰᵉᵛ♪ــﮩ.ﮩ٨ــ#5105**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
+on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> TAX :ag_tax: (tax)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random:game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
 me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (sugges\
 t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)\n▬▬▬▬▬▬▬▬▬▬\n**Example:**\n`a/ delete help`", color=0x01FD14)
 
-invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **INVITE ME** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="[Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n[Support Server Beta](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n[ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
+invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **INVITE ME** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> [Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n<a:ag_arrowgif:781395494127271947> [VOTE ME](https://top.gg/bot/780472070072696852/vote)\n<a:ag_arrowgif:781395494127271947> [Support Server Beta](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n<a:ag_arrowgif:781395494127271947> [ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
 
 tstmbd = discord.Embed(title="Your title\n___________", description="Your description\ndescreption2", color=000000)
 
@@ -105,7 +111,7 @@ async def on_message(message):
         return
 
 # HELPS
-    if message.content.find("A/") != -1:
+    if message.content.startswith("A/"):
         await message.channel.send(embed=discord.Embed(description="My prefix is `a/`", color=0x04FD03))
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
     if message.content == ("a/") or message.content == ("a/ "):
@@ -115,12 +121,12 @@ async def on_message(message):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(description="My prefix is `a/`", color=0x04FD03))
         # await message.channel.send(embed=discord.Embed(title="Check Your dms <a:ag_reddot:781410740619051008>", description="Hope they Are open For me!\nStill u can see the Help Message Here using `a/ help here'"))
-    if message.content == "a/ help" or message.content == "a/help":
+    if message.content == "a/ help" or message.content == "a/help" or message.content == "A/help" or message.content == "A/ help":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=helpmbd)
         userdm = client.get_user(message.author.id)
         await userdm.send(embed=helpmbd)
-    if message.content.find("a/ invite") != -1 or message.content == "a/invite":
+    if message.content.find("a/ invite") != -1 or message.content == "a/invite" or message.content == 'a/vote' or message.content == 'a/ vote':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=invitembd)
     if message.content == "a/ delete" or message.content == "a/delete":
@@ -153,7 +159,7 @@ async def on_message(message):
         in Farenheit to Celcius\nExample : `a/ far 32` Gives `0`\n\n**Celcius to Farenheit**\nConverts Tempereture `a` in Celcius to Farenheit\nExample : `a/ cel 0` Gives `32`\n\n**Celcius to Kelvin**\nConverts Tempereture `a` in Celcius to Kelvin\nExample : `a/ cel 0` Gives `273`\n\n**Farenheit to Kelvin**\nConverts Tempereture `a` in Celcius to Farenheit\nExample : `a/ cel 0` Gives `32`", color=0xD705FC))
     if message.content == "a/ complexcal 2 help":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**Complex Calculator #2** :1234:\n▬▬▬▬▬▬▬▬▬▬", description="Single Input Functions\n All Double Input variable = `a` and `b`\n▬▬▬▬▬▬▬▬▬▬\n`bilog` => Gives the Value of Log `a` to the Base `b`\nExample: `a/ bilog 100 2` Gives `6.643856189774725`\n\n`pow` => Gives the Value of `a` to the Power `b`\nExample: `a/ pow 5 2` Gives `25`", color=0xD705FC))
+        await message.channel.send(embed=discord.Embed(title="**Complex Calculator #2** :1234:\n▬▬▬▬▬▬▬▬▬▬", description="Single Input Functions\n All Double Input variable = `a` and `b`\n▬▬▬▬▬▬▬▬▬▬\n`bilog` => Gives the Value of Log `a` to the Base `b`\nExample: `a/ bilog 100 2` Gives `6.643856189774725`\n\n`pow` => Gives the Value of `a` to the Power `b`\nExample: `a/ pow 5 2` Gives `25`\n\n▬▬▬▬▬▬▬▬▬▬\n**TAX**\n`tax` => Gives tax amount and Amount after tax, `a` is tax% and `b` is amount\nExample: `a/ tax 12 1000`\n\n`danktax` => Gives tax that DankMemer(bot) put on transferres\nExample: `a/ danktax 150000`", color=0xD705FC))
     if message.content == "a/ afk help" or message.content == "a/ help afk" or message.content == "a/ afk" or message.content == "a/afk help":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="AFK Status :zzz:\n▬▬▬▬▬▬▬▬▬▬", description="If u set afk status all the Messages tht Ping U will be Deleted :x: with a msg U gave!\n\n**Syntax:**\n<a:ag_arrowgif:781395494127271947> Set AFK - `a/ afk =<reason>`\n<a:ag_arrowgif:781395494127271947> Remove AFK - `a/ afk remove`", color=0xA205FC))
@@ -193,13 +199,18 @@ async def on_message(message):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title=":speech_balloon: QUIZ <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="Type `a/ quiz start <level> <topic id>`\n**For Topic ID Type** `a/ list topic` (Default - General Knowledge) \nLevels :\nEasy: 1\nMedium: 2\nHard: 3\nExample: `a/ quiz start 2`\nTo start a quiz and after answering react with a :thumbsup: for next question\nMark Counting Feature Under Development Sorry..", color=0xFDDE01))
     if message.content == "a/ list topic" or message.content == "a/ topic list" or message.content == "a/list topic":
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**Topic List**", description="ID |       TOPIC\n1  <a:ag_arrw_hrt:781410692321640530> General Knowledge\n2  <a:ag_arrw_hrt:781410692321640530> Entertainment: Books\n3  <a:ag_arrw_hrt:781410692321640530> Entertainment: Film\n4  <a:ag_arrw_hrt:781410692321640530> Entertainment: Music\n5  <a:ag_arrw_hrt:781410692321640530> Entertainment: Musicals &\
          Theatres\n6  <a:ag_arrw_hrt:781410692321640530> Entertainment: Television\n7  <a:ag_arrw_hrt:781410692321640530> Entertainment: Video Games\n8  <a:ag_arrw_hrt:781410692321640530> Entertainment: Board Games\n9  <a:ag_arrw_hrt:781410692321640530> Science & Nature\n10 <a:ag_arrw_hrt:781410692321640530> Science: Computers\n11 <a:ag_arrw_hrt:781410692321640530> Science: Mathematics\n12\
           <a:ag_arrw_hrt:781410692321640530> Mythology\n13 <a:ag_arrw_hrt:781410692321640530> Sports\n14 <a:ag_arrw_hrt:781410692321640530> Geography\n15 <a:ag_arrw_hrt:781410692321640530> History\n16 <a:ag_arrw_hrt:781410692321640530> Politics\n17 <a:ag_arrw_hrt:781410692321640530> Art\n18 <a:ag_arrw_hrt:781410692321640530> Celebrities\n19 <a:ag_arrwhrt:781410692321640530> Animals\n20\
            <a:ag_arrw_hrt:781410692321640530> Vehicles\n21 <a:ag_arrw_hrt:781410692321640530> Entertainment: Comics\n22 <a:ag_arrw_hrt:781410692321640530> Science: Gadgets\n23 <a:ag_arrw_hrt:781410692321640530> Entertainment: Japanese Anime & Manga\n24 <a:ag_arrw_hrt:781410692321640530> Entertainment: Cartoon & Animations\n", color=0xFDDE01))
     if message.content == "a/ help set" or message.content == "a/ set help" or message.content == "a/ pref help" or message.content == "a/ help pref":
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Chat Moderation Preferences\n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> Chat Moderation Enable or Disable `a/ set chatmod true(or)false`\n<a:ag_arrowgif:781395494127271947> Deletion of Blacklisted Words `a/ set delmod true(or)false`\n<a:ag_arrowgif:781395494127271947> Add badwords to Blacklisted words `a/ badword=<word here>` Example : `a/ badword=die`\n<a:ag_arrowgif:781395494127271947> \
         Remove Blacklisted word `a/ remove badword=<word>`\n<a:ag_arrowgif:781395494127271947> Add some Default Badwords `a/ badword defaults`\n<a:ag_arrowgif:781395494127271947> Clear All badwords `a/ badwords clear`", color=0xBCFC09))
+    if message.content == 'a/ tax' or message.content == 'a/ tax help' or message.content == 'a/ help tax':
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        await message.channel.send(embed=discord.Embed(title="TAX\n▬▬▬▬▬▬▬▬▬▬", description="**TAX**\n`tax` => Gives tax amount and Amount after tax.\nSyntax : `a/ tax <tax rate> <amt>`\nExample: `a/ tax 12 1000` or `a/ t 12 1000`\n\n`danktax` => Gives tax that DankMemer(bot) put on transferres\nSyntax : `a/ danktax <amt>`\nExample: `a/ danktax 150000` or `a/ dt 150000`", color=0xD705FC))
 
 # PREFERENCE
     if message.content.find("a/ set chatmod false") != -1 or message.content.find("a/set chatmod false") != -1:
@@ -444,8 +455,6 @@ async def on_message(message):
 
     for i in afkdic:
         if message.content.find(i) != -1:
-            tempb = message.id
-            await message.channel.purge(limit=1)
             await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> USER AFK <a:ag_exc:781410611366985748>", description=f"Do not Ping {i} <a:ag_pprbt:781410629180194826>\n**Message for U from {i}**\n{afkdic[i]}", color=0xFE0202))
 
     if message.content.find("a/ afk list") != -1:
@@ -454,15 +463,21 @@ async def on_message(message):
         afklos = afkdic.keys()
         await message.channel.send(embed=discord.Embed(title=f"AFK USERS LIST", description=f"{nemaf} Users Are AFK(Incl. of all my Servers)\n\nAfk Users list:"))
 
-    if message.content.find("a/ afk remove") != -1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        for i in afkdic:
-            idh = message.author.id
-            idh = f"<@!{idh}>"
-            if idh == i:
-                del afkdic[idh]
-                collection.update_one({"_id":222},{"$set":{"afkdic":afkdic}})
-                await message.channel.send(embed=discord.Embed(title="AFK Staus Removed! <a:ag_tickop:781395575962599445>", description=f"Afk Status For {i} is Removed", color=0x08FE73))
+    for i in afkdic:
+        k = list(i)
+        teks = ""
+        for j in k:
+            if j == "0" or j == "1" or j == "2" or j == "3" or j == "4" or j == "5" or j == "6" or j == "7" or j == "8" or j == "9":
+                teks += j
+        if int(message.author.id) == int(teks):
+            await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+            for jk in afkdic:
+                idh = message.author.id
+                idh = f"<@!{idh}>"
+                if idh == jk:
+                    del afkdic[idh]
+                    collection.update_one({"_id":222},{"$set":{"afkdic":afkdic}})
+                    await message.channel.send(embed=discord.Embed(title="AFK Staus Removed! <a:ag_tickop:781395575962599445>", description=f"Afk Status For {i} is Removed", color=0x08FE73))
 
 # EVAL
     if message.content.find("a/ eval ^") != -1 and message.author.id == 782624720989585409:
@@ -537,6 +552,41 @@ async def on_message(message):
 
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Mute Members <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+# EMOTIFY
+    if message.content.find("a/ emotify =") !=-1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        emo = message.content.split('=')[-1]
+        emo = list(emo)
+        emf = ""
+        for i in emo:
+            if i == "a" or i == "b" or i == "c" or i == "d" or i == 'e' or i == 'f'or i == 'g' or i == 'h' or i == 'i' or i == 'j' or i == 'k' or i == 'l' or i == 'm' or i == 'n' or i == 'o' or i == 'p' or i == 'q' or i == 'r' or i == 's' or i == 't' or i == 'u' or i == 'v' or i == 'w' or i == 'x' or i == 'y' or i == 'z':
+               emf += f" :regional_indicator_{i}:"
+            elif i == " ":
+                emf += "  "
+            elif i == "0":
+                emf += ":zero:"
+            elif i == "1":
+                emf += ":one:"
+            elif i == "2":
+                emf += ":two:"
+            elif i == "3":
+                emf += ":three:"
+            elif i == "4":
+                emf += ":four:"
+            elif i == "5":
+                emf += ":five:"
+            elif i == "6":
+                emf += ":six:"
+            elif i == "7":
+                emf += ":seven:"
+            elif i == "8":
+                emf += ":eight:"
+            elif i == "9":
+                emf += ":nine:"
+        await message.channel.send(embed=discord.Embed(title=f"{emf}", description=f"Requested By : {message.author}", color=0x02FE95))
+
+
 
 # BASIC CALCULATOR
     if message.content.find('a/ div') != -1:
@@ -613,6 +663,38 @@ async def on_message(message):
                 hcf = i
         await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"HCF of **{num1}** and **{num2}** =\n **{hcf}** <a:ag_tickop:781395575962599445>", color=0x02FE95))
 
+# TAX
+
+    if message.content.find('a/ tax') != -1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.content.split(' ')[-3] == 'tax' or message.content.split(' ')[-2] == 't':
+            num1 = message.content.split(' ')[-2]
+            num2 = message.content.split(' ')[-1]
+            num1 = int(num1)
+            num2 = int(num2)
+            atxr = num2*num1
+            atxr = atxr/100
+            await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"**{num2}** Amount\n**{num1}%** tax \nTax Amount = **{atxr}**\nBal Amount = {num2-atxr} <a:ag_tickop:781395575962599445>", color=0x02FE95))
+
+    if message.content.find('a/ danktax') != -1 or message.content.find('a/ dt ') != -1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.content.split(' ')[-2] == 'danktax' or message.content.split(' ')[-2] == 'dt':
+            num2 = message.content.split(' ')[-1]
+            num2 = int(num2)
+            num1 = 0
+            if num2 > 25000 and num1 <= 50000:
+                num1 = 1
+            elif num2 > 50000 and num1 <= 100000:
+                num1 = 3
+            elif num2 > 100000 and num1 <= 749999:
+                num1 = 5
+            elif num2 > 750000 and num1 <= 2499999:
+                num1 = 8
+            elif num2 > 2500000:
+                num1 = 15
+            atxr = num2 * num1
+            atxr = atxr / 100
+            await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"**{num2}** Amount\n**{num1}%** Tax\nTax Amount = **{atxr}**\nBal Amount = {num2-atxr}<a:ag_tickop:781395575962599445>", color=0x02FE95))
 
 # COMPLEX CALCULATOR 1
     if message.content.find("a/ ceil ") != -1:
@@ -752,6 +834,19 @@ async def on_message(message):
         # (0°C × 9/5) + 32 = 32°F
         await message.channel.send(embed=discord.Embed(title=f"{far} Farenheit = {cans} Kelvin", color=0x05FCE2))
 
+# Google search
+    if message.content.startswith("a/ google =") or message.content.startswith("a/ google="):
+        url = "https://google-search3.p.rapidapi.com/api/v1/search/q=elon+musk&num=1"
+
+        headers = {
+            'x-rapidapi-key': "7acfb85b32msh218cdca2c7e7bdfp1163b1jsna314ac48f283",
+            'x-rapidapi-host': "google-search3.p.rapidapi.com"
+        }
+
+        response = requests.request("GET", url, headers=headers)
+
+        print(response.text)
+
 # SUGGEST
     if message.content.startswith("a/ suggest =") or message.content.startswith("a/ suggest="):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
@@ -888,10 +983,18 @@ async def on_message(message):
             delee = 0
             delee = message.content.split(' ')[-1]
             delee = int(delee)
+            delee = delee + 1
             await message.channel.purge(limit=delee)
             await message.channel.send(embed=discord.Embed(title=f"{delee} Messages :x: Deleted! <a:ag_tickop:781395575962599445>", description=f"Requested By {message.author}", color=0xFD3A01))
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+# POLL
+    if message.content.find("a/ poll =") !=-1:
+        po = message.content.split('=')[-1]
+        pola = await message.channel.send(embed=discord.Embed(title=f"**{po}**", description=f"React with :thumbsup: or :thumbsdown:\nRequested By: *{message.author}*", color=0xFD3A01))
+        await pola.add_reaction('👍')
+        await pola.add_reaction('👎')
 
 # CHAT
     if str(message.channel) in chtchannel:
@@ -1020,27 +1123,10 @@ async def on_message(message):
 
 # TESTS
     if message.content.startswith("testit"):
-        channel = message.channel
-        await channel.send('say hello!')
-
-        def chlok(m):
-            return m.channel == channel and m.content.lower() in ["y", "n"]
-        try:
-            msg = await client.wait_for('message', timeout=10, check=chlok)
-            if msg.content.lower() == "y":
-                await channel.send("You said yes!")
-            else:
-                await channel.send("You said no!")
-            await channel.send("ok done op")
-        except asyncio.TimeoutError:
-            await channel.send("time pa")
-
-    if message.content == "play test":
-        # client.connect()
-        await message.channel.send("something goes here")
-        # source = await discord.AudioSource("testplay.mp3")
-        await client.connect()
-
+        mage = await message.channel.send(embed=discord.Embed(title="hi how ads u"))
+        await asyncio.sleep(5)
+        await mage.edit(embed=discord.Embed(title="dodod"))
+        await mage.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
 
 
 #         else:
@@ -1133,7 +1219,7 @@ async def on_message(message):
         rp = 0
         while topm == 1:
             topm = 0
-            await message.channel.send(embed=discord.Embed(title="Question in 2 secs!!", color=0xFDFC03))
+            mos = await message.channel.send(embed=discord.Embed(title="Question in 2 secs!!", color=0xFDFC03))
             await asyncio.sleep(1)
             # if
             url = f"https://opentdb.com/api.php?amount=1&category={cat}&difficulty={diff}&type=boolean"
@@ -1157,7 +1243,7 @@ async def on_message(message):
                 nocora = "true"
             print(cora)
             channel = message.channel
-            await channel.send(embed=discord.Embed(title=f"**Question 1 ({topic})**", description=f"**{ques}**\n\n**Give Your Answer within 10s as**\na/ true or a/ false", color=0xFD7803))
+            await mos.edit(embed=discord.Embed(title=f"**Question 1 ({topic})**", description=f"**{ques}**\n\n**Give Your Answer within 10s as**\na/ true or a/ false", color=0xFD7803))
             # <Message id=801741193565831218 channel=<TextChannel id=781754334571921438 name='beta-bot-testing-1' position=9 nsfw=False news=False category_id=781753841162518539> type=<MessageType.default: 0> author=<Member id=782624720989585409 name='『AG』》V!GПΣ$hᴰᵉᵛ' discriminator='5105' bot=False nick=None guild=<Guild id=780625655657791518 name='Asteroid Support Server' shard_id=None chunked=False member_count=14>> flags=<MessageFlags value=0>>
             def check(m):
                 return m.channel == channel and m.content.lower() in ["a/ true", "a/ false"]
@@ -1165,14 +1251,18 @@ async def on_message(message):
             try:
                 msg = await client.wait_for('message', timeout=20.0, check=check)
                 if msg.content.lower() == f"a/ {cora}":
-                    await channel.send(embed=discord.Embed(title="**CORRECT**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question", color=0x01FD14))
+                    await msg.add_reaction('✅')
+                    await mos.edit(embed=discord.Embed(title="**CORRECT**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question", color=0x01FD14))
+                    await mos.add_reaction('👍')
                 else:
-                    await channel.send(embed=discord.Embed(title="**WRONG**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question", color=0xFC4905))
+                    await msg.add_reaction('❌')
+                    await mos.edit(embed=discord.Embed(title="**WRONG**", description=f"Answer Given By:{message.author}\n\nReact with :thumbsup: For next Question", color=0xFC4905))
+                    await mos.add_reaction('👍')
             except asyncio.TimeoutError:
-                await channel.send(embed=discord.Embed(title="**YOU TOOK TOO LONG**", description="Time to answer : 20s\n\nReact with :thumbsup: For next Question", color=0xFD7803))
+                await mos.edit(embed=discord.Embed(title="**YOU TOOK TOO LONG**", description="Time to answer : 20s\n\nReact with :thumbsup: For next Question", color=0xFD7803))
+                await mos.add_reaction('👍')
 
             channel = message.channel
-            # await channel.send('Send me that 👍 reaction, mate')
 
             def checkb(reaction, user):
                 return user == message.author and str(reaction.emoji) == '👍'
@@ -1183,26 +1273,6 @@ async def on_message(message):
                 print("rcn timeout")
             else:
                 topm = 1
-
-
-        # except asyncio.TimeoutError:
-        #     await channel.send(embed=discord.Embed(title="TOO LATE !!", description="Took Too Late to Answer\nFor nxt question "))
-        #     def checka(reaction, user):
-        #         return user == message.author and str(reaction.emoji) == '👍'
-        #     try:
-        #         reaction, user = await client.wait_for('reaction_add', timeout=20, check=checka)
-        #         rp = 1
-        #     except asyncio.TimeoutError:
-        #         print('timeout')
-        #     else:
-        #         print("error")
-        # else:
-        #     print("some error")
-        #     await channel.send(opt)
-        # else:
-        #     await channel.send(embed=discord.Embed(title="**Correct!!**",description=f'Answer Given by **{message.author}**', color=0x05FCE2))
-        # else:
-        #     await message.channel.send(embed=discord.Embed(title="you failed to answer in 5 Secs!", color=0xFC4905))
 
 # SAY
     if message.content.startswith("a/ say =") or message.content.startswith("a/ say="):
@@ -1226,7 +1296,7 @@ async def on_message(message):
         servermem = message.guild.member_count
         await message.channel.send(embed=discord.Embed(title=f"{message.guild}", description=f"Number of Members: {servermem} <a:ag_reddot:781410740619051008>", color=0xFEE702))
 
-    if message.content == ("a/ server"):
+    if message.content == ("a/ server") or message.content == "a/ servers":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         tserver = len(client.guilds)
         await message.channel.send(embed=discord.Embed(title="Server Count", description=f"Serving {tserver} Servers <a:ag_tickop:781395575962599445> Now \nWOW!!!" , color=0x01FD59))
@@ -1242,11 +1312,30 @@ async def on_message(message):
 
     if message.content.find("a/ update") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**v1.4 UPDATES !!**", description="Chat moderation enhanced so much! Use  `a/ mod help` for more\nYou can DM commands!!\nAdded Preferences for chat moderation (admin only). Use `a/ set help` or `a/ pref help`\nAdded Update viewer use `a/ updates`\nAdded a feature to add or remove words to blacklist\
-         which affects only the server use `a/ pref help`\nAdded a feature to add deafult badwords (admin only) Use `a/ badword defaults`\nAdded a feature to list blacklisted words (admin only). Use `a/ badword list`\nAdded a feature that blockes blaklisted words even in caps\nAdded Lot of topics to Quiz. Use `a/ topic list`\nAdded 3 levels of Quiz. Use\
-          `a/ quiz help`\nAdded more Features to Random. Use `a/ random help`\nAdded a feature to enable or disable deletion of blacklisted words\nAdded a feature to show list of afk people in that server. Use `a/ afk list`\nAdded a feature that responds to unknown msges with its prefix.\nAll blacklisted words and list of afk people will be stored in a \
-          cloud (never lost)\nAfk People get automatically out of afk after 24 hr\n`a/ serverid` Shows the respective Server's ID\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
+        await message.channel.send(embed=discord.Embed(title="**v1.5 UPDATES !!**", description="Added TAX Calculation Try `a/ tax help`\nAdded Emotify command Try `a/ emotify help` or `a/ misc help`\nAdded Poll System Try `a/ poll help` Will be improved so much in upcomming updates like custom emojis\nAFK status will be removed as soon as you type a message\nNow Bot responds to incomplete commands(mostly)\nQuiz System Enhanced\nEdited some help messages\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
 
+    if message.content.find("a/ xxd") !=-1:
+        if message.author.guild_permissions.manage_messages:
+            uhu = message.guild.members
+            nomes = ""
+            for i in range(0,len(uhu)):
+                topo = uhu[i]
+                topo = str(topo)
+                diso = topo
+                topo = topo.split('name=')[1]
+                topo = topo.split(' discri')[0]
+                diso = diso.split("ator=")[1]
+                diso = diso.split(" bot=")
+                topo += diso
+                nomes += f"{topo}\n"
+                await message.channel.send(embed=discord.Embed(title=f"Member List of {message.guild}\n▬▬▬▬▬▬▬▬▬▬", description=f"nomes"))
+        else:
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+    if message.content.find("a/ xd") != -1:
+        uhu = message.guild.members
+        adf = uhu[0]
+        print(adf)
 
 # PING
     if message.content.find("a/ ping") != -1:
