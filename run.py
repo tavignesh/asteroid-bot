@@ -28,9 +28,9 @@ db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+# token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-# token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -191,7 +191,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="Today :date:\n▬▬▬▬▬▬▬▬▬▬", description="**Commands:**\n<a:ag_arrowgif:781395494127271947> `a/ time` :clock3: Shows the Time Now\n<a:ag_arrowgif:781395494127271947> `a/ date` :date: Shows the Date Today\n<a:ag_arrowgif:781395494127271947> <More to be added here>", color=0x6E05FC))
     if message.content == "a/ wiki help" or message.content == "a/ help wiki" or message.content == "a/ wiki" or message.content == "a/wiki help":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="Wikipedia Search :mag:\n▬▬▬▬▬▬▬▬▬▬", description="This commands Fetches Descreption about the Keyword you give.\n**Syntax:**\n`a/ wiki =keyword`\n\n**Example:**\n`a/ wiki =bot`", color=0x05B5FC))
+        await message.channel.send(embed=discord.Embed(title="Wikipedia Search :mag:\n▬▬▬▬▬▬▬▬▬▬", description="This commands Fetches Descreption about the Keyword you give.Make sure you give only one word as input(Will be Fixed soon!)\n**Syntax:**\n`a/ wiki =keyword`\n\n**Example:**\n`a/ wiki =bot`", color=0x05B5FC))
     if message.content == "a/ help weather" or message.content == "a/ weather help" or message.content == "a/help weather":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Weather Reports\n▬▬▬▬▬▬▬▬▬▬", description="This Feature allows You to Get a weather Report Of your Preffered Location\n\n**Syntax:**\n`a/ weather =<location>`\n\n**Example:**\n`a/ weather =Chennai`", color=0x0527FC))
@@ -276,6 +276,13 @@ async def on_message(message):
     if message.content.find("a/ wiki =") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         words = message.content.split("=")[-1]
+        topa = ""
+        try:
+            for i in range(0,10):
+                a = words.split(" ")[i]
+                topa += f"{a}+"
+        except Exception as e:
+            pass
         def wiki_summary(arg):
             definition = wikipedia.summary(arg, sentences=5, chars=1000, auto_suggest=True, redirect=True)
             return definition
@@ -863,7 +870,9 @@ async def on_message(message):
         sugg = message.content.split('=')[-1]
         await message.channel.send(embed=discord.Embed(title=" <a:ag_reddot:781410740619051008> Suggested! <a:ag_reddot:781410740619051008> ", description="Thanks for Your Valuable Suggestion!\nYour Suggestion Has Been Submitted! <a:ag_tickop:781395575962599445> ", color=0x04FD03))
         channel = client.get_channel(784697044236763176)
-        await channel.send(embed=discord.Embed(title=f" <a:ag_reddot:781410740619051008> Suggestion by \n{message.author} <a:ag_reddot:781410740619051008> ", description=f"`{sugg}`", color=0x04FD03))
+        sogs = await channel.send(embed=discord.Embed(title=f" <a:ag_reddot:781410740619051008> Suggestion by \n{message.author} <a:ag_reddot:781410740619051008> ", description=f"`{sugg}`", color=0x04FD03))
+        await sogs.add_reaction('👍')
+        await sogs.add_reaction('👎')
 
 # BAD WORD MODERATION
 
