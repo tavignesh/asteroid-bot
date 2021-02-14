@@ -28,9 +28,9 @@ db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+# token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-# token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -46,7 +46,7 @@ on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:
 me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Poll  (poll)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (sugges\
 t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)\n▬▬▬▬▬▬▬▬▬▬\n**Example:**\n`a/ delete help`", color=0x01FD14)
 
-invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **Usefull Links** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> [Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n<a:ag_arrowgif:781395494127271947> [VOTE ME](https://top.gg/bot/780472070072696852/vote)\n<a:ag_arrowgif:781395494127271947> [Support Server Beta](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n<a:ag_arrowgif:781395494127271947> [ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
+invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **Usefull Links** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> [Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n<a:ag_arrowgif:781395494127271947> [VOTE ME](https://top.gg/bot/780472070072696852/vote)\n<a:ag_arrowgif:781395494127271947> [Support Server](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n<a:ag_arrowgif:781395494127271947> [ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
 
 tstmbd = discord.Embed(title="Your title\n___________", description="Your description\ndescreption2", color=000000)
 
@@ -448,6 +448,7 @@ async def on_message(message):
 # AFK Status
     fio = collection.find_one({"_id": 222})
     afkdic = fio["afkdic"]
+    donto = 0
     if message.content.startswith("a/ afk =") or message.content.startswith("a/ afk="):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         afkmsg = message.content.split('=')[-1]
@@ -455,7 +456,28 @@ async def on_message(message):
         afkmens = f"<@!{afkmens}>"
         afkdic[afkmens] = afkmsg
         collection.update_one({"_id":222},{"$set":{"afkdic":afkdic}})
+        donto = 1
         await message.channel.send(embed=discord.Embed(title="AFK Status Set! <a:ag_tickop:781395575962599445>", description=f"AFK status will be removed automatically in 1 day**Message From {afkmens}**\n{afkmsg}", color=0xFBFE02))
+
+    for i in afkdic:
+        k = list(i)
+        teks = ""
+        for j in k:
+            if j == "0" or j == "1" or j == "2" or j == "3" or j == "4" or j == "5" or j == "6" or j == "7" or j == "8" or j == "9":
+                teks += j
+            print(teks)
+        if int(message.author.id) == int(teks) and donto == 0:
+            print("iam innnn")
+            await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+            for jk in afkdic:
+                idh = message.author.id
+                idh = f"<@!{idh}>"
+                if idh == jk:
+                    tempdis = afkdic
+                    del tempdis[idh]
+                    collection.update_one({"_id":222},{"$set":{"afkdic":tempdis}})
+                    await message.channel.send(embed=discord.Embed(title="AFK Staus Removed! <a:ag_tickop:781395575962599445>", description=f"Afk Status For {i} is Removed", color=0x08FE73))
+
 
     for i in afkdic:
         if message.content.find(i) != -1:
@@ -467,21 +489,6 @@ async def on_message(message):
         afklos = afkdic.keys()
         await message.channel.send(embed=discord.Embed(title=f"AFK USERS LIST", description=f"{nemaf} Users Are AFK(Incl. of all my Servers)\n\nAfk Users list:"))
 
-    for i in afkdic:
-        k = list(i)
-        teks = ""
-        for j in k:
-            if j == "0" or j == "1" or j == "2" or j == "3" or j == "4" or j == "5" or j == "6" or j == "7" or j == "8" or j == "9":
-                teks += j
-        if int(message.author.id) == int(teks):
-            await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-            for jk in afkdic:
-                idh = message.author.id
-                idh = f"<@!{idh}>"
-                if idh == jk:
-                    del afkdic[idh]
-                    collection.update_one({"_id":222},{"$set":{"afkdic":afkdic}})
-                    await message.channel.send(embed=discord.Embed(title="AFK Staus Removed! <a:ag_tickop:781395575962599445>", description=f"Afk Status For {i} is Removed", color=0x08FE73))
 
 # EVAL
     if message.content.find("a/ eval ^") != -1 and message.author.id == 782624720989585409:
