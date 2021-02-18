@@ -17,11 +17,11 @@ from pymongo import MongoClient
 import bs4
 import urllib
 import urllib3
+import googlesearch
+from googlesearch import search
+from discord.ext import commands
 
-intents = discord.Intents.default()
-intents.members = True
-
-client = discord.Client(intents=intents)
+client = discord.Client()
 
 cluster = MongoClient("mongodb+srv://bot:1234@cluster0.5bkqm.mongodb.net/discord?retryWrites=true&w=majority")
 db = cluster["discord"]
@@ -191,7 +191,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="Today :date:\n▬▬▬▬▬▬▬▬▬▬", description="**Commands:**\n<a:ag_arrowgif:781395494127271947> `a/ time` :clock3: Shows the Time Now\n<a:ag_arrowgif:781395494127271947> `a/ date` :date: Shows the Date Today\n<a:ag_arrowgif:781395494127271947> <More to be added here>", color=0x6E05FC))
     if message.content == "a/ wiki help" or message.content == "a/ help wiki" or message.content == "a/ wiki" or message.content == "a/wiki help":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="Wikipedia Search :mag:\n▬▬▬▬▬▬▬▬▬▬", description="This commands Fetches Descreption about the Keyword you give.Make sure you give only one word as input(Will be Fixed soon!)\n**Syntax:**\n`a/ wiki =keyword`\n\n**Example:**\n`a/ wiki =bot`", color=0x05B5FC))
+        await message.channel.send(embed=discord.Embed(title="Wikipedia Search :mag:\n▬▬▬▬▬▬▬▬▬▬", description="This commands Fetches Descreption about the Keyword you give.\n**Syntax:**\n`a/ wiki =keyword`\n\n**Example:**\n`a/ wiki =bot making`", color=0x05B5FC))
     if message.content == "a/ help weather" or message.content == "a/ weather help" or message.content == "a/help weather":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Weather Reports\n▬▬▬▬▬▬▬▬▬▬", description="This Feature allows You to Get a weather Report Of your Preffered Location\n\n**Syntax:**\n`a/ weather =<location>`\n\n**Example:**\n`a/ weather =Chennai`", color=0x0527FC))
@@ -211,7 +211,7 @@ async def on_message(message):
     if message.content == 'a/ tax' or message.content == 'a/ tax help' or message.content == 'a/ help tax':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="TAX\n▬▬▬▬▬▬▬▬▬▬", description="**TAX**\n`tax` => Gives tax amount and Amount after tax.\nSyntax : `a/ tax <tax rate> <amt>`\nExample: `a/ tax 12 1000` or `a/ t 12 1000`\n\n`danktax` => Gives tax that DankMemer(bot) put on transferres\nSyntax : `a/ danktax <amt>`\nExample: `a/ danktax 150000` or `a/ dt 150000`", color=0xD705FC))
-    if message.content == 'a/ tax' or message.content == 'a/ poll help' or message.content == 'a/ help poll':
+    if message.content == 'a/ poll' or message.content == 'a/ poll help' or message.content == 'a/ help poll':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="POLL\n▬▬▬▬▬▬▬▬▬▬", description="This command is usefull For conducting Yes or No questions\nSyntax : `a/ poll =<question>`\nExample: `a/ poll =How is This Bot?`\nLot of features like custom emoji reaction custom color to be added soon!", color=0xBCFC09))
 
@@ -275,29 +275,37 @@ async def on_message(message):
 # WIKIPEDIA
     if message.content.find("a/ wiki =") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        edmsg = await message.channel.send(embed=discord.Embed(title="Searching... <a:ag_ldingwin:781410586138902529>", color=0x09BEFC))
         words = message.content.split("=")[-1]
+        wordas = message.content.split("=")[-1]
+        wordas = str(wordas)
         topa = ""
-        try:
-            for i in range(0,10):
-                a = words.split(" ")[i]
-                topa += f"{a}+"
-        except Exception as e:
-            pass
+        dups = list(words)
+        for i in range(0,len(dups)):
+            if dups[i] == " ":
+                topa += "+"
+            else:
+                topa += dups[i]
+        words = topa
+        print(words)
+        print(topa)
+        wordas = wordas.upper()
         def wiki_summary(arg):
             definition = wikipedia.summary(arg, sentences=5, chars=1000, auto_suggest=True, redirect=True)
             return definition
         try:
             desc = wiki_summary(words)
-            search = discord.Embed(title=f"{words}", description=f"**Defenition According to WikiPedia:**\n{desc}", color=0x05FCB1)
-            await message.channel.send(embed=search)
+            search = discord.Embed(title=f"{wordas}", description=f"**Defenition According to WikiPedia:**\n{desc}", color=0x05FCB1)
+            await edmsg.edit(embed=search)
         except Exception as e:
-            await message.channel.send(embed=discord.Embed(title="Page Not Found", description=f"**Possible Reasons:**\n<a:ag_arrowgif:781395494127271947> The Keyword **{words}** did not Match any Pages\n<a:ag_arrowgif:781395494127271947> My Ping or Latency is High\n<a:ag_arrowgif:781395494127271947> WikiPedia's Server is Down or not Responding", color=0xFC8C05))
+            await edmsg.edit(embed=discord.Embed(title="Page Not Found", description=f"**Possible Reasons:**\n<a:ag_arrowgif:781395494127271947> The Keyword **{words}** did not Match any Pages\n<a:ag_arrowgif:781395494127271947> My Ping or Latency is High\n<a:ag_arrowgif:781395494127271947> WikiPedia's Server is Down or not Responding", color=0xFC8C05))
 
 # WEATHER
     if message.content.startswith("a/ weather ="):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        wethd = await message.channel.send(embed=discord.Embed(title="Searching... <a:ag_ldingwin:781410586138902529>", color=0x09BEFC))
         location = message.content.split("=")[-1]
-        if len(location) >= 1:
+        if len(location) >= 2:
             url = f"http://api.openweathermap.org/data/2.5/weather?q={location}&appid={wthapikey}&units=metric"
             data = json.loads(requests.get(url).content)
             data = str(data)
@@ -369,11 +377,11 @@ async def on_message(message):
             snttim = snttim.split("}")[0]
             snttim = datetime.datetime.utcfromtimestamp(int(snttim)).strftime('%Y-%m-%d %H:%M:%S')
 
-            await message.channel.send(embed=discord.Embed(title=f"{location} Weather Report\n▬▬▬▬▬▬▬▬▬▬", description=f"{emoj}{emoj}{emoj}{emoj}{emoj}{emoj}\n<a:ag_arrowgif:781395494127271947> Longitide : {lon}\n<a:ag_arrowgif:781395494127271947> Latitude\
+            await wethd.edit(embed=discord.Embed(title=f"{location} Weather Report\n▬▬▬▬▬▬▬▬▬▬", description=f"{emoj}{emoj}{emoj}{emoj}{emoj}{emoj}\n<a:ag_arrowgif:781395494127271947> Longitide : {lon}\n<a:ag_arrowgif:781395494127271947> Latitude\
             : {lat}\n<a:ag_arrowgif:781395494127271947> Status : {stat}\n<a:ag_arrowgif:781395494127271947> Temperature : {temp}\n<a:ag_arrowgif:781395494127271947> Feels Like : {feels}\n<a:ag_arrowgif:781395494127271947> Minimum Temperature : {mintem}\n<a:ag_arrowgif:781395494127271947> Maximum Temperature : {maxtem}\n<a:ag_arrowgif:781395494127271947> Pressure : {press}\n<a:ag_arrowgif:781395494127271947> Humidity : {humid}\n<a:ag_arrowgif:781395494127271947> Wind Speed : {wndspd}", color=0x057DFC))
         else:
             await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-            await message.channel.send(embed=discord.Embed(title="Invalid Location <a:ag_exc:781410611366985748>", description="Enter a Valid Location", color=0xFC5F05))
+            await wethd.edit(embed=discord.Embed(title="Invalid Location <a:ag_exc:781410611366985748>", description="Enter a Valid Location", color=0xFC5F05))
 
 # SYSTEM STATS
     if message.content.find("a/ cpu") != -1:
@@ -483,7 +491,6 @@ async def on_message(message):
                     del tempdis[idh]
                     collection.update_one({"_id":222},{"$set":{"afkdic":tempdis}})
                     await message.channel.send(embed=discord.Embed(title="AFK Staus Removed! <a:ag_tickop:781395575962599445>", description=f"Afk Status For {i} is Removed", color=0x08FE73))
-
 
     for i in afkdic:
         if message.content.find(i) != -1:
@@ -602,8 +609,6 @@ async def on_message(message):
             elif i == "9":
                 emf += ":nine:"
         await message.channel.send(embed=discord.Embed(title=f"{emf}", description=f"Requested By : {message.author}", color=0x02FE95))
-
-
 
 # BASIC CALCULATOR
     if message.content.find('a/ div') != -1:
@@ -851,18 +856,22 @@ async def on_message(message):
         # (0°C × 9/5) + 32 = 32°F
         await message.channel.send(embed=discord.Embed(title=f"{far} Farenheit = {cans} Kelvin", color=0x05FCE2))
 
+# EMBED CREATOR
+    if message.content.find("a/ embed =") !=-1 or message.content.find("a/ embed=") !=-1:
+        embo = message.content.split("=")[1]
+
+
 # Google search
     if message.content.startswith("a/ google =") or message.content.startswith("a/ google="):
-        url = "https://google-search3.p.rapidapi.com/api/v1/search/q=elon+musk&num=1"
+        searchContent = ""
+        text = str(message.content).split(' ')
+        for i in range(2, len(text)):
+            searchContent = searchContent + text[i]
+        print(searchContent)
+        print(type(searchContent))
+        for j in search(searchContent, tld="co.in", num=1, stop=1, pause=2):
+            await message.channel.send(j)
 
-        headers = {
-            'x-rapidapi-key': "7acfb85b32msh218cdca2c7e7bdfp1163b1jsna314ac48f283",
-            'x-rapidapi-host': "google-search3.p.rapidapi.com"
-        }
-
-        response = requests.request("GET", url, headers=headers)
-
-        print(response.text)
 
 # SUGGEST
     if message.content.startswith("a/ suggest =") or message.content.startswith("a/ suggest="):
@@ -887,7 +896,6 @@ async def on_message(message):
                 if brds["moddel"] == 1:
                     await message.channel.purge(limit=1)
                 await message.channel.send(embed=discord.Embed(title=" :x: **Bad Word Warning** :warning: ", description=f"{message.author}, Do NOT :x: Use Bad Words!, You Have been Warned :warning: ", color=0x04FD03))
-
 
 # add word
     if message.content.startswith("a/ badword=") or message.content.startswith("a/ badword ="):
@@ -1098,36 +1106,37 @@ async def on_message(message):
     if message.content.find("bigfan") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send("<:bigfan:781410551016062987>")
-    if message.content == ("op") or message.content == ("Op") or message.content == ("OP") :
+    if message.content == ("a/ op") or message.content == ("a/op") or message.content == ("a/ OP") :
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send("<:ag_op:781395451492302859>")
-    if message.content == ("gg") or message.content == ("Gg") or message.content == ("GG"):
+    if message.content == ("a/ gg") or message.content == ("a/gg") or message.content == ("a/ GG"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send("<:ag_GG:781410564839964672>")
-    if message.content.find("Good morning") != -1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(description="Good Morning!!", color=0x04FD03))
-    if message.content.find("good morning") != -1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(description="Good Morning!!", color=0x04FD03))
-    if message.content.find("Good afternoon") != -1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(description="Good Afternoon!!", color=0x04FD03))
-    if message.content.find("good afternoon") != -1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(description="Good Afternoon!!", color=0x04FD03))
-    if message.content.find("Good evening") != -1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(description="Good Evening!!", color=0x04FD03))
-    if message.content.find("good evening") != -1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(description="Good Evening!!", color=0x04FD03))
-    if message.content.find("Good night") != -1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(description="Good Night!!", color=0x04FD03))
-    if message.content.find("good night") != -1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(description="Good Night!!", color=0x04FD03))
+    if str(message.guild.id) != "336642139381301249":
+        if message.content.find("Good morning") != -1:
+            await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+            await message.channel.send(embed=discord.Embed(description="Good Morning!!", color=0x04FD03))
+        if message.content.find("good morning") != -1:
+            await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+            await message.channel.send(embed=discord.Embed(description="Good Morning!!", color=0x04FD03))
+        if message.content.find("Good afternoon") != -1:
+            await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+            await message.channel.send(embed=discord.Embed(description="Good Afternoon!!", color=0x04FD03))
+        if message.content.find("good afternoon") != -1:
+            await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+            await message.channel.send(embed=discord.Embed(description="Good Afternoon!!", color=0x04FD03))
+        if message.content.find("Good evening") != -1:
+            await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+            await message.channel.send(embed=discord.Embed(description="Good Evening!!", color=0x04FD03))
+        if message.content.find("good evening") != -1:
+            await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+            await message.channel.send(embed=discord.Embed(description="Good Evening!!", color=0x04FD03))
+        if message.content.find("Good night") != -1:
+            await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+            await message.channel.send(embed=discord.Embed(description="Good Night!!", color=0x04FD03))
+        if message.content.find("good night") != -1:
+            await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+            await message.channel.send(embed=discord.Embed(description="Good Night!!", color=0x04FD03))
 
 # RANDOMS
     if message.content.find("a/ random") != -1:
@@ -1142,31 +1151,10 @@ async def on_message(message):
 
 # TESTS
     if message.content.startswith("testit"):
-        mage = await message.channel.send(embed=discord.Embed(title="hi how ads u"))
-        await asyncio.sleep(5)
-        await mage.edit(embed=discord.Embed(title="dodod"))
-        await mage.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-
-
-#         else:
-#             print("no perm lol")
-#
-
-    # if message.content.find("a/ 2test") != -1:
-    #     chanid = message.id
-    #     await message.channel.send(embed=discord.Embed(title=f"{chanid}", description="Your description\ndescreption2", color=000000))
-#     if message.content.find('a/ tstdivide') != -1:
-#         if message.content.split(' ')[-3] == 'divide':
-#             weer = message.content.split(' ')[-2]
-#             wer = message.content.split(' ')[-1]
-#         weer = int(weer)
-#         wer = int(wer)
-#         anss = weer/wer
-#         print(wer)
-#         print(weer)
-#         await message.channel.send(anss)
-#     if message.content.find("hillo") != -1:
-#         await message.channel.send("hillo")
+        target = message.author
+        embed=discord.Embed(title="hi how ads u")
+        embed.set_thumbnail(url=message.guild.icon_url)
+        await message.channel.send(embed=embed)
 
 # QUZZZZ
 
@@ -1331,25 +1319,7 @@ async def on_message(message):
 
     if message.content.find("a/ update") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**v1.5 UPDATES !!**", description="Added Vote(me) in invite menu and `a/ vote`\nAdded TAX Calculation Try `a/ tax help`\nAdded Emotify command Try `a/ emotify help` or `a/ misc help`\nAdded Poll System Try `a/ poll help` Will be improved so much in upcomming updates like custom emojis\nAFK status will be removed as soon as you type a message\nNow Bot responds to incomplete commands(mostly)\nQuiz System Enhanced\nEdited some help messages\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
-
-    if message.content.find("a/ xxd") !=-1:
-        if message.author.guild_permissions.manage_messages:
-            uhu = message.guild.members
-            nomes = ""
-            for i in range(0,len(uhu)):
-                topo = uhu[i]
-                topo = str(topo)
-                diso = topo
-                topo = topo.split('name=')[1]
-                topo = topo.split(' discri')[0]
-                diso = diso.split("ator=")[1]
-                diso = diso.split(" bot=")
-                topo += diso
-                nomes += f"{topo}\n"
-                await message.channel.send(embed=discord.Embed(title=f"Member List of {message.guild}\n▬▬▬▬▬▬▬▬▬▬", description=f"nomes"))
-        else:
-            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
+        await message.channel.send(embed=discord.Embed(title="**v1.6 UPDATES !!**", description="Wikipedia search Enhanced\nQuiz Algorithm Changed(need to add marks)\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
 
     if message.content.find("a/ xd") != -1:
         uhu = message.guild.members
