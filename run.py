@@ -28,9 +28,9 @@ db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-token = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-# token = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+# toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -41,10 +41,10 @@ messages = joined = 0
 mtlist = []
 
 # PRE DECLARE
-helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『ȺG』*₊⋆》V!GПΣ$hᴰᵉᵛ♪ــﮩ.ﮩ٨ــ#5105**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
-on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> TAX :ag_tax: (tax)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random:game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
+helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『ȺG』*₊⋆》V!GПΣ$hᴰᵉᵛ♪ــﮩ.ﮩ٨ــ#8888**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
+on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> TAX <:ag_tax:807893601244676116> (tax)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random :game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
 me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Poll  (poll)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (sugges\
-t)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)\n▬▬▬▬▬▬▬▬▬▬\n**Example:**\n`a/ delete help`", color=0x01FD14)
+t)\n<a:ag_arrowgif:781395494127271947> Google Search <a:ag_ggl:781410701327335445> (google)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)\n▬▬▬▬▬▬▬▬▬▬\n**Example:**\n`a/ delete help`", color=0x01FD14)
 
 invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **Usefull Links** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> [Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n<a:ag_arrowgif:781395494127271947> [VOTE ME](https://top.gg/bot/780472070072696852/vote)\n<a:ag_arrowgif:781395494127271947> [Support Server](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n<a:ag_arrowgif:781395494127271947> [ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
 
@@ -56,7 +56,7 @@ rp = 0
 
 @client.event
 async def on_ready():
-    if token == "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM":
+    if toktok == "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM":
         game = discord.Game("Having Fun Testing New Features")
         # await client.change_presence(status=discord.Status.idle, activity=game)
         # await client.change_presence(status=discord.Status.online, activity=game)
@@ -64,7 +64,7 @@ async def on_ready():
         await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
     else:
         # game = discord.Game("With 『AG』》Vigne$hᴰᵉᵛ#8351 a/ help")
-        game = discord.Game("Quiz, Ya its Ready !! Try a/ quiz help")
+        game = discord.Game("I have Lotz of new Features try a/ help !!")
         await client.change_presence(status=discord.Status.idle, activity=game)
         # await client.change_presence(status=discord.Status.online, activity=game)
         # await client.change_presence(status=discord.Status.invisible, activity=game)
@@ -134,7 +134,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(description="Use `a/ delete help` for Help Regarding Delete messges"))
     if message.content.startswith("a/ mod ") or message.content.startswith("a/mod"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title=":tools: Moderation <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="All moderation Commands Needs You and Me to have Specific **Permissions** to perform Moderation!\n\n**Commands:**\n<a:ag_arrowgif:781395494127271947> <:ag_ban:774867115529469992> - `a/ ban <mention user>`\n<a:ag_arrowgif:781395494127271947> Kick - `a/ kick <mention user>`\n<a:ag_arrowgif:781395494127271947> Delete - Use `a/ delete help` For more!\n<a:ag_arrowgif:781395494127271947> Pls Use `a/ pref help` for Chat and BadWord (Customisable) Moderation\n<a:ag_arrowgif:781395494127271947> Member Count - `a/ members`", color=0xFDDE01))
+        await message.channel.send(embed=discord.Embed(title=":tools: Moderation <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="All moderation Commands Needs You and Me to have Specific **Permissions** to perform Moderation!\n\n**Commands:**\n<a:ag_arrowgif:781395494127271947> <:ag_ban:774867115529469992> - `a/ ban <mention user> =<reason optional>`\n<a:ag_arrowgif:781395494127271947> Kick - `a/ kick <mention user> =<reason optional>`\n<a:ag_arrowgif:781395494127271947> Warn - `a/ warn <mention user> =<reason optional>`\n<a:ag_arrowgif:781395494127271947> Delete - Use `a/ delete help` For more!\n<a:ag_arrowgif:781395494127271947> Pls Use `a/ pref help` for Chat and BadWord (Customisable) Moderation\n<a:ag_arrowgif:781395494127271947> Member Count - `a/ members`", color=0xFDDE01))
     if message.content == "a/ delete help" or message.content == "a/ help delete":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**Delete Messages** :x:\n▬▬▬▬▬▬▬▬▬▬", description="Maximum of 500 Messages can be Deleted at a Time <a:ag_reddot:781410740619051008>\nYou need to Have Manage Messages Permisiion \n\nSyntax : `a/ delete <Number of msges in number>`\n\nExample:\n`a/ delete 15`", color=0x04FD03))
@@ -214,6 +214,9 @@ async def on_message(message):
     if message.content == 'a/ poll' or message.content == 'a/ poll help' or message.content == 'a/ help poll':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="POLL\n▬▬▬▬▬▬▬▬▬▬", description="This command is usefull For conducting Yes or No questions\nSyntax : `a/ poll =<question>`\nExample: `a/ poll =How is This Bot?`\nLot of features like custom emoji reaction custom color to be added soon!", color=0xBCFC09))
+    if message.content == 'a/ google' or message.content == 'a/ google help' or message.content == 'a/ help google':
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        await message.channel.send(embed=discord.Embed(title="Google Search <a:ag_ggl:781410701327335445>\n▬▬▬▬▬▬▬▬▬▬", description="You can search for almost anything in google with me!!\nSyntax:`a/ google <search terms>`\nExample:`a/ google asteroid bot`", color=0xBCFC09))
 
 # PREFERENCE
     if message.content.find("a/ set chatmod false") != -1 or message.content.find("a/set chatmod false") != -1:
@@ -295,8 +298,8 @@ async def on_message(message):
             return definition
         try:
             desc = wiki_summary(words)
-            search = discord.Embed(title=f"{wordas}", description=f"**Defenition According to WikiPedia:**\n{desc}", color=0x05FCB1)
-            await edmsg.edit(embed=search)
+            serch = discord.Embed(title=f"{wordas}", description=f"**Defenition According to WikiPedia:**\n{desc}", color=0x05FCB1)
+            await edmsg.edit(embed=serch)
         except Exception as e:
             await edmsg.edit(embed=discord.Embed(title="Page Not Found", description=f"**Possible Reasons:**\n<a:ag_arrowgif:781395494127271947> The Keyword **{words}** did not Match any Pages\n<a:ag_arrowgif:781395494127271947> My Ping or Latency is High\n<a:ag_arrowgif:781395494127271947> WikiPedia's Server is Down or not Responding", color=0xFC8C05))
 
@@ -471,7 +474,12 @@ async def on_message(message):
         afkdic[afkmens] = afkmsg
         collection.update_one({"_id":222},{"$set":{"afkdic":afkdic}})
         donto = 1
-        await message.channel.send(embed=discord.Embed(title="AFK Status Set! <a:ag_tickop:781395575962599445>", description=f"AFK status will be removed automatically in 1 day**Message From {afkmens}**\n{afkmsg}", color=0xFBFE02))
+        target = message.author
+        try:
+            await target.edit(nick=f"[AFK] {message.author}")
+        except Exception as e:
+            await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> Missing Permissions <a:ag_exc:781410611366985748>", description="Your AFK Status is set but Nickname Not chanPossible Reasons:\n<a:ag_arrowgif:781395494127271947> I Don't have Manage Nickname Permissions\n<a:ag_arrowgif:781395494127271947> You have a Higher Role than Me", color=0xFD4201))
+        await message.channel.send(embed=discord.Embed(title="AFK Status Set! <a:ag_tickop:781395575962599445>", description=f"AFK status will be removed automatically in 1 day **Message From {afkmens} **\n{afkmsg}", color=0xFBFE02))
 
     for i in afkdic:
         k = list(i)
@@ -502,7 +510,6 @@ async def on_message(message):
         afklos = afkdic.keys()
         await message.channel.send(embed=discord.Embed(title=f"AFK USERS LIST", description=f"{nemaf} Users Are AFK(Incl. of all my Servers)\n\nAfk Users list:"))
 
-
 # EVAL
     if message.content.find("a/ eval ^") != -1 and message.author.id == 782624720989585409:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
@@ -523,7 +530,15 @@ async def on_message(message):
             if message.author.guild_permissions.kick_members:
                 kikser = message.mentions[0]
                 await kikser.kick()
-                await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> KICKED <a:ag_exc:781410611366985748>", description=f"{message.author} has Kicked {kikser} from {message.guild}", color=0xFD0101))
+                kiksn = "no reason"
+                try:
+                    kiksn = message.content.split("=")[1]
+                except Exception as e:
+                    print(e)
+                kikbed = discord.Embed(title=f"<a:ag_exc:781410611366985748> KICKED {kikser}<a:ag_exc:781410611366985748>", description=f"{message.author} has Kicked {kikser} from {message.guild} for {kiksn}", color=0xFD0101)
+                await message.channel.send(embed=kikbed)
+                woks = message.mentions[0]
+                await woks.send(embed=kikbed)
 
             else:
                 await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Kick Members <a:ag_exc:781410611366985748>", color=0xFC4905))
@@ -539,7 +554,12 @@ async def on_message(message):
             if message.author.guild_permissions.ban_members:
                 banser = message.mentions[0]
                 await banser.ban()
-                await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> BANNED <a:ag_exc:781410611366985748>", description=f"**{message.author}** has Banned **{banser}** from {message.guild}", color=0xFD0101))
+                bansn = "no reason"
+                try:
+                    bansn = message.content.split("=")[1]
+                except Exception as e:
+                    print(e)
+                await message.channel.send(embed=discord.Embed(title=f"<a:ag_exc:781410611366985748> BANNED {banser}<a:ag_exc:781410611366985748>", description=f"**{message.author}** has Banned **{banser}** from {message.guild} for {bansn}", color=0xFD0101))
 
             else:
                 await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Ban Members <a:ag_exc:781410611366985748>", color=0xFC4905))
@@ -576,6 +596,26 @@ async def on_message(message):
 
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Mute Members <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+    if message.content.find("a/ warn") !=-1:
+        rsn = "none"
+        try:
+            try:
+                rsn = message.channel.split("=")[-1]
+            except Exception as tods:
+                rsn = "no reason"
+            if message.author.guild_permissions.manage_messages:
+                wrnser = message.mentions[0]
+                await message.channel.send(embed=discord.Embed(title=f"<a:ag_exc:781410611366985748> {wrnser} YOU HAVE BEEN WARNED !!! <a:ag_exc:781410611366985748>", description=f"<@!{wrnser.id}> you have been warned by <@!{message.author.id}>for {rsn}", color=0xFD0101))
+            else:
+                await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Warn Members <a:ag_exc:781410611366985748>", color=0xFC4905))
+        except Exception as exp:
+            exp = str(exp)
+            exp = exp.split(': ')[-1]
+            if exp == ("Missing Permissions"):
+                await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> Missing Permissions <a:ag_exc:781410611366985748>", description="Possible Reasons:\n<a:ag_arrowgif:781395494127271947> I Don't have Kick Permissions\n<a:ag_arrowgif:781395494127271947> The Member You are trying to Kick has a Higher Role than Me", color=0xFD4201))
+            else:
+                print(exp)
 
 # EMOTIFY
     if message.content.find("a/ emotify =") !=-1:
@@ -686,7 +726,6 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"HCF of **{num1}** and **{num2}** =\n **{hcf}** <a:ag_tickop:781395575962599445>", color=0x02FE95))
 
 # TAX
-
     if message.content.find('a/ tax') != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         if message.content.split(' ')[-3] == 'tax' or message.content.split(' ')[-2] == 't':
@@ -862,16 +901,17 @@ async def on_message(message):
 
 
 # Google search
-    if message.content.startswith("a/ google =") or message.content.startswith("a/ google="):
-        searchContent = ""
-        text = str(message.content).split(' ')
-        for i in range(2, len(text)):
-            searchContent = searchContent + text[i]
-        print(searchContent)
-        print(type(searchContent))
-        for j in search(searchContent, tld="co.in", num=1, stop=1, pause=2):
-            await message.channel.send(j)
-
+    if message.content.startswith('a/ google'):
+        if message.content != 'a/ google' or message.content != 'a/ google help' or message.content != 'a/ help google':
+            await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+            edglm = await message.channel.send(embed=discord.Embed(title="Searching... <a:ag_ldingwin:781410586138902529>", color=0x09BEFC))
+            searchContent = ""
+            text = str(message.content).split(' ')
+            for i in range(2, len(text)):
+                searchContent = searchContent + text[i]
+            for j in search(searchContent, tld="co.in", num=1, stop=1, pause=4):
+                await edglm.delete()
+                await message.channel.send(j)
 
 # SUGGEST
     if message.content.startswith("a/ suggest =") or message.content.startswith("a/ suggest="):
@@ -884,7 +924,6 @@ async def on_message(message):
         await sogs.add_reaction('👎')
 
 # BAD WORD MODERATION
-
     gid = message.guild.id
     brds = collection.find_one({"_id":gid})
     if brds != None and brds["chatmod"] == 1:
@@ -1151,16 +1190,18 @@ async def on_message(message):
 
 # TESTS
     if message.content.startswith("testit"):
-        target = message.author
-        embed=discord.Embed(title="hi how ads u")
-        embed.set_thumbnail(url=message.guild.icon_url)
-        await message.channel.send(embed=embed)
+        woks = message.mentions[0]
+        await woks.send("hiiiii wow")
+
+        # embed=discord.Embed(title="hi how ads u")
+        # embed.set_thumbnail(url=message.guild.icon_url)
+        # await message.channel.send(embed=embed)
 
 # QUZZZZ
-
     if message.content == ("a/ quiz start") != -1 or message.content == ("a/quiz start") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**INVALID SYNTAX**", description="Syntax: `a/ quiz start <level> <topic id>`\nExample: `a/ quiz start 2 12` (Topic id is optional)", color=0xFC0505))
+
     if message.content.startswith("a/ quiz start "):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         diffc = message.content.split(" ")[3]
@@ -1319,7 +1360,7 @@ async def on_message(message):
 
     if message.content.find("a/ update") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**v1.6 UPDATES !!**", description="Wikipedia search Enhanced\nQuiz Algorithm Changed(need to add marks)\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
+        await message.channel.send(embed=discord.Embed(title="**v1.6 UPDATES !!**", description="Google Search Added! Try `a/ help google`\nWarn command Added in mod menu `a/ mod help`\nNow a optional reason can be added for every ban, kick and warn command performed try `a/ mod help`\nAFK Status changed your nickname in that server :fire: \nAFK More enhanced\nWikipedia search Enhanced\nQuiz Algorithm Changed(need to add marks)\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
 
     if message.content.find("a/ xd") != -1:
         uhu = message.guild.members
@@ -1337,7 +1378,7 @@ async def on_message(message):
 client.loop.create_task(update_stats())
 
 
-client.run(token)
+client.run(toktok)
 
 #   ||| CMD COMMANDS |||
 # do to directory in cmd
