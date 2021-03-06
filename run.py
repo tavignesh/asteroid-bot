@@ -1585,11 +1585,11 @@ async def on_message(message):
         duradb = duradb/2
         duradb = math.floor(duradb)
         startwiki = perf_counter()
-        def wiki_summary(arg):
-            definition = wikipedia.summary(arg, sentences=5, chars=1000, auto_suggest=True, redirect=True)
+        def woki_summary(argo):
+            definition = wikipedia.summary(argo, sentences=5, chars=1000, auto_suggest=True, redirect=True)
             return definition
         words = "asteroid"
-        desc = wiki_summary(words)
+        desc = woki_summary(words)
         endwiki = perf_counter()
         durawiki = (endwiki - startwiki) * 1000
         durawiki = math.floor(durawiki)
