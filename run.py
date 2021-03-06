@@ -1586,10 +1586,10 @@ async def on_message(message):
         duradb = math.floor(duradb)
         startwiki = perf_counter()
         def woki_summary(argo):
-            definition = wikipedia.summary(argo, sentences=5, chars=1000, auto_suggest=True, redirect=True)
-            return definition
-        words = "asteroid"
-        desc = woki_summary(words)
+            definii = wikipedia.summary(argo, sentences=5, chars=1000, auto_suggest=True, redirect=True)
+            return definii
+        word0s = "asteroid"
+        desco = woki_summary(word0s)
         endwiki = perf_counter()
         durawiki = (endwiki - startwiki) * 1000
         durawiki = math.floor(durawiki)
@@ -1599,7 +1599,13 @@ async def on_message(message):
         enddic = perf_counter()
         duradic = (enddic - startdic) * 1000
         duradic = math.floor(duradic)
-        await mesa.edit(embed=discord.Embed(title="Pings and Pongs <a:ag_ggl:781410701327335445>", description=f":alarm_clock: API Ping: {ping}ms\n:satellite: Latency: {duration}ms\n:hourglass: Total Ping: {ping+duration}ms\n:card_box: DataBase Ping: {duradb}ms\n:scroll: Wikipedia Ping: {durawiki}ms\n<a:ag_book_pgs:781410721397080084> Dictionary Ping: {duradic}ms", color=0x02BDFE))
+        startggl = perf_counter()
+        for j in search(searchContent, tld="co.in", num=1, stop=1, pause=4):
+            print("hmm")
+        endggl = perf_counter()
+        duraggl = (endggl - startggl) * 1000
+        duraggl = math.floor(duraggl)
+        await mesa.edit(embed=discord.Embed(title="Pings and Pongs <a:ag_ggl:781410701327335445>", description=f":alarm_clock: API Ping: {ping}ms\n:satellite: Latency: {duration}ms\n:hourglass: Total Ping: {ping+duration}ms\n<:ag_gglsym:817776047315091459> Google Ping: {duraggl}ms\n:card_box: DataBase Ping: {duradb}ms\n:scroll: Wikipedia Ping: {durawiki}ms\n<a:ag_book_pgs:781410721397080084> Dictionary Ping: {duradic}ms", color=0x02BDFE))
 
 client.loop.create_task(update_stats())
 
