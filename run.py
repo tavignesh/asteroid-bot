@@ -1600,7 +1600,8 @@ async def on_message(message):
         duradic = (enddic - startdic) * 1000
         duradic = math.floor(duradic)
         startggl = perf_counter()
-        for j in search(searchContent, tld="co.in", num=1, stop=1, pause=4):
+        searchCont = "asteroid"
+        for j in search(searchCont, tld="co.in", num=1, stop=1, pause=4):
             print("hmm")
         endggl = perf_counter()
         duraggl = (endggl - startggl) * 1000
