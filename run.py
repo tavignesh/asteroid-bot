@@ -1101,7 +1101,7 @@ async def on_message(message):
         sugg = message.content.split('=')[-1]
         await message.channel.send(embed=discord.Embed(title=" <a:ag_reddot:781410740619051008> Suggested! <a:ag_reddot:781410740619051008> ", description="Thanks for Your Valuable Suggestion!\nYour Suggestion Has Been Submitted! <a:ag_tickop:781395575962599445> ", color=0x04FD03))
         channel = client.get_channel(784697044236763176)
-        sogs = await channel.send(embed=discord.Embed(title=f" <a:ag_reddot:781410740619051008> Suggestion by \n{message.author} From {message.guild} <a:ag_reddot:781410740619051008> ", description=f"`{sugg}`", color=0x04FD03))
+        sogs = await channel.send(embed=discord.Embed(title=f" <a:ag_reddot:781410740619051008> Suggestion by :**{message.author}** From **{message.guild}** <a:ag_reddot:781410740619051008> ", description=f"`{sugg}`", color=0x04FD03))
         await sogs.add_reaction('👍')
         await sogs.add_reaction('👎')
 
