@@ -1,0 +1,40 @@
+import requests,os,re,bs4
+from jinja2 import Template
+from json2html import *
+    ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+    result = ansi_escape.sub('', os.popen('neofetch --jp2a').read().replace('[32m','\n')).replace('\x1b','').replace('\n\n','\n')
+    det = result.split('\n')
+    user = det[1].replace('@','')
+    name = det[2]
+    ops = det[4].replace('OS: ','')
+    kernel = det[5].replace('Kernel: ','')
+    uptime = det[6].replace('Uptime: ','')
+    shell = det[7].replace('Shell: ','')
+    screen = det[8].replace('Resolution: ','')
+    cpu = det[9].replace('CPU: ','')
+    gpu = det[10].replace('GPU: ','')
+    memory = det[11].replace('Memory: ','')
+    gpudriver = det[12].replace('GPU Driver: ','')
+    cpuusage = det[13].replace('CPU Usage: ','')
+    disk = det[14].replace('Disk (/): ','')
+    localip = det[15].replace('Local IP: ','')
+    publicip = det[16].replace('Public IP: ','')
+    neofetch = {
+        'User' : f"{user}@{name}",
+        'OS' : ops,
+        'Kernel' : kernel,
+        'Uptime' : uptime,
+        'Shell' : shell,
+        'Screen' : screen,
+        'CPU' : cpu,
+        'GPU' : gpu,
+        'Memory' : memory,
+        'GPU Driver' : gpudriver,
+        'CPU Usage' : cpuusage,
+        'Disk' : disk,
+        'Local IP' : localip,
+        'Public IP' : publicip 
+    }
+
+    # prettyjson = json.dumps(neofetch, indent=4, sort_keys=True).replace('\n','<br />')
+    prettyjson = json2html.convert(json = neofetch)

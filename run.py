@@ -218,7 +218,7 @@ async def on_message(message):
         Remove Blacklisted word `a/ remove badword=<word>`\n<a:ag_arrowgif:781395494127271947> Add some Default Badwords `a/ badword defaults`\n<a:ag_arrowgif:781395494127271947> Clear All badwords `a/ badwords clear`", color=0xBCFC09))
     if message.content == 'a/ tax' or message.content == 'a/ tax help' or message.content == 'a/ help tax':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="TAX\n▬▬▬▬▬▬▬▬▬▬", description="**TAX**\n`tax` => Gives tax amount and Amount after tax.\nSyntax : `a/ tax <tax rate> <amt>`\nExample: `a/ tax 12 1000` or `a/ t 12 1000`\n\n`danktax` => Gives tax that DankMemer(bot) put on transferres\nSyntax : `a/ danktax <amt>`\nExample: `a/ danktax 150000` or `a/ dt 150000`", color=0xD705FC))
+        await message.channel.send(embed=discord.Embed(title="TAX\n▬▬▬▬▬▬▬▬▬▬", description="**TAX**\n`tax` => Gives tax amount and Amount after tax.\nSyntax : `a/ tax <tax rate> <amt>`\nExample: `a/ tax 12 1000` or `a/ t 12 1000`", color=0xD705FC))
     if message.content == 'a/ poll' or message.content == 'a/ poll help' or message.content == 'a/ help poll':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="POLL\n▬▬▬▬▬▬▬▬▬▬", description="This command is usefull For conducting Yes or No Questions or Voting\nTwo types of polls:\n1. :thumbsup: , :thumbsdown: (`a/ poll1 =<qn>` or just `a/ poll =<qn>`)\n2. <:ag_upvote:816330395506180107>, <:ag_downvote:816330463937167391> (`a/ poll2 =<qn>`)\nSyntax : `a/ poll1 =<question>`\nExample: `a/ poll1 =How is This Bot?`\nLot of features like custom emoji reaction custom color to be added soon!", color=0xBCFC09))
@@ -788,26 +788,6 @@ async def on_message(message):
             atxr = num2*num1
             atxr = atxr/100
             await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"**{num2}** Amount\n**{num1}%** tax \nTax Amount = **{atxr}**\nBal Amount = {num2-atxr} <a:ag_tickop:781395575962599445>", color=0x02FE95))
-
-    if message.content.find('a/ danktax') != -1 or message.content.find('a/ dt ') != -1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        if message.content.split(' ')[-2] == 'danktax' or message.content.split(' ')[-2] == 'dt':
-            num2 = message.content.split(' ')[-1]
-            num2 = int(num2)
-            num1 = 0
-            if num2 > 25000 and num1 <= 50000:
-                num1 = 1
-            elif num2 > 50000 and num1 <= 100000:
-                num1 = 3
-            elif num2 > 100000 and num1 <= 749999:
-                num1 = 5
-            elif num2 > 750000 and num1 <= 2499999:
-                num1 = 8
-            elif num2 > 2500000:
-                num1 = 15
-            atxr = num2 * num1
-            atxr = atxr / 100
-            await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"**{num2}** Amount\n**{num1}%** Tax\nTax Amount = **{atxr}**\nBal Amount = {num2-atxr}<a:ag_tickop:781395575962599445>", color=0x02FE95))
 
 # COMPLEX CALCULATOR 1
     if message.content.find("a/ ceil ") != -1:
