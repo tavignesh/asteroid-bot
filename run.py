@@ -142,7 +142,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(description="Use `a/ delete help` for Help Regarding Delete messges"))
     if message.content.startswith("a/ mod ") or message.content.startswith("a/mod"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title=":tools: Moderation <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="All moderation Commands Needs You and Me to have Specific **Permissions** to perform Moderation!\n\n**Commands:**\n<a:ag_arrowgif:781395494127271947> <:ag_ban:774867115529469992> - `a/ ban <mention user> =<reason optional>`\n<a:ag_arrowgif:781395494127271947> Kick - `a/ kick <mention user> =<reason optional>`\n<a:ag_arrowgif:781395494127271947> Warn - `a/ warn <mention user> =<reason optional>`\n<a:ag_arrowgif:781395494127271947> Delete - Use `a/ delete help` For more!\n<a:ag_arrowgif:781395494127271947> Pls Use `a/ pref help` for Chat and BadWord (Customisable) Moderation\n<a:ag_arrowgif:781395494127271947> Member Count - `a/ members`", color=0xFDDE01))
+        await message.channel.send(embed=discord.Embed(title=":tools: Moderation <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="All moderation Commands Needs You and Me to have Specific **Permissions** to perform Moderation!\n\n**Commands:**\n<a:ag_arrowgif:781395494127271947> <:ag_ban:774867115529469992> - `a/ ban <mention user> for <reason optional>`\n<a:ag_arrowgif:781395494127271947> Kick - `a/ kick <mention user> for <reason optional>`\n<a:ag_arrowgif:781395494127271947> Warn - `a/ warn <mention user> =<reason optional>`\n<a:ag_arrowgif:781395494127271947> Delete - Use `a/ delete help` For more!\n<a:ag_arrowgif:781395494127271947> Pls Use `a/ pref help` for Chat and BadWord (Customisable) Moderation\n<a:ag_arrowgif:781395494127271947> Member Count - `a/ members`", color=0xFDDE01))
     if message.content == "a/ delete help" or message.content == "a/ help delete":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**Delete Messages** :x:\n▬▬▬▬▬▬▬▬▬▬", description="Maximum of 500 Messages can be Deleted at a Time <a:ag_reddot:781410740619051008>\nYou need to Have Manage Messages Permisiion \n\nSyntax : `a/ delete <Number of msges in number>`\n\nExample:\n`a/ delete 15`", color=0x04FD03))
@@ -582,8 +582,9 @@ async def on_message(message):
                 kikser = message.mentions[0]
                 kiksn = "no reason"
                 try:
-                    kiksn = message.content.split("=")[1]
+                    kiksn = message.content.split("for")[1]
                 except Exception as e:
+                    kiksn = "no reason"
                     print(e)
                 await kikser.kick(reason=f"{kiksn}")
                 kikbed = discord.Embed(title=f"<a:ag_exc:781410611366985748> KICKED {kikser}<a:ag_exc:781410611366985748>", description=f"{message.author} has Kicked {kikser} from {message.guild} for {kiksn}", color=0xFD0101)
@@ -606,9 +607,9 @@ async def on_message(message):
                 banser = message.mentions[0]
                 bansn = "no reason"
                 try:
-                    bansn = message.content.split("=")[1]
+                    bansn = message.content.split("for")[1]
                 except Exception as e:
-                    print(e)
+                    bansn = "no reason"
                 await banser.ban(reason=f"{bansn}")
                 await message.channel.send(embed=discord.Embed(title=f"<a:ag_exc:781410611366985748> BANNED {banser}<a:ag_exc:781410611366985748>", description=f"**{message.author}** has Banned **{banser}** from {message.guild} for {bansn}", color=0xFD0101))
 
@@ -652,12 +653,12 @@ async def on_message(message):
         rsn = "none"
         try:
             try:
-                rsn = message.channel.split("=")[-1]
+                rsn = message.channel.split("for")[-1]
             except Exception as tods:
                 rsn = "no reason"
             if message.author.guild_permissions.manage_messages:
                 wrnser = message.mentions[0]
-                await message.channel.send(embed=discord.Embed(title=f"<a:ag_exc:781410611366985748> {wrnser} YOU HAVE BEEN WARNED !!! <a:ag_exc:781410611366985748>", description=f"<@!{wrnser.id}> you have been warned by <@!{message.author.id}>for {rsn}", color=0xFD0101))
+                await message.channel.send(embed=discord.Embed(title=f"<a:ag_exc:781410611366985748> {wrnser} YOU HAVE BEEN WARNED :warning: !!!", description=f"<@!{wrnser.id}> you have been warned by <@!{message.author.id}> for {rsn}", color=0xFD0101))
             else:
                 await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Warn Members <a:ag_exc:781410611366985748>", color=0xFC4905))
         except Exception as exp:
