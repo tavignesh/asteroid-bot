@@ -1065,11 +1065,11 @@ async def on_message(message):
             lstrrr.append(int(ochan.id))
             print(lstrrr)
             collection.update_one({"_id":1341}, {"$set":{"chan":lstrrr}})
-            tickde = discord.Embed(title=f"Created! <a:ag_tickop:781395575962599445>", description=f"Here: {ochan.mention}")
+            tickde = discord.Embed(title=f"Created! <a:ag_tickop:781395575962599445>", description=f"Here: {ochan.mention}", color=0x2AE717)
             tickde.set_footer(text=f"Requested by: {message.author.mention}", icon_url=f"{message.author.avatar_url}")
             await edsf.edit(embed=tickde)
         else:
-            await message.channel.send(embed=discord.Embed(title="This server has not enabled Ticketing System", description="To enable use `a/ ticket help`"))
+            await message.channel.send(embed=discord.Embed(title="This server has not enabled Ticketing System", description="To enable use `a/ ticket help`", color=0x2AE717))
 
     if message.content == "a/ close" or message.content == "a/close":
         vars = collection.find_one({"_id":1341})
