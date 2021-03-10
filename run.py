@@ -29,9 +29,9 @@ db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+# toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-# toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -170,10 +170,10 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="**Complex Calculator #2** :1234:\n▬▬▬▬▬▬▬▬▬▬", description="Single Input Functions\n All Double Input variable = `a` and `b`\n▬▬▬▬▬▬▬▬▬▬\n`bilog` => Gives the Value of Log `a` to the Base `b`\nExample: `a/ bilog 100 2` Gives `6.643856189774725`\n\n`pow` => Gives the Value of `a` to the Power `b`\nExample: `a/ pow 5 2` Gives `25`\n\n▬▬▬▬▬▬▬▬▬▬\n**TAX**\n`tax` => Gives tax amount and Amount after tax, `a` is tax% and `b` is amount\nExample: `a/ tax 12 1000`\n\n`danktax` => Gives tax that DankMemer(bot) put on transferres\nExample: `a/ danktax 150000`", color=0xD705FC))
     if message.content == "a/ afk help" or message.content == "a/ help afk" or message.content == "a/ afk" or message.content == "a/afk help":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="AFK Status :zzz:\n▬▬▬▬▬▬▬▬▬▬", description="If u set afk status all the Messages tht Ping U will be Deleted :x: with a msg U gave!\n\n**Syntax:**\n<a:ag_arrowgif:781395494127271947> Set AFK - `a/ afk =<reason>`\n<a:ag_arrowgif:781395494127271947> Remove AFK - `a/ afk remove`", color=0xA205FC))
+        await message.channel.send(embed=discord.Embed(title="AFK Status :zzz:\n▬▬▬▬▬▬▬▬▬▬", description="If you set afk status all the Messages that Ping you will be responded with a msg you gave!\n\n**Syntax:**\n<a:ag_arrowgif:781395494127271947> Set AFK - `a/ afk =<reason>`\n<a:ag_arrowgif:781395494127271947> Remove AFK - `a/ afk remove`", color=0xA205FC))
     if message.content == "a/ say help" or message.content == "a/ help say" or message.content == "a/ say":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="SAY :speech_balloon: \n▬▬▬▬▬▬▬▬▬▬", description="This Command Makes Me to Say or Delete and Say What U say!!\n\n**Syntax:**\n`a/ say = <text>` or `a/ delsay = <text>`\n\n**Example:**\n`a/ say =text this you bot!`", color=0x4805FC))
+        await message.channel.send(embed=discord.Embed(title="SAY :speech_balloon: \n▬▬▬▬▬▬▬▬▬▬", description="This Command Makes Me to Say or Delete and Say What you say!!\n\n**Syntax:**\n`a/ say = <text>` or `a/ delsay = <text>`\n\n**Example:**\n`a/ say =text this you bot!`", color=0x4805FC))
     if message.content == "a/ random help" or message.content == "a/ help random":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Random :game_die: \n▬▬▬▬▬▬▬▬▬▬", description="This Chooses a number from 1 to `a` randomly.\n\n**Syntax:** \n`a/ random <Number>`\n\n**Example:**\n`a/ random 3`", color=0xFC058C))
@@ -230,10 +230,51 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="Dictionary 📔\n▬▬▬▬▬▬▬▬▬▬", description="You can search for definition with examples in this dictionary with me!!\nSyntax:`a/ dic =<search terms>` or `a/ def =<search term>`\nExample:`a/ def =asteroid`", color=0xBCFC09))
     if message.content == 'a/ ticket help' or message.content == 'a/ help ticket':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="Ticket System <a:ag_ggl:781410701327335445>\n▬▬▬▬▬▬▬▬▬▬", description="**THIS FEATURE WILL BE AVAILABLE IN V1.8 SORRY**\nYou can search for almost anything in google with me!!\nSyntax:`a/ google <search terms>`\nExample:`a/ google asteroid bot`", color=0xBCFC09))
+        await message.channel.send(embed=discord.Embed(title="Ticket System <a:ag_ggl:781410701327335445>\n▬▬▬▬▬▬▬▬▬▬", description="You can Create ticket to contact staff and discuss personally \nTo create a ticket use `a/ new ticket`\nTo enable this feature use `a/ ticket enable`\nTo Close a single ticket use `a/ close`\nTo close all tickets use `a/ close all`", color=0xBCFC09))
 
 
 # PREFERENCE
+    if message.content == "a/ ticket enable" or message.content == "a/ ticket true" or message.content == "a/ enable ticket":
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.author.guild_permissions.manage_channels:
+            tif = await message.channel.send(embed=discord.Embed(title="Enabling...", color=0x2AE717))
+            srvdic = collection.find_one({"_id":1341})
+            srvlst = srvdic["ids"]
+            if int(message.guild.id) in srvlst:
+                await tif.edit(embed=discord.Embed(title="Already Enabled", color=0x2AE717))
+            else:
+                strgid = int(message.guild.id)
+                srvlst.append(strgid)
+                collection.update_one({"_id":1341}, {"$set":{"ids":srvlst}})
+                await tif.edit(embed=discord.Embed(title="Enabled", description=f"Requseted By : {message.author.mention}", color=0x2AE717))
+        else:
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Channels <a:ag_exc:781410611366985748>", color=0xFC4905))
+
+    if message.content == "a/ ticket disable" or message.content == "a/ ticket false" or message.content == "a/ disable ticket":
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        if message.author.guild_permissions.manage_channels:
+            tif = await message.channel.send(embed=discord.Embed(title="Disabling...", color=0x2AE717))
+            srvdic = collection.find_one({"_id":1341})
+            srvlst = srvdic["ids"]
+            if int(message.guild.id) not in srvlst:
+                await tif.edit(embed=discord.Embed(title="Already Disabled", color=0x2AE717))
+            else:
+                strgid = int(message.guild.id)
+                srvlst.remove(strgid)
+                collection.update_one({"_id": 1341}, {"$set": {"ids": srvlst}})
+                await tif.edit(embed=discord.Embed(title="Disabled", description=f"Requested By: {message.author.mention}", color=0x2AE717))
+        if message.author.guild_permissions.manage_channels:
+            srvdic = collection.find_one({"_id":1341})
+            srvlst = srvdic["ids"]
+            if int(message.guild.id) not in srvlst:
+                print("ooo")
+            else:
+                strgid = int(message.guild.id)
+                srvlst.remove(strgid)
+                collection.update_one({"_id": 1341}, {"$set": {"ids": srvlst}})
+        else:
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Channels <a:ag_exc:781410611366985748>", color=0xFC4905))
+
     if message.content.find("a/ set chatmod false") != -1 or message.content.find("a/set chatmod false") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         if message.author.guild_permissions.manage_messages:
@@ -1028,25 +1069,26 @@ async def on_message(message):
 
 # Ticketing
 # edit preferences (new for ticket system)
-    if (message.content.startswith("a/ create ticket") or message.content.startswith("a/ new ticket") and message.content != "a/ ticket create"):
+    if (message.content.startswith("a/ create ticket") or message.content.startswith("a/ new ticket") or message.content == "a/ ticket new") and message.content != "a/ ticket create":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         srlst = collection.find_one({"_id" : 1341})
-        if str(message.guild.id) in srlst["ids"]:
-            edsf = await message.channel.send(embed=discord.Embed(title="Creating...", color=0x05FCE2))
+        if int(message.guild.id) in srlst["ids"]:
+            edsf = await message.channel.send(embed=discord.Embed(title="<a:ag_ldingwin:781410586138902529> Creating...", color=0x05FCE2))
             tickid = randata()
             tickid = f"ticket-{tickid}"
             doms = message
             print(tickid)
             overwrites = {
-                message.guild.default_role: discord.PermissionOverwrite(read_messages=False),
-                message.author: discord.PermissionOverwrite(read_messages=True),
-                doms.author: discord.PermissionOverwrite(send_messages=True)
+                message.guild.default_role: discord.PermissionOverwrite(read_messages=False)
             }
-            ochan = await message.guild.create_text_channel('secret', overwrites=overwrites)
+            ochan = await message.guild.create_text_channel(f'{tickid}', overwrites=overwrites)
+            porms = ochan.overwrites_for(message.author)
+            await ochan.set_permissions(message.author, read_messages=not porms.read_messages)
             lstrrr = srlst["chan"]
-            lstrrr.append(tickid)
+            lstrrr.append(int(ochan.id))
+            print(lstrrr)
             collection.update_one({"_id":1341}, {"$set":{"chan":lstrrr}})
-            tickde = discord.Embed(title=f"Created: {ochan.mention}")
+            tickde = discord.Embed(title=f"Created! <a:ag_tickop:781395575962599445>", description=f"Here: {ochan.mention}")
             tickde.set_footer(text=f"Requested by: {message.author.mention}", icon_url=f"{message.author.avatar_url}")
             await edsf.edit(embed=tickde)
         else:
@@ -1055,13 +1097,25 @@ async def on_message(message):
     if message.content == "a/ close" or message.content == "a/close":
         vars = collection.find_one({"_id":1341})
         vers = vars["chan"]
-        if str(message.channel) in str(vers):
-            await message.channel.delete()
-            kuchnahi = vers.pop(message.channel)
+        if int(message.channel.id) in vers:
+            vers.remove(int(message.channel.id))
             collection.update_one({"_id":1341}, {"$set":{"chan":vers}})
+            await message.channel.delete()
+
+    if message.content == "a/ close all":
+        if message.author.guild_permissions.manage_channels:
+            clsallmsg = await message.channel.send(embed=discord.Embed(title=f"<a:ag_ldingwin:781410586138902529> Deleteing all created tickets...", description=f"Requested by: {message.author.mention}", color=0x2AE717))
+            vars = collection.find_one({"_id": 1341})
+            vers = vars["chan"]
+            for dh in message.guild.channels:
+                if int(dh.id) in vers:
+                    await dh.delete()
+            await clsallmsg.edit(embed=discord.Embed(title="All Tickets Closed (Deleted) <a:ag_tickop:781395575962599445>", description=f"Requested by: {message.author.mention}", color=0x2AE717))
+        else:
+            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Channels <a:ag_exc:781410611366985748>", color=0xFC4905))
 
 # channel = client.get_channel(id)
-    # await channel.delete()
+# await channel.delete()
 
 # Google search
     if message.content.startswith('a/ google'):
@@ -1362,14 +1416,7 @@ async def on_message(message):
 # TESTS
     if message.content.startswith("testit"):
         colasd = await message.channel.send("testing msg")
-        channellst = []
-        print(message.guild.channels)
-        for chandel in message.guild.channels:
-            print(chandel)
-            print(type(chandel))
-            if chandel.type == 'Text':
-                channellst.append(chandel)
-        print(channellst)
+
 
 
         # embed=discord.Embed(title="hi how ads u")
@@ -1448,7 +1495,6 @@ async def on_message(message):
             topm = 0
             mos = await message.channel.send(embed=discord.Embed(title="Question in 2 secs!!", color=0xFDFC03))
             await asyncio.sleep(1)
-            # if
             url = f"https://opentdb.com/api.php?amount=1&category={cat}&difficulty={diff}&type=boolean"
             data = json.loads(requests.get(url).content)
             # data = {"response_code":0,"results":[{"category":"General Knowledge","type":"boolean","difficulty":"easy","question":"On average, at least 1 person is killed by a drunk driver in the United States every hour.","correct_answer":"True","incorrect_answers":["False"]}]}
