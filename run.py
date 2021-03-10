@@ -228,7 +228,7 @@ async def on_message(message):
     if message.content == 'a/ google' or message.content == 'a/ def help' or message.content == 'a/ dic help' or message.content == 'a/ help def' or message.content == 'a/ help dic':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Dictionary 📔\n▬▬▬▬▬▬▬▬▬▬", description="You can search for definition with examples in this dictionary with me!!\nSyntax:`a/ dic =<search terms>` or `a/ def =<search term>`\nExample:`a/ def =asteroid`", color=0xBCFC09))
-    if message.content == 'a/ ticket help' or message.content == 'a/ help ticket':
+    if message.content == 'a/ ticket help' or message.content == 'a/ help ticket' or message.content == 'a/ ticket':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Ticket System <a:ag_ggl:781410701327335445>\n▬▬▬▬▬▬▬▬▬▬", description="You can Create ticket to contact staff and discuss personally \nTo create a ticket use `a/ new ticket`\nTo enable Ticketing system feature use `a/ ticket enable`\nTo disable Ticketing system use `a/ ticket disable`\nTo Close a single ticket use `a/ close`\nTo close all tickets use `a/ close all`", color=0xBCFC09))
 
@@ -669,7 +669,6 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Mute Members <a:ag_exc:781410611366985748>", color=0xFC4905))
 
     if message.content.find("a/ warn") !=-1:
-        rsn = "none"
         try:
             try:
                 rsn = message.channel.split("for")[-1]
@@ -1563,7 +1562,7 @@ async def on_message(message):
 
     if message.content.find("a/ update") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**v1.7 UPDATES !!**\nI am going to get verified soon WOW!! TYSM", description="Embed creator added!! try `a/ embed help`\nAdded dictionary search, Try `a/ def help`\nAdded lot more Pings. Try `a/ ping`\nAdded 2 types of poll (1. :thumbsup: :thumbsdown: or 2. <:ag_upvote:816330395506180107> <:ag_downvote:816330463937167391>) try `a/ poll help`\nAdded BAN and KICK reason to show up in Audit Logs\nPoll message changed\nMost of converters were not working so fixed them. Try `a/ convert help`\nAFK Algorithm Changed to reduce DataBase Load\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
+        await message.channel.send(embed=discord.Embed(title="**v1.7 UPDATES !!**\nI am going to get verified soon WOW!! TYSM", description="Ticketing system added try `a/ ticket help`\nEmbed creator added!! try `a/ embed help`\nAdded dictionary search, Try `a/ def help`\nAdded lot more Pings. Try `a/ ping`\nAdded 2 types of poll (1. :thumbsup: :thumbsdown: or 2. <:ag_upvote:816330395506180107> <:ag_downvote:816330463937167391>) try `a/ poll help`\nAdded BAN and KICK reason to show up in Audit Logs\nPoll message changed\nMost of converters were not working so fixed them. Try `a/ convert help`\nAFK Algorithm Changed to reduce DataBase Load\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
 
 # PING
     if message.content.find("a/ ping") != -1:
