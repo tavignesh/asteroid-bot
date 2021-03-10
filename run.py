@@ -29,9 +29,9 @@ db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-# toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+# toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -230,7 +230,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="Dictionary 📔\n▬▬▬▬▬▬▬▬▬▬", description="You can search for definition with examples in this dictionary with me!!\nSyntax:`a/ dic =<search terms>` or `a/ def =<search term>`\nExample:`a/ def =asteroid`", color=0xBCFC09))
     if message.content == 'a/ ticket help' or message.content == 'a/ help ticket':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="Ticket System <a:ag_ggl:781410701327335445>\n▬▬▬▬▬▬▬▬▬▬", description="You can Create ticket to contact staff and discuss personally \nTo create a ticket use `a/ new ticket`\nTo enable this feature use `a/ ticket enable`\nTo Close a single ticket use `a/ close`\nTo close all tickets use `a/ close all`", color=0xBCFC09))
+        await message.channel.send(embed=discord.Embed(title="Ticket System <a:ag_ggl:781410701327335445>\n▬▬▬▬▬▬▬▬▬▬", description="You can Create ticket to contact staff and discuss personally \nTo create a ticket use `a/ new ticket`\nTo enable Ticketing system feature use `a/ ticket enable`\nTo disable Ticketing system use `a/ ticket disable`\nTo Close a single ticket use `a/ close`\nTo close all tickets use `a/ close all`", color=0xBCFC09))
 
 
 # PREFERENCE
@@ -263,15 +263,6 @@ async def on_message(message):
                 srvlst.remove(strgid)
                 collection.update_one({"_id": 1341}, {"$set": {"ids": srvlst}})
                 await tif.edit(embed=discord.Embed(title="Disabled", description=f"Requested By: {message.author.mention}", color=0x2AE717))
-        if message.author.guild_permissions.manage_channels:
-            srvdic = collection.find_one({"_id":1341})
-            srvlst = srvdic["ids"]
-            if int(message.guild.id) not in srvlst:
-                print("ooo")
-            else:
-                strgid = int(message.guild.id)
-                srvlst.remove(strgid)
-                collection.update_one({"_id": 1341}, {"$set": {"ids": srvlst}})
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Channels <a:ag_exc:781410611366985748>", color=0xFC4905))
 
@@ -328,19 +319,6 @@ async def on_message(message):
             else:
                 collection.update_one({"_id": gid}, {"$set": {"moddel": 0}})
             await message.channel.send(embed=discord.Embed(title="DelMod Disabled", description="Blacklisted words in this Server will **NOT** be deleted\nFor more use `a/ mod help` or `a/ set help`", color=0x2AE717))
-        else:
-            await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
-
-    if message.content == 'a/ ticket enable' or message.content == 'a/ enable ticket' or message.content == 'a/ ticket true':
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        gid = int(message.guild.id)
-        fin = collection.find_one({"_id":1341})
-        if message.author.guild_permissions.manage_channels:
-            idslst = fin["ids"]
-            idslst.append(gid)
-            print(idslst)
-            collection.update_one({"_id":1341}, {"$set":{"ids":idslst}})
-            await message.channel.send("doneee")
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
 
