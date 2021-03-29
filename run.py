@@ -1002,7 +1002,7 @@ async def on_message(message):
                 await message.channel.send(embed=embee)
             except asyncio.TimeoutError:
                 print("timeout")
-                await mos.edit(embed=discord.Embed(title="**YOU TOOK TOO LONG byeee**", color=0xFD7803))
+                await mos.edit(embed=discord.Embed(title="**YOU TOOK TOO LONG **", color=0xFD7803))
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
 
