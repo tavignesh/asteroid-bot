@@ -1,6 +1,7 @@
 # image search
 
 import discord
+import discord.utils
 import time
 import asyncio
 import math
@@ -188,7 +189,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> Warning <a:ag_exc:781410611366985748>", description="DO NOT CHANGE NAME OF THE CHANNEL\nBut you Can Move It and Change Permissions", color=0x01FD14))
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Channels <a:ag_exc:781410611366985748>"))
-    if message.content.find("a/") != -1 and message.content.find("create") != -1 and (not message.content == 'a/ create ticket' and not message.content == 'a/ ticket create'):
+    if message.content.find("a/") != -1 and message.content.find("create") != -1 and (not message.content == 'a/ create ticket' and not message.content == 'a/ ticket create' and not message.content == 'a/ create embed' and not message.content == 'a/ embed create'):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**『AG』》V!GNΣ$hᴰᵉᵛ#5105** <a:ag_flyn_hrts_cyn:781395468978356235>\nCreated me on 23th Nov 2020", description="**With The Help of:**\nRice Cake#9760\nLone#6015\n\n**Top Suggestor**\n*SKY#4006*",color=0x04FD03))
     if message.content.find("a/ chat help") != -1 or message.content == "a/ help chat":
@@ -231,6 +232,10 @@ async def on_message(message):
     if message.content == 'a/ ticket help' or message.content == 'a/ help ticket' or message.content == 'a/ ticket':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Ticket System <a:ag_ggl:781410701327335445>\n▬▬▬▬▬▬▬▬▬▬", description="You can Create ticket to contact staff and discuss personally \nTo create a ticket use `a/ new ticket`\nTo enable Ticketing system feature use `a/ ticket enable`\nTo disable Ticketing system use `a/ ticket disable`\nTo Close a single ticket use `a/ close`\nTo close all tickets use `a/ close all`", color=0xBCFC09))
+    if message.content == 'a/ ticket help' or message.content == 'a/ help embed' or message.content == 'a/ embed' or message.content == 'a/ embed help':
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        adasss = r"\n"
+        await message.channel.send(embed=discord.Embed(title="Embed Creation :card_index:\n▬▬▬▬▬▬▬▬▬▬", description=f"Embed is very usefull message type for creating beautifully arranged and ordered formal messages. But sadly Normal accounts cannot create or send embed messages. Don't worry Asteroid is here with a new very user friendly commands!\nTo create an embed Just type `a/ embed create`\n\n**INFO**\nYou can add external, default and animated emojis BUT the limitation is you can ONLY use emojis from servers I am a Member of(ie. our mutual servers which can be viewed in my profile).\nTo jump to next line use {adasss} in the correct place where you want to jump.\nYou can ping or tag someone in the message descreption but NOT in title\n The above given limitation are not limited wantedly but are the limitations od Discord", color=0xBCFC09))
 
 
 # PREFERENCE
@@ -969,7 +974,7 @@ async def on_message(message):
         dess = ""
         if message.author.guild_permissions.manage_messages:
             tef = r"\n"
-            mos = await message.channel.send(embed=discord.Embed(title="Embed Creation Wizard", description=f"Enter a title {message.author.mention}\nEnter `none` if you don't want a title.\n Enter {tef} in the text itself if you want to go to next line\nYou can also include emojis!", color=0x05FCE2))
+            mos = await message.channel.send(embed=discord.Embed(title="Embed Creation Wizard", description=f"Enter a title {message.author.mention}\nEnter `none` if you don't want a title.\nMake sure you reade the embed help menu using `a/ embed help` for some cool features and avoid bugs", color=0x05FCE2))
             def check(m):
                 return m.channel == message.channel and m.author == message.author
             combtil = ""
@@ -983,13 +988,13 @@ async def on_message(message):
                 if til == "none" or til == "None":
                     combtil = None
             except asyncio.TimeoutError:
-                await mos.edit(embed=discord.Embed(title="**YOU TOOK TOO LONG**\nNow enter description", color=0xFD7803))
+                await mos.edit(embed=discord.Embed(title="**YOU TOOK TOO LONG**\nNow atleast enter a description!", color=0xFD7803))
 
             def checkw(m):
                 return m.channel == message.channel and m.author == message.author
 
             try:
-                await message.channel.send(embed=discord.Embed(title=f"Enter a Title {message.author.mention}"))
+                await message.channel.send(embed=discord.Embed(title=f"Enter a Description for the embed"))
                 dess = await client.wait_for('message', timeout=30.0, check=checkw)
                 dess = str(dess.content)
                 newdes = dess.split(r"\n")
@@ -1002,7 +1007,7 @@ async def on_message(message):
                 await message.channel.send(embed=embee)
             except asyncio.TimeoutError:
                 print("timeout")
-                await mos.edit(embed=discord.Embed(title="**YOU TOOK TOO LONG **", color=0xFD7803))
+                await mos.edit(embed=discord.Embed(title="**YOU TOOK TOO LONG**", color=0xFD7803))
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
 
@@ -1568,7 +1573,7 @@ async def on_message(message):
     if message.content.find("a/ ping") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         start = perf_counter()
-        mesa = await message.channel.send(embed=discord.Embed(title="Pinging... <a:ag_ldingwin:781410586138902529>", color=0x09BEFC))
+        mesa = await message.channel.send(embed=discord.Embed(title="Pinging... <a:ag_ldingwin:781410586138902529>", description="May take some time..", color=0x09BEFC))
         end = perf_counter()
         duration = (end - start) * 1000
         duration = math.floor(duration)
@@ -1610,7 +1615,7 @@ async def on_message(message):
         endggl = perf_counter()
         duraggl = (endggl - startggl) * 1000
         duraggl = math.floor(duraggl)
-        await mesa.edit(embed=discord.Embed(title="Pings and Pongs <a:ag_ggl:781410701327335445>", description=f":alarm_clock: API Ping: {ping}ms\n:satellite: Latency: {duration}ms\n:hourglass: Total Ping: {ping+duration}ms\n<:ag_gglsym:817776047315091459> Google Ping: {duraggl}ms\n:card_box: DataBase Ping: {duradb}ms\n:scroll: Wikipedia Ping: {durawiki}ms\n<a:ag_book_pgs:781410721397080084> Dictionary Ping: {duradic}ms", color=0x02BDFE))
+        await mesa.edit(embed=discord.Embed(title="Pings and Pongs <a:ag_ggl:781410701327335445>", description=f":alarm_clock: API Ping: {ping}ms\n:satellite: Latency: {duration}ms\n:hourglass: Total Ping: {ping+duration}ms\n<:ag_gglsym:817776047315091459> Google Ping: {duraggl}ms\n:card_box: DataBase Ping: {duradb}ms\n:scroll: Wikipedia Ping: {durawiki}ms\n<a:ag_book_pgs:781410721397080084> Dictionary Ping: {duradic}ms\n\nNode: US1", color=0x02BDFE))
 
 client.loop.create_task(update_stats())
 
