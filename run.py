@@ -30,9 +30,9 @@ db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+# toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-# toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -42,9 +42,9 @@ mtlist = []
 
 # PRE DECLARE
 helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『ȺG』*₊⋆》⎝⎝V!GПΣ$hᴰᵉᵛ⎠⎠♪ــﮩ.ﮩ٨ــ#8888**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
-on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> TAX <:ag_tax:807893601244676116> (tax)\n<a:ag_arrowgif:781395494127271947> Ticket System :tickets: (ticket)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random :game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
+on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> TAX <:ag_tax:807893601244676116> (tax)\n<a:ag_arrowgif:781395494127271947> Ticket System :tickets: (ticket)\n<a:ag_arrowgif:781395494127271947> Embed Creation :card_index: (embed)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random :game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
 me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Poll  (poll)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (suggest)\n<a:ag_arrowgif:781395494127271947> Dictionary Search <a:ag_book_pgs:781410721397080084> (def,dic)\
-\n<a:ag_arrowgif:781395494127271947> Google Search <a:ag_ggl:781410701327335445> (google)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)\n▬▬▬▬▬▬▬▬▬▬\n**Example:**\n`a/ delete help`", color=0x01FD14)
+\n<a:ag_arrowgif:781395494127271947> Google Search <a:ag_ggl:781410701327335445> (google)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)\n▬▬▬▬▬▬▬▬▬▬\n**Example:**\n`a/ embed help`", color=0x01FD14)
 
 invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **Usefull Links** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> [Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n<a:ag_arrowgif:781395494127271947> [VOTE ME](https://top.gg/bot/780472070072696852/vote)\n<a:ag_arrowgif:781395494127271947> [Support Server](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n<a:ag_arrowgif:781395494127271947> [ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
 
@@ -232,10 +232,10 @@ async def on_message(message):
     if message.content == 'a/ ticket help' or message.content == 'a/ help ticket' or message.content == 'a/ ticket':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Ticket System <a:ag_ggl:781410701327335445>\n▬▬▬▬▬▬▬▬▬▬", description="You can Create ticket to contact staff and discuss personally \nTo create a ticket use `a/ new ticket`\nTo enable Ticketing system feature use `a/ ticket enable`\nTo disable Ticketing system use `a/ ticket disable`\nTo Close a single ticket use `a/ close`\nTo close all tickets use `a/ close all`", color=0xBCFC09))
-    if message.content == 'a/ ticket help' or message.content == 'a/ help embed' or message.content == 'a/ embed' or message.content == 'a/ embed help':
+    if message.content == 'a/ embed help' or message.content == 'a/ help embed' or message.content == 'a/ embed' or message.content == 'a/ embed create':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         adasss = r"\n"
-        await message.channel.send(embed=discord.Embed(title="Embed Creation :card_index:\n▬▬▬▬▬▬▬▬▬▬", description=f"Embed is very usefull message type for creating beautifully arranged and ordered formal messages. But sadly Normal accounts cannot create or send embed messages. Don't worry Asteroid is here with a new very user friendly commands!\nTo create an embed Just type `a/ embed create`\n\n**INFO**\nYou can add external, default and animated emojis BUT the limitation is you can ONLY use emojis from servers I am a Member of(ie. our mutual servers which can be viewed in my profile).\nTo jump to next line use {adasss} in the correct place where you want to jump.\nYou can ping or tag someone in the message descreption but NOT in title\n The above given limitation are not limited wantedly but are the limitations od Discord", color=0xBCFC09))
+        await message.channel.send(embed=discord.Embed(title="Embed Creation :card_index:\n▬▬▬▬▬▬▬▬▬▬", description=f"Embed is very usefull message type for creating beautifully arranged and ordered formal messages. But sadly Normal users cannot create or send embed messages. Don't worry! Asteroid is here with a new very user friendly Embed Creator!\nTo create an embed Just type `a/ embed create` and follow the instructions!\n\n**IMPORTANT INFO**\nYou can add external, default and animated emojis BUT the limitation is you can ONLY use emojis from servers I am a Member of (ie. our mutual servers, which can be viewed in my profile).\nTo jump to next line use {adasss} in the correct place where you want to jump.\nYou can ping or tag someone in the message description but NOT in the title\n The above given limitation are not limited wantedly made but are the limitations of Discord Embeds", color=0xBCFC09))
 
 
 # PREFERENCE
@@ -994,7 +994,7 @@ async def on_message(message):
                 return m.channel == message.channel and m.author == message.author
 
             try:
-                await message.channel.send(embed=discord.Embed(title=f"Enter a Description for the embed"))
+                await message.channel.send(embed=discord.Embed(title=f"Enter a Description for the embed", color=0x05FCE2))
                 dess = await client.wait_for('message', timeout=30.0, check=checkw)
                 dess = str(dess.content)
                 newdes = dess.split(r"\n")
@@ -1015,7 +1015,7 @@ async def on_message(message):
 
     if message.content.find("a/ data =") !=-1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        fetcda = await message.channel.send(embed=discord.Embed(title="Loading Database.."))
+        fetcda = await message.channel.send(embed=discord.Embed(title="Loading Database..", color=0x05FCE2))
         inpdata = message.content.split("=")[1]
         usrnum = collection.find_one({"_id":2344})
         uid = message.author.id
@@ -1618,7 +1618,6 @@ async def on_message(message):
         await mesa.edit(embed=discord.Embed(title="Pings and Pongs <a:ag_ggl:781410701327335445>", description=f":alarm_clock: API Ping: {ping}ms\n:satellite: Latency: {duration}ms\n:hourglass: Total Ping: {ping+duration}ms\n<:ag_gglsym:817776047315091459> Google Ping: {duraggl}ms\n:card_box: DataBase Ping: {duradb}ms\n:scroll: Wikipedia Ping: {durawiki}ms\n<a:ag_book_pgs:781410721397080084> Dictionary Ping: {duradic}ms\n\nNode: US1", color=0x02BDFE))
 
 client.loop.create_task(update_stats())
-
 
 client.run(toktok)
 
