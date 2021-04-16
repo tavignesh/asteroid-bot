@@ -30,9 +30,9 @@ db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+# toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-# toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -41,7 +41,7 @@ messages = joined = 0
 mtlist = []
 
 # PRE DECLARE
-helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**『ȺG』*₊⋆》⎝⎝V!GПΣ$hᴰᵉᵛ⎠⎠♪ــﮩ.ﮩ٨ــ#8888**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
+helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**⎰ѦǤ⎱₊⋆》⎝⧹Ѵ!ǤЛΣ$Ƕᴰᵉᵛ⧸⎠₰♪⅏ﮩ.ﮩ٨ـ≻#8351**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
 on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> TAX <:ag_tax:807893601244676116> (tax)\n<a:ag_arrowgif:781395494127271947> Ticket System :tickets: (ticket)\n<a:ag_arrowgif:781395494127271947> Embed Creation :card_index: (embed)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random :game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
 me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Poll  (poll)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (suggest)\n<a:ag_arrowgif:781395494127271947> Dictionary Search <a:ag_book_pgs:781410721397080084> (def,dic)\
 \n<a:ag_arrowgif:781395494127271947> Google Search <a:ag_ggl:781410701327335445> (google)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)\n▬▬▬▬▬▬▬▬▬▬\n**Example:**\n`a/ embed help`", color=0x01FD14)
@@ -1013,42 +1013,6 @@ async def on_message(message):
 
 # Data Save
 
-    if message.content.find("a/ data =") !=-1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        fetcda = await message.channel.send(embed=discord.Embed(title="Loading Database..", color=0x05FCE2))
-        inpdata = message.content.split("=")[1]
-        usrnum = collection.find_one({"_id":2344})
-        uid = message.author.id
-        uid = str(uid)
-        adid = f"1{uid}"
-        ingo = 0
-        if uid not in usrnum:
-            await fetcda.edit(content="new guy u hav 20 space")
-            collection.insert_one({"_id":int(adid)})
-            collection.update_one({"_id":2344}, {"$set": {str(uid):0}})
-            ingo = 1
-        elif int(usrnum[uid]) != 20:
-            bsz = int(usrnum[uid])
-            await fetcda.edit(content=f"you have {20-bsz} threads left. You can get more by deleting some.")
-            ingo = 1
-        elif int(usrnum[uid]) >= 20:
-            await fetcda.edit(embed=discord.Embed(title="Your Database Is Full", description="Your Database has 20 threads, delete some to add more.", color=0xFD7803))
-
-        if ingo == 1:
-            adng = await message.channel.send(embed=discord.Embed(title="adding..."))
-            adsid = collection.find_one({"_id":int(adid)})
-            dataid = randata()
-            print(dataid)
-            colldic = adsid["colldic"]
-            colldic[dataid] = inpdata
-            adsid["colldic"] = colldic
-            collection.update_one({"_id":adid},{"$set":{"colldic":adsid}})
-            newusrn = int(usrnum[uid])
-            newusrn += 1
-            collection.update_one({"_id":2344}, {"$set": {uid:newusrn}})
-            print("dooodododoooneee OP")
-
-
 # Ticketing
 # edit preferences (new for ticket system)
     if (message.content.startswith("a/ create ticket") or message.content.startswith("a/ new ticket") or message.content == "a/ ticket new") and message.content != "a/ ticket create":
@@ -1058,7 +1022,6 @@ async def on_message(message):
             edsf = await message.channel.send(embed=discord.Embed(title="<a:ag_ldingwin:781410586138902529> Creating...", color=0x05FCE2))
             tickid = randata()
             tickid = f"ticket-{tickid}"
-            doms = message
             print(tickid)
             overwrites = {
                 message.guild.default_role: discord.PermissionOverwrite(read_messages=False)
