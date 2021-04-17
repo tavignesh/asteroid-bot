@@ -13,6 +13,7 @@ import wikipedia
 import datetime
 import time
 from time import perf_counter
+import uptime
 import string
 import pymongo
 from pymongo import MongoClient
@@ -30,9 +31,9 @@ db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+# toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-# toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -53,6 +54,8 @@ tstmbd = discord.Embed(title="Your title\n___________", description="Your descri
 badwrds =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ["fuck", "porn", "slut", "gangbang"]
 
 rp = 0
+
+strtuptime = int(uptime.uptime())
 
 def randata():
     astrl = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -550,7 +553,7 @@ async def on_message(message):
         try:
             await target.edit(nick=f"[AFK] {message.author}")
         except Exception as e:
-            await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> Missing Permissions <a:ag_exc:781410611366985748>", description="Your AFK Status is set but Nickname Not chanPossible Reasons:\n<a:ag_arrowgif:781395494127271947> I Don't have Manage Nickname Permissions\n<a:ag_arrowgif:781395494127271947> You have a Higher Role than Me", color=0xFD4201))
+            await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> Missing Permissions <a:ag_exc:781410611366985748>", description="Your AFK Status is set but Nickname Not changed\n__Possible Reason__:\n<a:ag_arrowgif:781395494127271947> I Don't have Manage Nickname Permissions\n<a:ag_arrowgif:781395494127271947> You have a Higher Role than Me\n<a:ag_arrowgif:781395494127271947> You have a loooong name!", color=0xFD4201))
         await message.channel.send(embed=discord.Embed(title="AFK Status Set! <a:ag_tickop:781395575962599445>", description=f"AFK status will be removed automatically in 1 day\n**Message From {afkmens} :**\n{afkmsg}", color=0xFBFE02))
 
     if message.content.find('<@!'):
@@ -1013,8 +1016,8 @@ async def on_message(message):
 
 # Data Save
 
+
 # Ticketing
-# edit preferences (new for ticket system)
     if (message.content.startswith("a/ create ticket") or message.content.startswith("a/ new ticket") or message.content == "a/ ticket new") and message.content != "a/ ticket create":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         srlst = collection.find_one({"_id" : 1341})
@@ -1026,7 +1029,7 @@ async def on_message(message):
             overwrites = {
                 message.guild.default_role: discord.PermissionOverwrite(read_messages=False)
             }
-            ochan = await message.guild.create_text_channel(f'{tickid}', overwrites=overwrites)
+            ochan = await message.guild.create_text_channel(f'{tickid}', overwrites=overwrites, category=client.get_channel(message.channel.category.id))
             porms = ochan.overwrites_for(message.author)
             await ochan.set_permissions(message.author, read_messages=not porms.read_messages)
             lstrrr = srlst["chan"]
@@ -1360,7 +1363,8 @@ async def on_message(message):
 
 # TESTS
     if message.content.startswith("testit"):
-        colasd = await message.channel.send("testing msg")
+        await message.channel.send(message.channel.category.id)
+        ochan = await message.guild.create_text_channel('anewchan', category=client.get_channel(message.channel.category.id))
 
 
 
@@ -1533,7 +1537,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="**v1.7 UPDATES !!**\nI am going to get verified soon WOW!! TYSM", description="Ticketing system added try `a/ ticket help`\nEmbed creator added!! try `a/ embed help`\nAdded dictionary search, Try `a/ def help`\nAdded lot more Pings. Try `a/ ping`\nAdded 2 types of poll (1. :thumbsup: :thumbsdown: or 2. <:ag_upvote:816330395506180107> <:ag_downvote:816330463937167391>) try `a/ poll help`\nAdded BAN and KICK reason to show up in Audit Logs\nPoll message changed\nMost of converters were not working so fixed them. Try `a/ convert help`\nAFK Algorithm Changed to reduce DataBase Load\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
 
 # PING
-    if message.content.find("a/ ping") != -1:
+    if message.content.find("a/ ping") != -1 or message.content.find("a/ uptime") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         start = perf_counter()
         mesa = await message.channel.send(embed=discord.Embed(title="Pinging... <a:ag_ldingwin:781410586138902529>", description="May take some time..", color=0x09BEFC))
@@ -1578,7 +1582,22 @@ async def on_message(message):
         endggl = perf_counter()
         duraggl = (endggl - startggl) * 1000
         duraggl = math.floor(duraggl)
-        await mesa.edit(embed=discord.Embed(title="Pings and Pongs <a:ag_ggl:781410701327335445>", description=f":alarm_clock: API Ping: {ping}ms\n:satellite: Latency: {duration}ms\n:hourglass: Total Ping: {ping+duration}ms\n<:ag_gglsym:817776047315091459> Google Ping: {duraggl}ms\n:card_box: DataBase Ping: {duradb}ms\n:scroll: Wikipedia Ping: {durawiki}ms\n<a:ag_book_pgs:781410721397080084> Dictionary Ping: {duradic}ms\n\nNode: US1", color=0x02BDFE))
+        enduptime = int(uptime.uptime())
+        uptimm = int(enduptime-strtuptime)
+        upsec = uptimm
+        upmin = 0
+        uphr = 0
+        upday = 0
+        if uptimm > 59:
+            upsec = uptimm%60
+            upmin = int(uptimm/60)
+            if upmin > 60:
+                upmin = int(upmin%60)
+                uphr = int(upmin/60)
+                if uphr > 24:
+                    uphr = uphr%24
+                    upday = int(uphr/24)
+        await mesa.edit(embed=discord.Embed(title="Pings and Pongs <a:ag_ggl:781410701327335445>", description=f":alarm_clock: API Ping: {ping}ms\n:satellite: Latency: {duration}ms\n:hourglass: Total Ping: {ping+duration}ms\n<:ag_gglsym:817776047315091459> Google Ping: {duraggl}ms\n:card_box: DataBase Ping: {duradb}ms\n:scroll: Wikipedia Ping: {durawiki}ms\n<a:ag_book_pgs:781410721397080084> Dictionary Ping: {duradic}ms\n\nUptime: {upday}days {uphr}hrs {upmin}mins {upsec}secs\nNode: US1", color=0x02BDFE))
 
 client.loop.create_task(update_stats())
 
