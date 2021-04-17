@@ -1017,6 +1017,7 @@ async def on_message(message):
 # Data Save
 
 
+
 # Ticketing
     if (message.content.startswith("a/ create ticket") or message.content.startswith("a/ new ticket") or message.content == "a/ ticket new") and message.content != "a/ ticket create":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
@@ -1024,6 +1025,7 @@ async def on_message(message):
         if int(message.guild.id) in srlst["ids"]:
             edsf = await message.channel.send(embed=discord.Embed(title="<a:ag_ldingwin:781410586138902529> Creating...", color=0x05FCE2))
             tickid = randata()
+            tiiid = tickid
             tickid = f"ticket-{tickid}"
             print(tickid)
             overwrites = {
@@ -1038,6 +1040,10 @@ async def on_message(message):
             collection.update_one({"_id":1341}, {"$set":{"chan":lstrrr}})
             tickde = discord.Embed(title=f"Created! <a:ag_tickop:781395575962599445>", description=f"Here: {ochan.mention}", color=0x2AE717)
             tickde.set_footer(text=f"Requested by: {message.author.mention}", icon_url=f"{message.author.avatar_url}")
+            tickrsn = "None"
+            if message.content.find("=") != -1:
+                tickrsn = message.content.split("=")[1]
+            await ochan.send(embed=discord.Embed(title=f"Ticket-{tiiid}", description=f"Created by: {message.author}\nReason: {tickrsn}"))
             await edsf.edit(embed=tickde)
         else:
             await message.channel.send(embed=discord.Embed(title="This server has not enabled Ticketing System", description="To enable use `a/ ticket help`", color=0x2AE717))
