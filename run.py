@@ -234,7 +234,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="Dictionary 📔\n▬▬▬▬▬▬▬▬▬▬", description="You can search for definition with examples in this dictionary with me!!\nSyntax:`a/ dic =<search terms>` or `a/ def =<search term>`\nExample:`a/ def =asteroid`", color=0xBCFC09))
     if message.content == 'a/ ticket help' or message.content == 'a/ help ticket' or message.content == 'a/ ticket':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="Ticket System <a:ag_ggl:781410701327335445>\n▬▬▬▬▬▬▬▬▬▬", description="You can Create ticket to contact staff and discuss personally \nTo create a ticket use `a/ new ticket`\nTo enable Ticketing system feature use `a/ ticket enable`\nTo disable Ticketing system use `a/ ticket disable`\nTo Close a single ticket use `a/ close`\nTo close all tickets use `a/ close all`", color=0xBCFC09))
+        await message.channel.send(embed=discord.Embed(title="Ticket System <a:ag_ggl:781410701327335445>\n▬▬▬▬▬▬▬▬▬▬", description="You can Create ticket to contact staff and discuss personally!!\nTo create a ticket use `a/ new ticket =reason`\nTo enable Ticketing system feature use `a/ ticket enable`\nTo disable Ticketing system use `a/ ticket disable`\nTo Close a single ticket use `a/ close`\nTo close all tickets use `a/ close all`", color=0xBCFC09))
     if message.content == 'a/ embed help' or message.content == 'a/ help embed' or message.content == 'a/ embed' or message.content == 'a/ embed create':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         adasss = r"\n"
@@ -1019,7 +1019,7 @@ async def on_message(message):
 
 
 # Ticketing
-    if (message.content.startswith("a/ create ticket") or message.content.startswith("a/ new ticket") or message.content == "a/ ticket new") and message.content != "a/ ticket create":
+    if (message.content.startswith("a/ create ticket") or message.content.startswith("a/ new ticket") or message.content.startswith == "a/ ticket new") and message.content != "a/ ticket create":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         srlst = collection.find_one({"_id" : 1341})
         if int(message.guild.id) in srlst["ids"]:
@@ -1043,7 +1043,7 @@ async def on_message(message):
             tickrsn = "None"
             if message.content.find("=") != -1:
                 tickrsn = message.content.split("=")[1]
-            await ochan.send(embed=discord.Embed(title=f"Ticket-{tiiid}", description=f"Created by: {message.author}\nReason: {tickrsn}"))
+            await ochan.send(embed=discord.Embed(title=f"Ticket-{tiiid}", description=f"__Created by__: **{message.author}**\n__Reason__: **{tickrsn}**", color=0x2AE717))
             await edsf.edit(embed=tickde)
         else:
             await message.channel.send(embed=discord.Embed(title="This server has not enabled Ticketing System", description="To enable use `a/ ticket help`", color=0x2AE717))
