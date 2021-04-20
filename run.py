@@ -23,6 +23,8 @@ import urllib3
 import googlesearch
 from googlesearch import search
 from discord.ext import commands
+import pickle
+import csv
 
 client = discord.Client()
 
@@ -31,9 +33,9 @@ db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+# toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-# toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -43,8 +45,8 @@ mtlist = []
 
 # PRE DECLARE
 helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**⎰ѦǤ⎱₊⋆》⎝⧹Ѵ!ǤЛΣ$Ƕᴰᵉᵛ⧸⎠₰♪⅏ﮩ.ﮩ٨ـ≻#8351**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
-on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> TAX <:ag_tax:807893601244676116> (tax)\n<a:ag_arrowgif:781395494127271947> Ticket System :tickets: (ticket)\n<a:ag_arrowgif:781395494127271947> Embed Creation :card_index: (embed)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random :game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
-me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Poll  (poll)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (suggest)\n<a:ag_arrowgif:781395494127271947> Dictionary Search <a:ag_book_pgs:781410721397080084> (def,dic)\
+on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Premium`but free` (premium)\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> TAX <:ag_tax:807893601244676116> (tax)\n<a:ag_arrowgif:781395494127271947> Ticket System :tickets: (ticket)\n<a:ag_arrowgif:781395494127271947> Embed Creation :card_index: (embed)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random :game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
+me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Random Facts :omg: (fact)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Poll  (poll)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (suggest)\n<a:ag_arrowgif:781395494127271947> Dictionary Search <a:ag_book_pgs:781410721397080084> (def,dic)\
 \n<a:ag_arrowgif:781395494127271947> Google Search <a:ag_ggl:781410701327335445> (google)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)\n▬▬▬▬▬▬▬▬▬▬\n**Example:**\n`a/ embed help`", color=0x01FD14)
 
 invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **Usefull Links** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> [Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n<a:ag_arrowgif:781395494127271947> [VOTE ME](https://top.gg/bot/780472070072696852/vote)\n<a:ag_arrowgif:781395494127271947> [Support Server](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n<a:ag_arrowgif:781395494127271947> [ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
@@ -194,7 +196,7 @@ async def on_message(message):
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Channels <a:ag_exc:781410611366985748>"))
     if message.content.find("a/") != -1 and message.content.find("create") != -1 and (not message.content == 'a/ create ticket' and not message.content == 'a/ ticket create' and not message.content == 'a/ create embed' and not message.content == 'a/ embed create'):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**『AG』》V!GNΣ$hᴰᵉᵛ#5105** <a:ag_flyn_hrts_cyn:781395468978356235>\nCreated me on 23th Nov 2020", description="**With The Help of:**\nRice Cake#9760\nLone#6015\n\n**Top Suggestor**\n*SKY#4006*",color=0x04FD03))
+        await message.channel.send(embed=discord.Embed(title="**『AG』》V!GNΣ$hᴰᵉᵛ#5105** <a:ag_flyn_hrts_cyn:781395468978356235>\nCreated me on 23th Nov 2020", description="**With The Help of:**\nRice Cake#9760\nLone#6015\n\n**Top Suggestor**\n*bardia_rezayati#6082*",color=0x04FD03))
     if message.content.find("a/ chat help") != -1 or message.content == "a/ help chat":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="CHAT :speech_balloon:\n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> `a/ setup chat` will Create a New Channel to Chat mith Meee!\n<a:ag_arrowgif:781395494127271947> <More To be added here>", color=0xFC058C))
@@ -239,7 +241,18 @@ async def on_message(message):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         adasss = r"\n"
         await message.channel.send(embed=discord.Embed(title="Embed Creation :card_index:\n▬▬▬▬▬▬▬▬▬▬", description=f"Embed is very usefull message type for creating beautifully arranged and ordered formal messages. But sadly Normal users cannot create or send embed messages. Don't worry! Asteroid is here with a new very user friendly Embed Creator!\nTo create an embed Just type `a/ embed create` and follow the instructions!\n\n**IMPORTANT INFO**\nYou can add external, default and animated emojis BUT the limitation is you can ONLY use emojis from servers I am a Member of (ie. our mutual servers, which can be viewed in my profile).\nTo jump to next line use {adasss} in the correct place where you want to jump.\nYou can ping or tag someone in the message description but NOT in the title\n The above given limitation are not limited wantedly made but are the limitations of Discord Embeds", color=0xBCFC09))
+    if message.content == 'a/ fact help' or message.content == 'a/ help fact':
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        await message.channel.send(embed=discord.Embed(title="Random Facts :omg:\n▬▬▬▬▬▬▬▬▬▬", description="This shows you an interesting random fact chosen from a huge list of facts. Every care has been taken to provide good and quality facts but if some error or inapropriate or unwanted or nsfw content had crept in, just remember the fact id and send a suggsetion(`a/ suggest help`) or send a message in our [Support Server](https://discord.gg/teszgSR9yK). Sorry for the inconvinience.\n\n**Syntax**: `a/ fact`", color=0xBCFC09))
 
+# PREMIUM
+    if message.content.startswith("a/ premium") or message.content.startswith("a/ help premium"):
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        await message.channel.send(embed=discord.Embed(title="**PREMIUM for FREE!!**\n▬▬▬▬▬▬▬▬▬▬", description="__Premium Features__:\n<a:ag_arrowgif:781395494127271947> A <a:ag_flyn_hrts_cyn:781395468978356235> will be used instead of <a:ag_flyn_hrts_cyn:781395468978356235> while reacting to your messages\n<a:ag_arrowgif:781395494127271947> 20 Extra space in our database, more can be redeemed using AstroCash\n<a:ag_arrowgif:781395494127271947>\n\nPresently there are only less features to enjoy in premium but lots will be added to it!\nAbout premium:\nPremium here does not mean any profit of any kind to me and you will not be asked to USE or PAY any money or related items. Premium can be obtained by redeeming AstroCash. Astrocash can be reedeemed ony by creating a ticket in our [Support Server](https://discord.gg/teszgSR9yK) but soon there will be a feature to redeem using commands! To earn AstroCash use `a/ earn` or `a/ astrocash`. You can see the reedinption price for each feature using `a/ redeem`But wait you can also buy premium with money!! but its not yet available"))
+
+    if message.content.startswith("a/ astrocash") or message.content.startswith("a/ earn"):
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        await message.channel.send(embed=discord.Embed(title="AstroCash\n▬▬▬▬▬▬▬▬▬▬", description="AstroCash is currency for me! It can be redeemed into lots of usable features or even premium. Presently you cannot transfer or trade AstroCash\n\nAstroCash can be earned by:\n<a:ag_arrowgif:781395494127271947> Joining Support Server and other servers listed in a separate channel\n<a:ag_arrowgif:781395494127271947> Finding bugs in the bot and reporting it in our [Support Server](https://discord.gg/teszgSR9yK) AstroCash will be given according to the size of the bug, you can even report typos!\n<a:ag_arrowgif:781395494127271947> Vote for me every 12hrs use `a/ vote`\n<a:ag_arrowgif:781395494127271947> Giving good suggestions using `a/ suggest help` AstroCash will be given accrding to the worthiness of suggestion ||Spamming will be dealt with punishment||\n<a:ag_arrowgif:781395494127271947> Inviteing me to servers\n<a:ag_arrowgif:781395494127271947> Gaining levels with Asteroid or Gaining levels in [Support Server](https://discord.gg/teszgSR9yK)\n<a:ag_arrowgif:781395494127271947> Sending cool facts in a channel in [Support Server](https://discord.gg/teszgSR9yK)\n<a:ag_arrowgif:781395494127271947> Helping creator to test the bot. Make sure you read rules in [Support Server](https://discord.gg/teszgSR9yK)\n<a:ag_arrowgif:781395494127271947> Playing Quiz - # points for correct and # points for wrong answer"))
 
 # PREFERENCE
     if message.content == "a/ ticket enable" or message.content == "a/ ticket true" or message.content == "a/ enable ticket":
@@ -345,8 +358,6 @@ async def on_message(message):
             else:
                 topa += dups[i]
         words = topa
-        print(words)
-        print(topa)
         wordas = wordas.upper()
         def wiki_summary(arg):
             definition = wikipedia.summary(arg, sentences=5, chars=1000, auto_suggest=True, redirect=True)
@@ -369,14 +380,24 @@ async def on_message(message):
         b = a[0]
         c = b['definition']
         d = b['example']
-        print(d)
         thup = b['thumbs_up']
-        print(thup)
         thdo = b['thumbs_down']
-        print(thdo)
         dicem = discord.Embed(title=f'{dicsr}', description=f'Definition:{c}\nExample: {d}', color=0x02BDFE)
         dicem.set_footer(text=f":thumbsup: {thup}, :thumbsdown: {thdo}")
         await eddic.edit(embed=dicem)
+
+# RANDOM FACTS
+
+    # make own api
+    if message.content.startswith("a/ fact") or message.content.startswith("a/ random fact"):
+        factfile = open("fact.txt", "r")
+        rndmfctlst = factfile.readlines()
+        factfile.close()
+        randnumf = random.randint(0, len(rndmfctlst))
+        rndmfct = rndmfctlst[randnumf]
+        await message.channel.send(embed=discord.Embed(title=f"{rndmfct} Fact ID: {randnumf}", description=f"Care has been taken to give a quality fact but If you find any inapropriate or unwanted or offensive or nsfw content above just remember the fact ID(Fact ID: **{randnumf}**) and please send it to us using a suggestion(`a/ suggest help`) or a message in our [Support Server](https://discord.gg/teszgSR9yK) and that sentence will be removed and you will be awarded AstroCash. Sorry for the inconvenience.", color=0x02BDFE))
+
+# DeCAN
 
 # WEATHER
     if message.content.startswith("a/ weather ="):
@@ -419,8 +440,6 @@ async def on_message(message):
                 emoj = ":snowflake:"
             if stat == "Haze":
                 emoj = ":white_sun_cloud:"
-
-            print(stat)
 
             temp = data.split("temp")[1]
             temp = temp.split(",")[0]
@@ -566,7 +585,6 @@ async def on_message(message):
             for j in k:
                 if j == "0" or j == "1" or j == "2" or j == "3" or j == "4" or j == "5" or j == "6" or j == "7" or j == "8" or j == "9":
                     teks += j
-                print(teks)
             if int(message.author.id) == int(teks) and donto == 0:
                 await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
                 for jk in afkdic:
@@ -584,6 +602,8 @@ async def on_message(message):
 
     if message.content.find("a/ afk list") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        fio = collection.find_one({"_id": 222})
+        afkdic = fio["afkdic"]
         nemaf = len(afkdic)
         afklos = afkdic.keys()
         await message.channel.send(embed=discord.Embed(title=f"AFK USERS LIST", description=f"{nemaf} Users Are AFK(Incl. of all my Servers)\n\nAfk Users list:"))
@@ -971,6 +991,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title=f"{far} Farenheit = {cans} Kelvin", color=0x05FCE2))
 
 # EMBED CREATOR
+
     if (message.content.find("a/ embed") !=-1 or message.content.find("a/ embed") !=-1) and (message.content != "a/ embed help" and message.content != "a/ help embed"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         til = ""
@@ -1009,16 +1030,87 @@ async def on_message(message):
                 embee.set_footer(text=f"Requested by : {message.author}", icon_url=f"{message.author.avatar_url}")
                 await message.channel.send(embed=embee)
             except asyncio.TimeoutError:
-                print("timeout")
                 await mos.edit(embed=discord.Embed(title="**YOU TOOK TOO LONG**", color=0xFD7803))
         else:
             await message.channel.send(embed=discord.Embed(title="You Don't have Permmission to Manage Messages <a:ag_exc:781410611366985748>", color=0xFC4905))
 
 # Data Save
 
+    if message.content.find("a/ data =") !=-1:
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        fetcda = await message.channel.send(embed=discord.Embed(title="Loading Database..", color=0x05FCE2))
+        inpdata = message.content.split("=")[1]
+        usrnum = collection.find_one({"_id":2344})
+        uid = message.author.id
+        uid = int(uid)
+        adid = f"1{uid}"
+        adid = int(adid)
+        ingo = 0
+        if str(uid) not in usrnum:
+            await fetcda.edit(content="new guy u hav 20 space")
+            collection.insert_one({"_id":adid})
+            collection.update_one({"_id":2344}, {"$set": {str(uid):0}})
+            ingo = 1
+        elif int(usrnum[str(uid)]) < 20:
+            bsz = int(usrnum[str(uid)])
+            await fetcda.edit(content=f"you have {19-bsz} threads left. You can get more by deleting some or getting premium(which is free!!)! To know more abt premium use `a/ premium`")
+            ingo = 1
+        elif int(usrnum[str(uid)]) >= 20:
+            await fetcda.edit(embed=discord.Embed(title="Your Database Is Full", description="Your Database has 20 threads, delete some to add more.", color=0xFD7803))
+        print(ingo)
+        if ingo == 1:
+            adng = await message.channel.send(embed=discord.Embed(title="adding..."))
+            usrnum = collection.find_one({"_id": 2344})
+            print(usrnum)
+            adsid = collection.find_one({"_id":int(adid)})
+            dataid = randata()
+            print(dataid)
+            collection.update_one({"_id":adid},{"$set":{dataid:str(inpdata)}})
+            newusrn = int(usrnum[str(uid)])
+            newusrn += 1
+            collection.update_one({"_id":2344}, {"$set": {str(uid):newusrn}})
+            print(adsid,usrnum,newusrn)
+            print("dooodododoooneee OP")
 
+    if message.content == "a/ data list" or message.content == "a/ list data":
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        usrnum = collection.find_one({"_id": 2344})
+        uid = message.author.id
+        uid = int(uid)
+        adid = f"1{uid}"
+        adid = int(adid)
+        if str(uid) not in usrnum:
+            await fetcda.edit(content="new guy u hav no data sored in our dataB")
+        else:
+            datadic = collection.find_one({"_id": int(adid)})
+            mtstng = ""
+            for dataiddd in datadic:
+                if dataiddd != "_id":
+                    mtstng += f"{dataiddd}     :     {datadic[dataiddd]} \n"
+            print(mtstng)
+            await message.channel.send(embed=discord.Embed(title="Your Data", description=f"**Data ID\t Data**\n{mtstng}\n\nTo add more data or to delete data use `a/ data help`\nTo get more data space get premium(which is free)"))
+
+    if message.content.startswith("a/ delete data ") or message.content.startswith("a/ data delete "):
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        usrnum = collection.find_one({"_id": 2344})
+        uid = message.author.id
+        uid = int(uid)
+        adid = f"1{uid}"
+        adid = int(adid)
+        if str(uid) not in usrnum:
+            await fetcda.edit(content="new guy u hav no data sored in our dataB")
+        else:
+            datadic = collection.find_one({"_id": int(adid)})
+            print(datadic)
+
+
+#   key1 : aofads
+#   key2 : afoiefio
+#
+#
 
 # Ticketing
+
     if (message.content.startswith("a/ create ticket") or message.content.startswith("a/ new ticket") or message.content.startswith == "a/ ticket new") and message.content != "a/ ticket create":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         srlst = collection.find_one({"_id" : 1341})
@@ -1540,7 +1632,7 @@ async def on_message(message):
 
     if message.content.find("a/ update") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**v1.7 UPDATES !!**\nI am going to get verified soon WOW!! TYSM", description="Ticketing system added try `a/ ticket help`\nEmbed creator added!! try `a/ embed help`\nAdded dictionary search, Try `a/ def help`\nAdded lot more Pings. Try `a/ ping`\nAdded 2 types of poll (1. :thumbsup: :thumbsdown: or 2. <:ag_upvote:816330395506180107> <:ag_downvote:816330463937167391>) try `a/ poll help`\nAdded BAN and KICK reason to show up in Audit Logs\nPoll message changed\nMost of converters were not working so fixed them. Try `a/ convert help`\nAFK Algorithm Changed to reduce DataBase Load\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
+        await message.channel.send(embed=discord.Embed(title="**v1.8 UPDATES !!**\nI am going to get verified soon WOW!! TYSM for the 100 servers!!", description="**Premium** is free now and will remain **free forever**!!! Try `a/ premium` ||But it is not totally free! Free means you would not be asked to pay or use anything related to money (non-profit) for more info use `a/ premium`||\nAdded our first Premium Feature!\nRandom fact option added use `a/ fact help`\nTicketing system Enhanced and added reason which is optional try `a/ ticket help`\nSometimes some raw data was shown in quiz question which was removed.\nEmbed creator problems fixed!! try `a/ embed help`\nAdded uptime to Pings. Try `a/ ping` or `a/ uptime`\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
 
 # PING
     if message.content.find("a/ ping") != -1 or message.content.find("a/ uptime") != -1:
