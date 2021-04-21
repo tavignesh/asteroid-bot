@@ -497,12 +497,12 @@ async def on_message(message):
             cpubat = "NA"
 
          # sbattery(percent=80, secsleft= < BatteryTime.POWER_TIME_UNLIMITED: -2 >, power_plugged = True)
-            cpubat = str(cpubat)
-            cpubatp = cpubat.split('=')[1]
-            cpubatp = cpubatp.split(",")[0]
-
-            cpubatc = cpubat.split("=")[-1]
-            cpubatc = cpubatc.split(")")[0]
+         #    cpubat = str(cpubat)
+         #    cpubatp = cpubat.split('=')[1]
+         #    cpubatp = cpubatp.split(",")[0]
+         #
+         #    cpubatc = cpubat.split("=")[-1]
+         #    cpubatc = cpubatc.split(")")[0]
 
             cpui = psutil.cpu_freq()
             cpui = str(cpui)
@@ -547,7 +547,7 @@ async def on_message(message):
             # await message.channel.send(cpuidk)
             sysarch = platform.architecture()[0]
             nodsds = platform.node()
-            await message.channel.send(embed=discord.Embed(title="CPU STATS :tools:", description=f"\nNode: {nodsds}\n**Processor**\nArchetecture: {sysarch}\nCores = {cpun}\nSpeed = {cpui}Ghz\nTotal Usage = {cpupert}%\nCore 1 = {cpuo}%\nCore 2 = {cput}%\nCore 3 = {cpuy}%\nCore 4 = {cpuf}%\n\n**Swap Memory**\nTotal = {cpuswt} Gb\nUsed = {cpuswu} Gb\nPercentage = {cpuswp}%\nFree = {cpuswf} Gb\n\n**Battery**\nAvailable = {cpubatp}% :battery: \nCharging = {cpubatc}", color=0xFD9E01))
+            await message.channel.send(embed=discord.Embed(title="CPU STATS :tools:", description=f"\nNode: {nodsds}\n**Processor**\nArchetecture: {sysarch}\nCores = {cpun}\nSpeed = {cpui}Ghz\nTotal Usage = {cpupert}%\nCore 1 = {cpuo}%\nCore 2 = {cput}%\nCore 3 = {cpuy}%\nCore 4 = {cpuf}%\n\n**Swap Memory**\nTotal = {cpuswt} Gb\nUsed = {cpuswu} Gb\nPercentage = {cpuswp}%\nFree = {cpuswf} Gb\n\n**Battery**\nAvailable = {cpubat}% :battery: \nCharging = {cpubat}", color=0xFD9E01))
 
 # DATE TIME
     if message.content.find("a/ time") != -1:
