@@ -493,16 +493,6 @@ async def on_message(message):
             cpun = psutil.cpu_count()
             cpusw = psutil.swap_memory()
             cpupers = psutil.cpu_percent(percpu=1)
-            # cpubat = psutil.sensors_battery()
-            cpubat = "NA"
-
-         # sbattery(percent=80, secsleft= < BatteryTime.POWER_TIME_UNLIMITED: -2 >, power_plugged = True)
-         #    cpubat = str(cpubat)
-         #    cpubatp = cpubat.split('=')[1]
-         #    cpubatp = cpubatp.split(",")[0]
-         #
-         #    cpubatc = cpubat.split("=")[-1]
-         #    cpubatc = cpubatc.split(")")[0]
 
             cpui = psutil.cpu_freq()
             cpui = str(cpui)
@@ -510,12 +500,10 @@ async def on_message(message):
             cpui = cpui.split(")")[0]
             cpui = float(cpui)
             cpui = cpui / 1000
-            cpuo = cpupers[0]
-            cput = cpupers[1]
-            cpuy = cpupers[2]
-            cpuf = cpupers[3]
-
-            # sswap(total=10694811648, used=6834396100, free=2350850048, percent=78.0, sin=0, sout=0)
+            cpuppp = ""
+            for i in cpupers:
+                cpuo = cpupers[i]
+                cpuppp += f"Core{i}: {cpuo}%\n"
 
             cpusw = str(cpusw)
             cpuswt = cpusw.split("=")[1]
@@ -544,7 +532,6 @@ async def on_message(message):
             cpusw = str(cpusw)
             cpuswp = cpusw.split("=")[4]
             cpuswp = cpuswp.split(",")[0]
-            # await message.channel.send(cpuidk)
 
             sysarch = platform.architecture()[0]
             nodsds = platform.node()
@@ -553,7 +540,6 @@ async def on_message(message):
             dist = platform.dist()
             dist = " ".join(x for x in dist)
 
-            print("Memory Info: ")
             with open("/proc/meminfo", "r") as f:
                 lines = f.readlines()
 
@@ -578,8 +564,8 @@ async def on_message(message):
 
             with open("/proc/loadavg", "r") as f:
                 avgload = ("Average Load: " + f.read().strip())
-
-            await message.channel.send(embed=discord.Embed(title="CPU STATS :tools:", description=f"\nNode: {nodsds}\nLoad: {avgload}\n**Processor**\nArchitecture: {sysarch}\nModel: {syscpumo}\nCores = {cpun}\nSpeed = {cpui}Ghz\nTotal Usage = {cpupert}%\nCore 1 = {cpuo}%\nCore 2 = {cput}%\nCore 3 = {cpuy}%\nCore 4 = {cpuf}%\n\nOS: {sysmchn}\nDist: {dist}\nRAM:\ntotal: {meminf1}\nFree: {meminf2}\n**Swap Memory**\nTotal = {cpuswt} Gb\nUsed = {cpuswu} Gb\nPercentage = {cpuswp}%\nFree = {cpuswf} Gb\n\n**Battery**\nAvailable = {cpubat}% :battery: \nCharging = {cpubat}\n\nUptime: {servuptime}", color=0xFD9E01))
+            sysspd = syscpumo.split(" ")[-1]
+            await message.channel.send(embed=discord.Embed(title="CPU STATS :tools:", description=f"\nNode: {nodsds}\nServer Load: {avgload}\n**Processor**\nArchitecture: {sysarch}\nModel: {syscpumo}\nCores = {cpun}\nSpeed = {sysspd} Ghz\nTotal Usage = {cpupert}%\n{cpuppp}\n\nOS: {sysmchn}\nDist: {dist}\n\nDisk:\nTotal: {meminf1}\nFree: {meminf2}\n\n**RAM**\nTotal = {cpuswt} Gb\nUsed = {cpuswu} Gb\nPercentage = {cpuswp}%\nFree = {cpuswf} Gb\n\nUptime: {servuptime}", color=0xFD9E01))
 
 # DATE TIME
     if message.content.find("a/ time") != -1:
@@ -1531,6 +1517,7 @@ async def on_message(message):
                 nocora = "true"
             print(cora)
             channel = message.channel
+            ques = ques.replace("&quote;", "`")
             await mos.edit(embed=discord.Embed(title=f"**Question 1 ({topic})**", description=f"**{ques}**\n\n**Give Your Answer within 10s as**\na/ true or a/ false", color=0xFD7803))
             # <Message id=801741193565831218 channel=<TextChannel id=781754334571921438 name='beta-bot-testing-1' position=9 nsfw=False news=False category_id=781753841162518539> type=<MessageType.default: 0> author=<Member id=782624720989585409 name='『AG』》V!GПΣ$hᴰᵉᵛ' discriminator='5105' bot=False nick=None guild=<Guild id=780625655657791518 name='Asteroid Support Server' shard_id=None chunked=False member_count=14>> flags=<MessageFlags value=0>>
             def check(m):
@@ -1600,7 +1587,7 @@ async def on_message(message):
 
     if message.content.find("a/ update") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**v1.8 UPDATES !!**\nI am going to get verified soon WOW!! TYSM for the 100 servers!!", description="**Premium** is free now and will remain **free forever**!!! Try `a/ premium` ||But it is not totally free! Free means you would not be asked to pay or use anything related to money (non-profit) for more info use `a/ premium`||\nOne of the most awaited feature, MUSIC is here! Use `a/ music help` and enjoy!!\nAdded our first Premium Feature!\nRandom fact option added use `a/ fact help`\nTicketing system Enhanced and added reason which is optional try `a/ ticket help`\nSometimes some raw data was shown in quiz question which was removed.\nEmbed creator problems fixed!! try `a/ embed help`\nAdded uptime to Pings. Try `a/ ping` or `a/ uptime`\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
+        await message.channel.send(embed=discord.Embed(title="**v1.8 UPDATES !!**\nI am going to get verified soon WOW!! TYSM for the 100 servers!!", description="**Premium** is free now and will remain **free forever**!!! Try `a/ premium` ||But it is not totally free! Free means you would not be asked to pay or use anything related to money (non-profit) for more info use `a/ premium`||\nOne of the most awaited feature, MUSIC is here! Use `a/ music help` and enjoy!!\nAdded our first Premium Feature!\nRandom fact option added use `a/ fact help`\nTicketing system Enhanced and added reason which is optional try `a/ ticket help`\nCpu spec error fixed `a/ cpu`\nSometimes some raw data was shown in quiz question which was removed.\nEmbed creator problems fixed!! try `a/ embed help`\nAdded uptime to Pings. Try `a/ ping` or `a/ uptime`\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
 
 # PING
     if message.content.find("a/ ping") != -1 or message.content.find("a/ uptime") != -1:

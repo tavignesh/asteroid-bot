@@ -1,14 +1,16 @@
 # distribution
-dist = platform.dist()
-dist = " ".join(x for x in dist)
-print("Distribution: " + dist)
+import platform
 
-print("Memory Info: ")
-with open("/proc/meminfo", "r") as f:
-    lines = f.readlines()
-
-print("     " + lines[0].strip())
-print("     " + lines[1].strip())
+# dist = platform.dist()
+# dist = " ".join(x for x in dist)
+# print("Distribution: " + dist)
+#
+# print("Memory Info: ")
+# with open("/proc/meminfo", "r") as f:
+#     lines = f.readlines()
+#
+# print("     " + lines[0].strip())
+# print("     " + lines[1].strip())
 
 print("Processors: ")
 with open("/proc/cpuinfo", "r")  as f:
