@@ -493,7 +493,8 @@ async def on_message(message):
             cpun = psutil.cpu_count()
             cpusw = psutil.swap_memory()
             cpupers = psutil.cpu_percent(percpu=1)
-            cpubat = psutil.sensors_battery()
+            # cpubat = psutil.sensors_battery()
+            cpubat = "NA"
 
          # sbattery(percent=80, secsleft= < BatteryTime.POWER_TIME_UNLIMITED: -2 >, power_plugged = True)
             cpubat = str(cpubat)
