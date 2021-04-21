@@ -1054,7 +1054,6 @@ async def on_message(message):
             tickid = randata()
             tiiid = tickid
             tickid = f"ticket-{tickid}"
-            print(tickid)
             overwrites = {
                 message.guild.default_role: discord.PermissionOverwrite(read_messages=False)
             }
@@ -1063,6 +1062,7 @@ async def on_message(message):
             await ochan.set_permissions(message.author, read_messages=not porms.read_messages)
             lstrrr = srlst["chan"]
             lstrrr.append(int(ochan.id))
+            print(lstrrr)
             collection.update_one({"_id":1341}, {"$set":{"chan":lstrrr}})
             tickde = discord.Embed(title=f"Created! <a:ag_tickop:781395575962599445>", description=f"Here: {ochan.mention}", color=0x2AE717)
             tickde.set_footer(text=f"Requested by: {message.author.mention}", icon_url=f"{message.author.avatar_url}")
