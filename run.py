@@ -25,6 +25,7 @@ from googlesearch import search
 from discord.ext import commands
 import pickle
 import csv
+import platform
 
 client = discord.Client()
 
@@ -45,7 +46,7 @@ mtlist = []
 
 # PRE DECLARE
 helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**⎰ѦǤ⎱₊⋆》⎝⧹Ѵ!ǤЛΣ$Ƕᴰᵉᵛ⧸⎠₰♪⅏ﮩ.ﮩ٨ـ≻#8351**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
-on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Premium`but free` (premium)\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> TAX <:ag_tax:807893601244676116> (tax)\n<a:ag_arrowgif:781395494127271947> Ticket System :tickets: (ticket)\n<a:ag_arrowgif:781395494127271947> Embed Creation :card_index: (embed)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random :game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
+on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Premium`but free` (premium)\n<a:ag_arrowgif:781395494127271947> Music :x: (music)\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> TAX <:ag_tax:807893601244676116> (tax)\n<a:ag_arrowgif:781395494127271947> Ticket System :tickets: (ticket)\n<a:ag_arrowgif:781395494127271947> Embed Creation :card_index: (embed)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random :game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
 me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Random Facts :omg: (fact)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Poll  (poll)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (suggest)\n<a:ag_arrowgif:781395494127271947> Dictionary Search <a:ag_book_pgs:781410721397080084> (def,dic)\
 \n<a:ag_arrowgif:781395494127271947> Google Search <a:ag_ggl:781410701327335445> (google)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)\n▬▬▬▬▬▬▬▬▬▬\n**Example:**\n`a/ embed help`", color=0x01FD14)
 
@@ -240,10 +241,13 @@ async def on_message(message):
     if message.content == 'a/ embed help' or message.content == 'a/ help embed' or message.content == 'a/ embed' or message.content == 'a/ embed create':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         adasss = r"\n"
-        await message.channel.send(embed=discord.Embed(title="Embed Creation :card_index:\n▬▬▬▬▬▬▬▬▬▬", description=f"Embed is very usefull message type for creating beautifully arranged and ordered formal messages. But sadly Normal users cannot create or send embed messages. Don't worry! Asteroid is here with a new very user friendly Embed Creator!\nTo create an embed Just type `a/ embed create` and follow the instructions!\n\n**IMPORTANT INFO**\nYou can add external, default and animated emojis BUT the limitation is you can ONLY use emojis from servers I am a Member of (ie. our mutual servers, which can be viewed in my profile).\nTo jump to next line use {adasss} in the correct place where you want to jump.\nYou can ping or tag someone in the message description but NOT in the title\n The above given limitation are not limited wantedly made but are the limitations of Discord Embeds", color=0xBCFC09))
+        await message.channel.send(embed=discord.Embed(title="Embed Creation :card_index:\n▬▬▬▬▬▬▬▬▬▬", description=f"Embed is very usefull message type for creating beautifully arranged and ordered formal messages. But sadly Normal users cannot create or send embed messages. Don't worry! Asteroid is here with a new very user friendly Embed Creator!\nTo create an embed Just type `a/ embed create` and follow the instructions!\n\n**IMPORTANT INFO**\nYou can add external, default and animated emojis BUT the limitation is you can ONLY use emojis from servers I am a Member of (ie. our mutual servers, which can be viewed in my profile).\nTo jump to next line use {adasss} in the correct place where you want to jump.\nYou can ping or tag someone in the message description but NOT in the title\n The above given limitation are not limited wantedly made but are the limitations of Discord Embeds\n\n**Syntax**: `a/ embed create`", color=0xBCFC09))
     if message.content == 'a/ fact help' or message.content == 'a/ help fact':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Random Facts :omg:\n▬▬▬▬▬▬▬▬▬▬", description="This shows you an interesting random fact chosen from a huge list of facts. Every care has been taken to provide good and quality facts but if some error or inapropriate or unwanted or nsfw content had crept in, just remember the fact id and send a suggsetion(`a/ suggest help`) or send a message in our [Support Server](https://discord.gg/teszgSR9yK). Sorry for the inconvinience.\n\n**Syntax**: `a/ fact`", color=0xBCFC09))
+    if message.content.startswith('a/ music') or message.content == 'a/ help music':
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        await message.channel.send(embed=discord.Embed(title="Music :notes:\n▬▬▬▬▬▬▬▬▬▬", description="This feature allows you to listen to music by streaming music to a voice channel. To activate all commands join a voice channel and use `a/ play songname`. This also includes a lot of filters which can be applied to the song!!. Enjoy the music and kindly report any bugs or gliches to [Support Server](https://discord.gg/teszgSR9yK)\n__Music Commands (Usage: `a/ command`)__:\n`play, pause, clear-queue, filter, loop, nowplaying, queue, resume, search, shuffle, skip, stop, volume, w-filters\n__Filters (Usage: `a/ filter filtername`)__:\n`8D, gate, haas, phaser, treble, tremolo, vibrato, reverse, karaoke, flanger, mcompand, pulsator, subboost, bassboost, vaporwave, nightcore, normalizer, surrounding`", color=0xBCFC09))
 
 # PREMIUM
     if message.content.startswith("a/ premium") or message.content.startswith("a/ help premium"):
@@ -483,62 +487,65 @@ async def on_message(message):
 # SYSTEM STATS
     if message.content.find("a/ cpu") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        cpupert = psutil.cpu_percent()
-        cpun = psutil.cpu_count()
-        cpusw = psutil.swap_memory()
-        cpupers = psutil.cpu_percent(percpu=1)
-        cpubat = psutil.sensors_battery()
+        if str(platform.system()) == "Windows":
+            cpupert = psutil.cpu_percent()
+            cpun = psutil.cpu_count()
+            cpusw = psutil.swap_memory()
+            cpupers = psutil.cpu_percent(percpu=1)
+            cpubat = psutil.sensors_battery()
 
          # sbattery(percent=80, secsleft= < BatteryTime.POWER_TIME_UNLIMITED: -2 >, power_plugged = True)
-        cpubat = str(cpubat)
-        cpubatp = cpubat.split('=')[1]
-        cpubatp = cpubatp.split(",")[0]
+            cpubat = str(cpubat)
+            cpubatp = cpubat.split('=')[1]
+            cpubatp = cpubatp.split(",")[0]
 
-        cpubatc = cpubat.split("=")[-1]
-        cpubatc = cpubatc.split(")")[0]
+            cpubatc = cpubat.split("=")[-1]
+            cpubatc = cpubatc.split(")")[0]
 
-        cpui = psutil.cpu_freq()
-        cpui = str(cpui)
-        cpui = cpui.split("=")[-1]
-        cpui = cpui.split(")")[0]
-        cpui = float(cpui)
-        cpui = cpui / 1000
-        cpuo = cpupers[0]
-        cput = cpupers[1]
-        cpuy = cpupers[2]
-        cpuf = cpupers[3]
+            cpui = psutil.cpu_freq()
+            cpui = str(cpui)
+            cpui = cpui.split("=")[-1]
+            cpui = cpui.split(")")[0]
+            cpui = float(cpui)
+            cpui = cpui / 1000
+            cpuo = cpupers[0]
+            cput = cpupers[1]
+            cpuy = cpupers[2]
+            cpuf = cpupers[3]
 
-        # sswap(total=10694811648, used=6834396100, free=2350850048, percent=78.0, sin=0, sout=0)
+            # sswap(total=10694811648, used=6834396100, free=2350850048, percent=78.0, sin=0, sout=0)
 
-        cpusw = str(cpusw)
-        cpuswt = cpusw.split("=")[1]
-        cpuswt = cpuswt.split(",")[0]
-        cpuswt = float(cpuswt)
-        cpuswt = cpuswt/10000000
-        cpuswt = math.floor(cpuswt)
-        cpuswt = cpuswt/100
+            cpusw = str(cpusw)
+            cpuswt = cpusw.split("=")[1]
+            cpuswt = cpuswt.split(",")[0]
+            cpuswt = float(cpuswt)
+            cpuswt = cpuswt/10000000
+            cpuswt = math.floor(cpuswt)
+            cpuswt = cpuswt/100
 
-        cpusw = str(cpusw)
-        cpuswu = cpusw.split("=")[2]
-        cpuswu = cpuswu.split(",")[0]
-        cpuswu = float(cpuswu)
-        cpuswu = cpuswu / 10000000
-        cpuswu = math.floor(cpuswu)
-        cpuswu = cpuswu / 100
+            cpusw = str(cpusw)
+            cpuswu = cpusw.split("=")[2]
+            cpuswu = cpuswu.split(",")[0]
+            cpuswu = float(cpuswu)
+            cpuswu = cpuswu / 10000000
+            cpuswu = math.floor(cpuswu)
+            cpuswu = cpuswu / 100
 
-        cpusw = str(cpusw)
-        cpuswf = cpusw.split("=")[3]
-        cpuswf = cpuswf.split(",")[0]
-        cpuswf = float(cpuswf)
-        cpuswf = cpuswf / 10000000
-        cpuswf = math.floor(cpuswf)
-        cpuswf = cpuswf / 100
+            cpusw = str(cpusw)
+            cpuswf = cpusw.split("=")[3]
+            cpuswf = cpuswf.split(",")[0]
+            cpuswf = float(cpuswf)
+            cpuswf = cpuswf / 10000000
+            cpuswf = math.floor(cpuswf)
+            cpuswf = cpuswf / 100
 
-        cpusw = str(cpusw)
-        cpuswp = cpusw.split("=")[4]
-        cpuswp = cpuswp.split(",")[0]
-        # await message.channel.send(cpuidk)
-        await message.channel.send(embed=discord.Embed(title="CPU STATS :tools:", description=f"**Processor**\nCores = {cpun}\nSpeed = {cpui}Ghz\nTotal Usage = {cpupert}%\nCore 1 = {cpuo}%\nCore 2 = {cput}%\nCore 3 = {cpuy}%\nCore 4 = {cpuf}%\n\n**Swap Memory**\nTotal = {cpuswt} Gb\nUsed = {cpuswu} Gb\nPercentage = {cpuswp}%\nFree = {cpuswf} Gb\n\n**Battery**\nAvailable = {cpubatp}% :battery: \nCharging = {cpubatc}", color=0xFD9E01))
+            cpusw = str(cpusw)
+            cpuswp = cpusw.split("=")[4]
+            cpuswp = cpuswp.split(",")[0]
+            # await message.channel.send(cpuidk)
+            sysarch = platform.architecture()[0]
+            nodsds = platform.node()
+            await message.channel.send(embed=discord.Embed(title="CPU STATS :tools:", description=f"\nNode: {nodsds}\n**Processor**\nArchetecture: {sysarch}\nCores = {cpun}\nSpeed = {cpui}Ghz\nTotal Usage = {cpupert}%\nCore 1 = {cpuo}%\nCore 2 = {cput}%\nCore 3 = {cpuy}%\nCore 4 = {cpuf}%\n\n**Swap Memory**\nTotal = {cpuswt} Gb\nUsed = {cpuswu} Gb\nPercentage = {cpuswp}%\nFree = {cpuswf} Gb\n\n**Battery**\nAvailable = {cpubatp}% :battery: \nCharging = {cpubatc}", color=0xFD9E01))
 
 # DATE TIME
     if message.content.find("a/ time") != -1:
@@ -1036,82 +1043,10 @@ async def on_message(message):
 
 # Data Save
 
-    if message.content.find("a/ data =") !=-1:
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        fetcda = await message.channel.send(embed=discord.Embed(title="Loading Database..", color=0x05FCE2))
-        inpdata = message.content.split("=")[1]
-        usrnum = collection.find_one({"_id":2344})
-        uid = message.author.id
-        uid = int(uid)
-        adid = f"1{uid}"
-        adid = int(adid)
-        ingo = 0
-        if str(uid) not in usrnum:
-            await fetcda.edit(content="new guy u hav 20 space")
-            collection.insert_one({"_id":adid})
-            collection.update_one({"_id":2344}, {"$set": {str(uid):0}})
-            ingo = 1
-        elif int(usrnum[str(uid)]) < 20:
-            bsz = int(usrnum[str(uid)])
-            await fetcda.edit(content=f"you have {19-bsz} threads left. You can get more by deleting some or getting premium(which is free!!)! To know more abt premium use `a/ premium`")
-            ingo = 1
-        elif int(usrnum[str(uid)]) >= 20:
-            await fetcda.edit(embed=discord.Embed(title="Your Database Is Full", description="Your Database has 20 threads, delete some to add more.", color=0xFD7803))
-        print(ingo)
-        if ingo == 1:
-            adng = await message.channel.send(embed=discord.Embed(title="adding..."))
-            usrnum = collection.find_one({"_id": 2344})
-            print(usrnum)
-            adsid = collection.find_one({"_id":int(adid)})
-            dataid = randata()
-            print(dataid)
-            collection.update_one({"_id":adid},{"$set":{dataid:str(inpdata)}})
-            newusrn = int(usrnum[str(uid)])
-            newusrn += 1
-            collection.update_one({"_id":2344}, {"$set": {str(uid):newusrn}})
-            print(adsid,usrnum,newusrn)
-            print("dooodododoooneee OP")
-
-    if message.content == "a/ data list" or message.content == "a/ list data":
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        usrnum = collection.find_one({"_id": 2344})
-        uid = message.author.id
-        uid = int(uid)
-        adid = f"1{uid}"
-        adid = int(adid)
-        if str(uid) not in usrnum:
-            await fetcda.edit(content="new guy u hav no data sored in our dataB")
-        else:
-            datadic = collection.find_one({"_id": int(adid)})
-            mtstng = ""
-            for dataiddd in datadic:
-                if dataiddd != "_id":
-                    mtstng += f"{dataiddd}     :     {datadic[dataiddd]} \n"
-            print(mtstng)
-            await message.channel.send(embed=discord.Embed(title="Your Data", description=f"**Data ID\t Data**\n{mtstng}\n\nTo add more data or to delete data use `a/ data help`\nTo get more data space get premium(which is free)"))
-
-    if message.content.startswith("a/ delete data ") or message.content.startswith("a/ data delete "):
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        usrnum = collection.find_one({"_id": 2344})
-        uid = message.author.id
-        uid = int(uid)
-        adid = f"1{uid}"
-        adid = int(adid)
-        if str(uid) not in usrnum:
-            await fetcda.edit(content="new guy u hav no data sored in our dataB")
-        else:
-            datadic = collection.find_one({"_id": int(adid)})
-            print(datadic)
-
-
-#   key1 : aofads
-#   key2 : afoiefio
-#
-#
 
 # Ticketing
 
-    if (message.content.startswith("a/ create ticket") or message.content.startswith("a/ new ticket") or message.content.startswith == "a/ ticket new") and message.content != "a/ ticket create":
+    if (message.content.startswith("a/ create ticket") or message.content.startswith("a/ new ticket") or message.content.startswith("a/ ticket new")) and message.content != "a/ ticket create":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         srlst = collection.find_one({"_id" : 1341})
         if int(message.guild.id) in srlst["ids"]:
@@ -1128,7 +1063,6 @@ async def on_message(message):
             await ochan.set_permissions(message.author, read_messages=not porms.read_messages)
             lstrrr = srlst["chan"]
             lstrrr.append(int(ochan.id))
-            print(lstrrr)
             collection.update_one({"_id":1341}, {"$set":{"chan":lstrrr}})
             tickde = discord.Embed(title=f"Created! <a:ag_tickop:781395575962599445>", description=f"Here: {ochan.mention}", color=0x2AE717)
             tickde.set_footer(text=f"Requested by: {message.author.mention}", icon_url=f"{message.author.avatar_url}")
@@ -1632,7 +1566,7 @@ async def on_message(message):
 
     if message.content.find("a/ update") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**v1.8 UPDATES !!**\nI am going to get verified soon WOW!! TYSM for the 100 servers!!", description="**Premium** is free now and will remain **free forever**!!! Try `a/ premium` ||But it is not totally free! Free means you would not be asked to pay or use anything related to money (non-profit) for more info use `a/ premium`||\nAdded our first Premium Feature!\nRandom fact option added use `a/ fact help`\nTicketing system Enhanced and added reason which is optional try `a/ ticket help`\nSometimes some raw data was shown in quiz question which was removed.\nEmbed creator problems fixed!! try `a/ embed help`\nAdded uptime to Pings. Try `a/ ping` or `a/ uptime`\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
+        await message.channel.send(embed=discord.Embed(title="**v1.8 UPDATES !!**\nI am going to get verified soon WOW!! TYSM for the 100 servers!!", description="**Premium** is free now and will remain **free forever**!!! Try `a/ premium` ||But it is not totally free! Free means you would not be asked to pay or use anything related to money (non-profit) for more info use `a/ premium`||\nOne of the most awaited feature, MUSIC is here! Use `a/ music help` and enjoy!!\nAdded our first Premium Feature!\nRandom fact option added use `a/ fact help`\nTicketing system Enhanced and added reason which is optional try `a/ ticket help`\nSometimes some raw data was shown in quiz question which was removed.\nEmbed creator problems fixed!! try `a/ embed help`\nAdded uptime to Pings. Try `a/ ping` or `a/ uptime`\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
 
 # PING
     if message.content.find("a/ ping") != -1 or message.content.find("a/ uptime") != -1:

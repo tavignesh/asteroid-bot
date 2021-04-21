@@ -1,27 +1,99 @@
+import platform
 import discord
-import time
-import asyncio
-import random
+print(help(discord))
+print("going again")
 
-client = discord.Client()
-token = "ODMzOTE1ODA5Nzk3MzczOTcy.YH5Sng.hdOnulgCR0w9Ea2f1MKgyBqMKd8"
+print("System: " + platform.system())
+
+print("Architecture: " + platform.architecture()[0])
+
+# machine
+print("Machine: " + platform.machine())
+
+# node
+print("Node: " + platform.node())
+
+# distribution
+dist = platform.dist()
+dist = " ".join(x for x in dist)
+print("Distribution: " + dist)
+
+print("Memory Info: ")
+with open("/proc/meminfo", "r") as f:
+    lines = f.readlines()
+
+print("     " + lines[0].strip())
+print("     " + lines[1].strip())
+
+print("Processors: ")
+with open("/proc/cpuinfo", "r")  as f:
+    info = f.readlines()
+
+cpuinfo = [x.strip().split(":")[1] for x in info if "model name"  in x]
+for index, item in enumerate(cpuinfo):
+    print("    " + str(index) + ": " + item)
+
+uptime = None
+with open("/proc/uptime", "r") as f:
+    uptime = f.read().split(" ")[0].strip()
+uptime = int(float(uptime))
+uptime_hours = uptime // 3600
+uptime_minutes = (uptime % 3600) // 60
+print("Uptime: " + str(uptime_hours) + ":" + str(uptime_minutes) + " hours")
+
+with open("/proc/loadavg", "r") as f:
+    print("Average Load: " + f.read().strip())
 
 
-@client.event
-async def on_ready():
-    print("Bot is Ready Boss!!")
+
+print("SECOND LEVELS COEDEEEE")
 
 
-@client.event
-async def on_message(message):
-    global messages
-    ig = 0
-    if str(message.channel.id) == "806906773268332581"and not (str(message.author.id) == "818500359033978941" or str(message.author.id) == "833915809797373972"):
-        mos = message.content
-        await message.delete()
-        rs = await message.channel.send(embed=discord.Embed(title=f"{message.author}'s Suggestion!", description=f"`{mos}`", color=0x01FD14))
-        await rs.add_reaction("<:upvote:816324827908014139>")
-        await rs.add_reaction("<:downvote:816324896262324276>")
+import platform
 
+# Architecture
+print("Architecture: " + platform.architecture()[0])
 
-client.run(token)
+# machine
+print("Machine: " + platform.machine())
+
+# node
+print("Node: " + platform.node())
+
+# processor
+print("Processors: ")
+with open("/proc/cpuinfo", "r")  as f:
+    info = f.readlines()
+
+cpuinfo = [x.strip().split(":")[1] for x in info if "model name"  in x]
+for index, item in enumerate(cpuinfo):
+    print("    " + str(index) + ": " + item)
+
+# system
+print("System: " + platform.system())
+
+# distribution
+dist = platform.dist()
+dist = " ".join(x for x in dist)
+print("Distribution: " + dist)
+
+# Load
+with open("/proc/loadavg", "r") as f:
+    print("Average Load: " + f.read().strip())
+
+# Memory
+print("Memory Info: ")
+with open("/proc/meminfo", "r") as f:
+    lines = f.readlines()
+
+print("     " + lines[0].strip())
+print("     " + lines[1].strip())
+
+# uptime
+uptime = None
+with open("/proc/uptime", "r") as f:
+    uptime = f.read().split(" ")[0].strip()
+uptime = int(float(uptime))
+uptime_hours = uptime // 3600
+uptime_minutes = (uptime % 3600) // 60
+print("Uptime: " + str(uptime_hours) + ":" + str(uptime_minutes) + " hours")
