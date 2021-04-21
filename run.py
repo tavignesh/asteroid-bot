@@ -487,7 +487,8 @@ async def on_message(message):
 # SYSTEM STATS
     if message.content.find("a/ cpu") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        if str(platform.system()) == "Windows":
+        if str(platform.system()) != "Windows":
+            pass
             cpupert = psutil.cpu_percent()
             cpun = psutil.cpu_count()
             cpusw = psutil.swap_memory()
