@@ -502,8 +502,8 @@ async def on_message(message):
             cpui = cpui / 1000
             cpuppp = ""
             for i in cpupers:
-                cpuo = cpupers[i]
-                cpuppp += f"Core{i}: {cpuo}%\n"
+                cpuo = cpupers[int(i)]
+                cpuppp += f"Core{int(i)}: {cpuo}%\n"
 
             cpusw = str(cpusw)
             cpuswt = cpusw.split("=")[1]
