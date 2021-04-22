@@ -26,7 +26,6 @@ from discord.ext import commands
 import pickle
 import csv
 import platform
-import dbl
 
 client = discord.Client()
 
