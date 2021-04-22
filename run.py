@@ -27,6 +27,7 @@ import pickle
 import csv
 import platform
 
+
 client = discord.Client()
 
 cluster = MongoClient("mongodb+srv://bot:1234@cluster0.5bkqm.mongodb.net/discord?retryWrites=true&w=majority")
