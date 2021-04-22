@@ -501,7 +501,8 @@ async def on_message(message):
             cpui = float(cpui)
             cpui = cpui / 1000
             cpuppp = ""
-            for i in cpupers:
+            print("printing hereeeeee: ", cpupers)
+            for i in len(cpupers):
                 cpuo = cpupers[int(i)]
                 cpuppp += f"Core{int(i)}: {cpuo}%\n"
 
