@@ -1,3 +1,5 @@
+mm
+
     if message.content.find("a/ data =") !=-1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         fetcda = await message.channel.send(embed=discord.Embed(title="Loading Database..", color=0x05FCE2))
