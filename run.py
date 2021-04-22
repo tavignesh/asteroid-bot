@@ -26,7 +26,7 @@ from discord.ext import commands
 import pickle
 import csv
 import platform
-
+import dbl
 
 client = discord.Client()
 
@@ -503,7 +503,7 @@ async def on_message(message):
             cpui = cpui / 1000
             cpuppp = ""
             print("printing hereeeeee: ", cpupers)
-            for i in len(cpupers):
+            for i in range(len(cpupers)):
                 cpuo = cpupers[int(i)]
                 cpuppp += f"Core{int(i)}: {cpuo}%\n"
 
