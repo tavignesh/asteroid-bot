@@ -1,1 +1,1 @@
-"# asteroid-bot" 
+Coooool Discord bot, Asteroid's Source Code!
