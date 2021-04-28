@@ -34,9 +34,9 @@ db = cluster["discord"]
 collection = db["bot"]
 
 # TOKENS
-toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
+# toktok = "NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.Or3lU9RbeWevMYmK8nZiyXwjtuY"
 # betatoken
-# toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM"
+toktok = "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.wAT69iuJQtg81jqU-vrLSKbCVoc"
 wthapikey = "b79ac8eaa95ac8f6d9248eeee1fd3f08"
 # ag srvr id      = 708329597141385229
 # id support srvr = 780625655657791518
@@ -50,7 +50,7 @@ on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:
 me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Random Facts :omg: (fact)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Poll  (poll)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (suggest)\n<a:ag_arrowgif:781395494127271947> Dictionary Search <a:ag_book_pgs:781410721397080084> (def,dic)\
 \n<a:ag_arrowgif:781395494127271947> Google Search <a:ag_ggl:781410701327335445> (google)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)\n▬▬▬▬▬▬▬▬▬▬\n**Example:**\n`a/ embed help`", color=0x01FD14)
 
-invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **Usefull Links** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> [Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n<a:ag_arrowgif:781395494127271947> [VOTE ME](https://top.gg/bot/780472070072696852/vote)\n<a:ag_arrowgif:781395494127271947> [Support Server](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n<a:ag_arrowgif:781395494127271947> [ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
+invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **Usefull Links** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> [Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> <a:ag_arrowgif:781395494127271947> [Invite Asteroid Music](https://discord.com/oauth2/authorize?client_id=836830093644791809&scope=bot&permissions=37088576) :notes: \n<a:ag_arrowgif:781395494127271947> [VOTE ME](https://top.gg/bot/780472070072696852/vote)\n<a:ag_arrowgif:781395494127271947> [Support Server](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n<a:ag_arrowgif:781395494127271947> [ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
 
 tstmbd = discord.Embed(title="Your title\n___________", description="Your description\ndescreption2", color=000000)
 
@@ -72,15 +72,15 @@ def randata():
 
 @client.event
 async def on_ready():
-    if toktok == "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.XO0sNCFFH5sXCo7ZMnRP87L3hWM":
-        game = discord.Game("Having Fun Testing New Features")
+    if toktok == "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.wAT69iuJQtg81jqU-vrLSKbCVoc":
+        game = discord.Game("v1.8.1 => Having Fun Testing New Features")
         # await client.change_presence(status=discord.Status.idle, activity=game)
         # await client.change_presence(status=discord.Status.online, activity=game)
         # await client.change_presence(status=discord.Status.invisible, activity=game)
         await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
     else:
         # game = discord.Game("With 『AG』》Vigne$hᴰᵉᵛ#8351 a/ help")
-        game = discord.Game("I have Lotz of new Features try a/ help !!")
+        game = discord.Game("v1.8.0 => I have Lotz of new Features try a/ help !!")
         await client.change_presence(status=discord.Status.idle, activity=game)
         # await client.change_presence(status=discord.Status.online, activity=game)
         # await client.change_presence(status=discord.Status.invisible, activity=game)
@@ -110,6 +110,21 @@ async def update_stats():
 @client.event
 async def on_message(message):
     global messages
+    try:
+        try:
+            message_count_file = open(f"message_count.txt", "r")
+            message_count = message_count_file.readline()
+            message_count_file.close()
+        except:
+            message_count_file.close()
+        try:
+            message_count_file = open(f"message_count.txt", "w")
+            message_count_file.write(f"{int(message_count) + 1}")
+            message_count_file.close()
+        except:
+            message_count_file.close()
+    except:
+        pass
     messages += 1
     ans = "none"
 # serverid = client.get_guild(780625655657791518)
@@ -245,18 +260,22 @@ async def on_message(message):
     if message.content == 'a/ fact help' or message.content == 'a/ help fact':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Random Facts :omg:\n▬▬▬▬▬▬▬▬▬▬", description="This shows you an interesting random fact chosen from a huge list of facts. Every care has been taken to provide good and quality facts but if some error or inapropriate or unwanted or nsfw content had crept in, just remember the fact id and send a suggsetion(`a/ suggest help`) or send a message in our [Support Server](https://discord.gg/teszgSR9yK). Sorry for the inconvinience.\n\n**Syntax**: `a/ fact`", color=0xBCFC09))
-    if message.content.startswith('a/ music') or message.content == 'a/ help music':
+    if message.content.startswith('a/ music') or message.content == 'a/ help music' or message.content == 'a/ music help':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="Music :notes:\n▬▬▬▬▬▬▬▬▬▬", description="This feature allows you to listen to music by streaming music to a voice channel. To activate all commands join a voice channel and use `a/ play songname`. This also includes a lot of filters which can be applied to the song!!. Enjoy the music and kindly report any bugs or gliches to [Support Server](https://discord.gg/teszgSR9yK)\n__Music Commands (Usage: `a/ command`)__:\n`play, pause, clear-queue, filter, loop, nowplaying, queue, resume, search, shuffle, skip, stop, volume, w-filters\n__Filters (Usage: `a/ filter filtername`)__:\n`8D, gate, haas, phaser, treble, tremolo, vibrato, reverse, karaoke, flanger, mcompand, pulsator, subboost, bassboost, vaporwave, nightcore, normalizer, surrounding`", color=0xBCFC09))
+        await message.channel.send(embed=discord.Embed(title="Music :notes:\n▬▬▬▬▬▬▬▬▬▬", description="This feature allows you to listen to music by streaming music to a voice channel. To activate all commands join a voice channel and use `a/ play songname`. This also includes a lot of filters which can be applied to the song!!. Enjoy the music and kindly report any bugs or gliches to [Support Server](https://discord.gg/teszgSR9yK)\n__Music Commands (Usage: `a/ command`)__:\nplay, pause, clear-queue, filter, loop, nowplaying, queue, resume, search, shuffle, skip, stop, volume, w-filters\n__Filters (Usage: `a/ filter filtername`)__:\n`8D, gate, haas, phaser, treble, tremolo, vibrato, reverse, karaoke, flanger, mcompand, pulsator, subboost, bassboost, vaporwave, nightcore, normalizer, surrounding`\n\n **Introducing Asteroid Music!** \n [Invite Asteroid Music](https://discord.com/oauth2/authorize?client_id=836830093644791809&scope=bot&permissions=37088576)", color=0xBCFC09))
 
 # PREMIUM
-    if message.content.startswith("a/ premium") or message.content.startswith("a/ help premium"):
+    if message.content.startswith("a/ premium") or message.content.startswith("a/ help premium") or message.content.startswith("a/ premium help"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**PREMIUM for FREE!!**\n▬▬▬▬▬▬▬▬▬▬", description="__Premium Features__:\n<a:ag_arrowgif:781395494127271947> A <a:ag_flyn_hrts_cyn:781395468978356235> will be used instead of <a:ag_flyn_hrts_cyn:781395468978356235> while reacting to your messages\n<a:ag_arrowgif:781395494127271947> 20 Extra space in our database, more can be redeemed using AstroCash\n<a:ag_arrowgif:781395494127271947>\n\nPresently there are only less features to enjoy in premium but lots will be added to it!\nAbout premium:\nPremium here does not mean any profit of any kind to me and you will not be asked to USE or PAY any money or related items. Premium can be obtained by redeeming AstroCash. Astrocash can be reedeemed ony by creating a ticket in our [Support Server](https://discord.gg/teszgSR9yK) but soon there will be a feature to redeem using commands! To earn AstroCash use `a/ earn` or `a/ astrocash`. You can see the reedinption price for each feature using `a/ redeem`But wait you can also buy premium with money!! but its not yet available"))
+        await message.channel.send(embed=discord.Embed(title="**PREMIUM for FREE!!**\n▬▬▬▬▬▬▬▬▬▬", description="__Premium Features__:\n__NOTE__: Premium features are not available yet, so pls do not ask or create ticket for it. It will be available in next(v1.9) or v2.0 update! the below details are only tentative and just for some idea about premium \n<a:ag_arrowgif:781395494127271947> A different animated emoji will be used instead of <a:ag_flyn_hrts_cyn:781395468978356235> while reacting to your messages\n\nPresently there are NO features to enjoy in premium but lots will be added to it in upcomming updates!\nAbout premium:\nPremium here does not mean any profit of any kind to me and you will NOT be asked to USE or PAY any money or related items. Premium can be obtained by redeeming AstroCash. Astrocash can be redeemed ony by creating a ticket in our [Support Server](https://discord.gg/teszgSR9yK) but soon there will be a feature to redeem using commands! To earn AstroCash use `a/ earn` or `a/ astrocash`. Also to check your profile use `a/ profile` (not available yet) You can see the redeemption price for each feature using `a/ redeem`."))
 
     if message.content.startswith("a/ astrocash") or message.content.startswith("a/ earn"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="AstroCash\n▬▬▬▬▬▬▬▬▬▬", description="AstroCash is currency for me! It can be redeemed into lots of usable features or even premium. Presently you cannot transfer or trade AstroCash\n\nAstroCash can be earned by:\n<a:ag_arrowgif:781395494127271947> Joining Support Server and other servers listed in a separate channel\n<a:ag_arrowgif:781395494127271947> Finding bugs in the bot and reporting it in our [Support Server](https://discord.gg/teszgSR9yK) AstroCash will be given according to the size of the bug, you can even report typos!\n<a:ag_arrowgif:781395494127271947> Vote for me every 12hrs use `a/ vote`\n<a:ag_arrowgif:781395494127271947> Giving good suggestions using `a/ suggest help` AstroCash will be given accrding to the worthiness of suggestion ||Spamming will be dealt with punishment||\n<a:ag_arrowgif:781395494127271947> Inviteing me to servers\n<a:ag_arrowgif:781395494127271947> Gaining levels with Asteroid or Gaining levels in [Support Server](https://discord.gg/teszgSR9yK)\n<a:ag_arrowgif:781395494127271947> Sending cool facts in a channel in [Support Server](https://discord.gg/teszgSR9yK)\n<a:ag_arrowgif:781395494127271947> Helping creator to test the bot. Make sure you read rules in [Support Server](https://discord.gg/teszgSR9yK)\n<a:ag_arrowgif:781395494127271947> Playing Quiz - # points for correct and # points for wrong answer"))
+        await message.channel.send(embed=discord.Embed(title="AstroCash\n▬▬▬▬▬▬▬▬▬▬", description="AstroCash is currency for me! It can be redeemed into lots of usable features, commands or even premium. Presently you cannot transfer or trade AstroCash. To view redeemable items or Redeem AstroCash use `a/ redeem`\n\nAstroCash can be earned by:\n<a:ag_arrowgif:781395494127271947> Joining Support Server and other servers listed in a separate channel in Support Server\n<a:ag_arrowgif:781395494127271947> Finding bugs in the bot and reporting it in our [Support Server](https://discord.gg/teszgSR9yK) AstroCash will be given according to the size of the bug, you can even report typos!\n<a:ag_arrowgif:781395494127271947> Vote for me every 12hrs use `a/ vote`\n<a:ag_arrowgif:781395494127271947> Giving good suggestions using `a/ suggest help` AstroCash will be given accrding to the worthiness of suggestion ||Spamming will be dealt with punishment||\n<a:ag_arrowgif:781395494127271947> Inviteing me to servers\n<a:ag_arrowgif:781395494127271947> Gaining levels with Asteroid or Gaining levels in [Support Server](https://discord.gg/teszgSR9yK) - According to levels\n<a:ag_arrowgif:781395494127271947> Sending cool facts in a channel in [Support Server](https://discord.gg/teszgSR9yK) - 20 points\n<a:ag_arrowgif:781395494127271947> Helping creator to test the bot. Make sure you read rules in [Support Server](https://discord.gg/teszgSR9yK)\n<a:ag_arrowgif:781395494127271947> Playing Quiz - 10 points for correct and 2 points for wrong answer"))
+
+    if message.content.startswith("a/ redeem") or message.content.startswith("a/ help redeem"):
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        await message.channel.send(embed=discord.Embed(title="Item List (pls suggest a better name)", description="5 database space - 50 AC\n:SOME: Reaction - 100\n:another: Reaction - 120\n:another: Reaction - 140\nLevel Mutiplyer - ###\nlotz to be added (suggestions welcomed with reward!)"))
 
 # PREFERENCE
     if message.content == "a/ ticket enable" or message.content == "a/ ticket true" or message.content == "a/ enable ticket":
@@ -394,6 +413,7 @@ async def on_message(message):
 
     # make own api
     if message.content.startswith("a/ fact") or message.content.startswith("a/ random fact"):
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         factfile = open("fact.txt", "r")
         rndmfctlst = factfile.readlines()
         factfile.close()
@@ -402,6 +422,11 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title=f"{rndmfct} Fact ID: {randnumf}", description=f"Care has been taken to give a quality fact but If you find any inapropriate or unwanted or offensive or nsfw content above just remember the fact ID(Fact ID: **{randnumf}**) and please send it to us using a suggestion(`a/ suggest help`) or a message in our [Support Server](https://discord.gg/teszgSR9yK) and that sentence will be removed and you will be awarded AstroCash. Sorry for the inconvenience.", color=0x02BDFE))
 
 # DeCAN
+    if message.content.startswith("a/ decan"):
+        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+        # if message.author.guild_permissions.manage_nicknames:
+        await message.channel.send("This Feature will be available in next patch (1 or 2 days)")
+
 
 # WEATHER
     if message.content.startswith("a/ weather ="):
@@ -1102,6 +1127,7 @@ async def on_message(message):
             vers.remove(int(message.channel.id))
             collection.update_one({"_id":1341}, {"$set":{"chan":vers}})
             await message.channel.delete()
+            
 
     if message.content == "a/ close all":
         if message.author.guild_permissions.manage_channels:
@@ -1588,7 +1614,7 @@ async def on_message(message):
 
     if message.content.find("a/ update") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="**v1.8 UPDATES !!**\nI am going to get verified soon WOW!! TYSM for the 100 servers!!", description="**Premium** is free now and will remain **free forever**!!! Try `a/ premium` ||But it is not totally free! Free means you would not be asked to pay or use anything related to money (non-profit) for more info use `a/ premium`||\nOne of the most awaited feature, MUSIC is here! Use `a/ music help` and enjoy!!\nAdded our first Premium Feature!\nRandom fact option added use `a/ fact help`\nTicketing system Enhanced and added reason which is optional try `a/ ticket help`\nCpu spec error fixed `a/ cpu`\nSometimes some raw data was shown in quiz question which was removed.\nEmbed creator problems fixed!! try `a/ embed help`\nAdded uptime to Pings. Try `a/ ping` or `a/ uptime`\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
+        await message.channel.send(embed=discord.Embed(title="**v1.8 UPDATES !!**\nI am going to get verified soon WOW!! TYSM for the 100 servers!!", description="**Premium** is free now and will remain **free forever**!!! Premium in not yet ready,Try `a/ premium` ||But it is not totally free! Free means you would NOT be asked to pay or use anything related to money (non-profit) for more info use `a/ premium`||\nOne of the most awaited feature, MUSIC is here! Use `a/ music help` and enjoy!! Also Asteroid Music(Another cool bot) is here dedicated only to music and radio. [Invite Asteroid Music](https://discord.com/oauth2/authorize?client_id=836830093644791809&scope=bot&permissions=37088576)\nRandom fact option added use `a/ fact help` this has a bug so will be available in nxt patch(tommorow)\nTicketing system Enhanced and added reason which is optional try `a/ ticket help`\nDecancerName Feature is here but will be unlocked in next patch (tomorrow)\nCpu spec error fixed `a/ cpu`\nSometimes some raw data was shown in quiz question which was removed.\nEmbed creator problems fixed!! try `a/ embed help`\nAdded uptime to Pings. Try `a/ ping` or `a/ uptime`\nMajor Bug Fixes :tools:\n\nUse `a/ suggest help` To help me more and report bugs and add more features!! :pray:", color=0x05BAFD))
 
 # PING
     if message.content.find("a/ ping") != -1 or message.content.find("a/ uptime") != -1:
@@ -1618,7 +1644,7 @@ async def on_message(message):
         def woki_summary(argo):
             definii = wikipedia.summary(argo, sentences=5, chars=1000, auto_suggest=True, redirect=True)
             return definii
-        word0s = "asteroid"
+        word0s = str(randata())
         desco = woki_summary(word0s)
         endwiki = perf_counter()
         durawiki = (endwiki - startwiki) * 1000
