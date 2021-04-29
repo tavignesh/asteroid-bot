@@ -27,6 +27,8 @@ import pickle
 import csv
 import platform
 
+# strtuptime = int(uptime.uptime())
+
 client = discord.Client()
 
 cluster = MongoClient("mongodb+srv://bot:1234@cluster0.5bkqm.mongodb.net/discord?retryWrites=true&w=majority")
@@ -46,19 +48,18 @@ mtlist = []
 
 # PRE DECLARE
 helpmbd = discord.Embed(title="**Hey,**\nI am **Asteroid** Made by:\n**⎰ѦǤ⎱₊⋆》⎝⧹Ѵ!ǤЛΣ$Ƕᴰᵉᵛ⧸⎠₰♪⅏ﮩ.ﮩ٨ـ≻#8351**\nMy Prefix is `a/`\n▬▬▬▬▬▬▬▬▬▬\n Make sure to leave a space between `a/` and command\n▬▬▬▬▬▬▬▬▬▬", description="Use `a/ <module id> help` for More Info!\nIn the Place of <module id> put the text in (Brackets) After each Module\n\n**Modules** :control_knobs: \n▬▬▬▬▬▬▬▬▬▬\n<a:ag_arrowgif:781395494127271947> Moderati\
-on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Premium`but free` (premium)\n<a:ag_arrowgif:781395494127271947> Music :notes: (music)\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> TAX <:ag_tax:807893601244676116> (tax)\n<a:ag_arrowgif:781395494127271947> Ticket System :tickets: (ticket)\n<a:ag_arrowgif:781395494127271947> Embed Creation :card_index: (embed)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random :game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
-me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Random Facts :omg: (fact)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Poll  (poll)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (suggest)\n<a:ag_arrowgif:781395494127271947> Dictionary Search <a:ag_book_pgs:781410721397080084> (def,dic)\
+on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:781395643134115852>\n<a:ag_arrowgif:781395494127271947> Premium`but free` :gift_heart: (premium)\n<a:ag_arrowgif:781395494127271947> Music :notes: (music)\n<a:ag_arrowgif:781395494127271947> Deletion :x: (delete)\n<a:ag_arrowgif:781395494127271947> Calculation :1234: (calculate)\n<a:ag_arrowgif:781395494127271947> TAX <:ag_tax:807893601244676116> (tax)\n<a:ag_arrowgif:781395494127271947> Ticket System :tickets: (ticket)\n<a:ag_arrowgif:781395494127271947> Embed Creation :card_index: (embed)\n<a:ag_arrowgif:781395494127271947> Say :love_letter: (say)\n<a:ag_arrowgif:781395494127271947> Random :game_die: (random)\n<a:ag_arrowgif:781395494127271947> Date Ti\
+me etc :date: (today)\n<a:ag_arrowgif:781395494127271947> Random Facts :scream: (fact)\n<a:ag_arrowgif:781395494127271947> Weather :white_sun_rain_cloud: (weather)\n<a:ag_arrowgif:781395494127271947> Chat Beta :speech_balloon: (chat)\n<a:ag_arrowgif:781395494127271947> Poll :man_raising_hand: (poll)\n<a:ag_arrowgif:781395494127271947> Suggestion :pencil: (suggest)\n<a:ag_arrowgif:781395494127271947> Dictionary Search <a:ag_book_pgs:781410721397080084> (def,dic)\
 \n<a:ag_arrowgif:781395494127271947> Google Search <a:ag_ggl:781410701327335445> (google)\n<a:ag_arrowgif:781395494127271947> Wikipedia Search :mag: (wiki)\n<a:ag_arrowgif:781395494127271947> AFK :zzz: (afk)\n<a:ag_arrowgif:781395494127271947> Quizz :interrobang: (quiz)\n<a:ag_arrowgif:781395494127271947> My Statistics :level_slider: (stats)\n<a:ag_arrowgif:781395494127271947> Server Statistics :level_slider: (stats)\n▬▬▬▬▬▬▬▬▬▬\n**Example:**\n`a/ embed help`", color=0x01FD14)
 
-invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **Usefull Links** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrowgif:781395494127271947> [Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445> \n <a:ag_arrowgif:781395494127271947> [Invite Asteroid Music](https://discord.com/oauth2/authorize?client_id=836830093644791809&scope=bot&permissions=37088576) :notes: \n<a:ag_arrowgif:781395494127271947> [VOTE ME](https://top.gg/bot/780472070072696852/vote)\n<a:ag_arrowgif:781395494127271947> [Support Server](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n<a:ag_arrowgif:781395494127271947> [ASTEROID GAMING](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
+invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **Usefull Links** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrw_hrt:781410692321640530> [Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445>\n<a:ag_arrw_hrt:781410692321640530> [Invite Asteroid Music](https://discord.com/oauth2/authorize?client_id=836830093644791809&scope=bot&permissions=37088576) :notes: \n<a:ag_arrw_hrt:781410692321640530> [Vote Asteroid](https://top.gg/bot/780472070072696852/vote) :reminder_ribbon: \n<a:ag_arrw_hrt:781410692321640530> [Support Server](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n<a:ag_arrw_hrt:781410692321640530> [Asteroid Gaming](https://discord.gg/CjKRmV7ptm) <a:ag_discord:781395597277134869>", color=0x13FD03)
 
 tstmbd = discord.Embed(title="Your title\n___________", description="Your description\ndescreption2", color=000000)
 
-badwrds =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ["fuck", "porn", "slut", "gangbang"]
+badwrds =                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ["wtf", "fuck", "porn", "slut", "gangbang"]
 
 rp = 0
 
-strtuptime = int(uptime.uptime())
 
 def randata():
     astrl = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -164,14 +165,14 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(description="Use `a/ delete help` for Help Regarding Delete messges"))
     if message.content.startswith("a/ mod ") or message.content.startswith("a/mod"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title=":tools: Moderation <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="All moderation Commands Needs You and Me to have Specific **Permissions** to perform Moderation!\n\n**Commands:**\n<a:ag_arrowgif:781395494127271947> <:ag_ban:774867115529469992> - `a/ ban <mention user> for <reason optional>`\n<a:ag_arrowgif:781395494127271947> Kick - `a/ kick <mention user> for <reason optional>`\n<a:ag_arrowgif:781395494127271947> Warn - `a/ warn <mention user> =<reason optional>`\n<a:ag_arrowgif:781395494127271947> Delete - Use `a/ delete help` For more!\n<a:ag_arrowgif:781395494127271947> Pls Use `a/ pref help` for Chat and BadWord (Customisable) Moderation\n<a:ag_arrowgif:781395494127271947> Member Count - `a/ members`", color=0xFDDE01))
+        await message.channel.send(embed=discord.Embed(title=":tools: Moderation <a:ag_book_pgs:769053582472642561>\n▬▬▬▬▬▬▬▬▬▬", description="All moderation Commands Needs You and Me to have Specific **Permissions** to perform Moderation!\n\n**Commands:**\n<a:ag_arrowgif:781395494127271947> <:ag_ban:774867115529469992> - `a/ ban <mention user> for <reason optional>`\n<a:ag_arrowgif:781395494127271947> Kick - `a/ kick <mention user> for <reason optional>`\n<a:ag_arrowgif:781395494127271947> Warn - `a/ warn <mention user> =<reason optional>`\n<a:ag_arrowgif:781395494127271947> DEcancer Names :microbe: - Use `a/ decan @mention` to change their nickname!\n<a:ag_arrowgif:781395494127271947> Delete - Use `a/ delete help` For more!\n<a:ag_arrowgif:781395494127271947> Pls Use `a/ pref help` for Chat and BadWord (Customisable) Moderation\n<a:ag_arrowgif:781395494127271947> Member Count - `a/ members`", color=0xFDDE01))
     if message.content == "a/ delete help" or message.content == "a/ help delete":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**Delete Messages** :x:\n▬▬▬▬▬▬▬▬▬▬", description="Maximum of 500 Messages can be Deleted at a Time <a:ag_reddot:781410740619051008>\nYou need to Have Manage Messages Permisiion \n\nSyntax : `a/ delete <Number of msges in number>`\n\nExample:\n`a/ delete 15`", color=0x04FD03))
     if message.content == "a/ suggest help" or message.content == "a/ help suggest":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**Suggesions on Me** <a:ag_discord:781395597277134869> \n▬▬▬▬▬▬▬▬▬▬", description="Your Suggesions are Really Valuable to us(me) , It helps in Improving The Bot! <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬\n\nSyntax : `a/ suggest =<your suggesion>`\n\nExample:\n`a/ suggest =plz include multiplayer`",color=0x04FD03))
-    if message.content == "a/ calculate help" or message.content == "a/ help calculate":
+    if message.content == "a/ calculate help" or message.content == "a/ help calculate" or message.content == "a/ calculate" or message.content == "a/ calculator":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="**Basic Calculator** :1234:\n▬▬▬▬▬▬▬▬▬▬", description="**Mathematical Operators**\n▬▬▬▬▬▬▬▬▬▬\n`add` => Addition\n `sub` => Subtraction\n `mult` => Multiplication \n `div` => Division\n\nSyntax: `a/ <mathamatical operator>  <1st number>  <2nd number>`\nExample : `a/ add 13 2`\n\n**LCM and HCF**\n▬▬▬▬▬▬▬▬▬▬\n`lcm` => Least Common Multiple\n `hcf` => Highest Common Factor\n\n**Complex Calculations**\n▬▬▬▬▬▬▬▬▬▬\n For More Use `a/ complexcal help`", color=0x05FCF1))
     if message.content == "a/ complexcal help" or message.content == "a/ help complexcal":
@@ -222,7 +223,7 @@ async def on_message(message):
     if message.content == "a/ wiki help" or message.content == "a/ help wiki" or message.content == "a/ wiki" or message.content == "a/wiki help":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Wikipedia Search :mag:\n▬▬▬▬▬▬▬▬▬▬", description="This commands Fetches Descreption about the Keyword you give.\n**Syntax:**\n`a/ wiki =keyword`\n\n**Example:**\n`a/ wiki =bot making`", color=0x05B5FC))
-    if message.content == "a/ help weather" or message.content == "a/ weather help" or message.content == "a/help weather":
+    if message.content == "a/ help weather" or message.content == "a/ weather help" or message.content == "a/help weather" or message.content == "a/ weather":
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Weather Reports\n▬▬▬▬▬▬▬▬▬▬", description="This Feature allows You to Get a weather Report Of your Preffered Location\n\n**Syntax:**\n`a/ weather =<location>`\n\n**Example:**\n`a/ weather =Chennai`", color=0x0527FC))
     if message.content == "a/ quiz help" or message.content == "a/quiz help":
@@ -259,7 +260,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title="Embed Creation :card_index:\n▬▬▬▬▬▬▬▬▬▬", description=f"Embed is very usefull message type for creating beautifully arranged and ordered formal messages. But sadly Normal users cannot create or send embed messages. Don't worry! Asteroid is here with a new very user friendly Embed Creator!\nTo create an embed Just type `a/ embed create` and follow the instructions!\n\n**IMPORTANT INFO**\nYou can add external, default and animated emojis BUT the limitation is you can ONLY use emojis from servers I am a Member of (ie. our mutual servers, which can be viewed in my profile).\nTo jump to next line use {adasss} in the correct place where you want to jump.\nYou can ping or tag someone in the message description but NOT in the title\n The above given limitation are not limited wantedly made but are the limitations of Discord Embeds\n\n**Syntax**: `a/ embed create`", color=0xBCFC09))
     if message.content == 'a/ fact help' or message.content == 'a/ help fact':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=discord.Embed(title="Random Facts :omg:\n▬▬▬▬▬▬▬▬▬▬", description="This shows you an interesting random fact chosen from a huge list of facts. Every care has been taken to provide good and quality facts but if some error or inapropriate or unwanted or nsfw content had crept in, just remember the fact id and send a suggsetion(`a/ suggest help`) or send a message in our [Support Server](https://discord.gg/teszgSR9yK). Sorry for the inconvinience.\n\n**Syntax**: `a/ fact`", color=0xBCFC09))
+        await message.channel.send(embed=discord.Embed(title="Random Facts :scream:\n▬▬▬▬▬▬▬▬▬▬", description="This shows you an interesting random fact chosen from a huge list of facts. Every care has been taken to provide good and quality facts but if some error or inapropriate or unwanted or nsfw content had crept in, just remember the fact id and send a suggsetion(`a/ suggest help`) or send a message in our [Support Server](https://discord.gg/teszgSR9yK). Sorry for the inconvinience.\n\n**Syntax**: `a/ fact`", color=0xBCFC09))
     if message.content.startswith('a/ music') or message.content == 'a/ help music' or message.content == 'a/ music help':
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Music :notes:\n▬▬▬▬▬▬▬▬▬▬", description="This feature allows you to listen to music by streaming music to a voice channel. To activate all commands join a voice channel and use `a/ play songname`. This also includes a lot of filters which can be applied to the song!!. Enjoy the music and kindly report any bugs or gliches to [Support Server](https://discord.gg/teszgSR9yK)\n__Music Commands (Usage: `a/ command`)__:\nplay, pause, clear-queue, filter, loop, nowplaying, queue, resume, search, shuffle, skip, stop, volume, w-filters\n__Filters (Usage: `a/ filter filtername`)__:\n`8D, gate, haas, phaser, treble, tremolo, vibrato, reverse, karaoke, flanger, mcompand, pulsator, subboost, bassboost, vaporwave, nightcore, normalizer, surrounding`\n\n **Introducing Asteroid Music!** \n [Invite Asteroid Music](https://discord.com/oauth2/authorize?client_id=836830093644791809&scope=bot&permissions=37088576)", color=0xBCFC09))
@@ -273,7 +274,7 @@ async def on_message(message):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="AstroCash\n▬▬▬▬▬▬▬▬▬▬", description="AstroCash is currency for me! It can be redeemed into lots of usable features, commands or even premium. Presently you cannot transfer or trade AstroCash. To view redeemable items or Redeem AstroCash use `a/ redeem`\n\nAstroCash can be earned by:\n<a:ag_arrowgif:781395494127271947> Joining Support Server and other servers listed in a separate channel in Support Server\n<a:ag_arrowgif:781395494127271947> Finding bugs in the bot and reporting it in our [Support Server](https://discord.gg/teszgSR9yK) AstroCash will be given according to the size of the bug, you can even report typos!\n<a:ag_arrowgif:781395494127271947> Vote for me every 12hrs use `a/ vote`\n<a:ag_arrowgif:781395494127271947> Giving good suggestions using `a/ suggest help` AstroCash will be given accrding to the worthiness of suggestion ||Spamming will be dealt with punishment||\n<a:ag_arrowgif:781395494127271947> Inviteing me to servers\n<a:ag_arrowgif:781395494127271947> Gaining levels with Asteroid or Gaining levels in [Support Server](https://discord.gg/teszgSR9yK) - According to levels\n<a:ag_arrowgif:781395494127271947> Sending cool facts in a channel in [Support Server](https://discord.gg/teszgSR9yK) - 20 points\n<a:ag_arrowgif:781395494127271947> Helping creator to test the bot. Make sure you read rules in [Support Server](https://discord.gg/teszgSR9yK)\n<a:ag_arrowgif:781395494127271947> Playing Quiz - 10 points for correct and 2 points for wrong answer"))
 
-    if message.content.startswith("a/ redeem") or message.content.startswith("a/ help redeem"):
+    if message.content.startswith("a/ redeem") or message.content.startswith("a/ help redeem") or message.content.startswith("a/ help reedeem") or message.content.startswith("a/ help reedem") or message.content.startswith("a/ reedeem") or message.content.startswith("a/ reedem"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(title="Item List (pls suggest a better name)", description="5 database space - 50 AC\n:SOME: Reaction - 100\n:another: Reaction - 120\n:another: Reaction - 140\nLevel Mutiplyer - ###\nlotz to be added (suggestions welcomed with reward!)"))
 
@@ -405,8 +406,8 @@ async def on_message(message):
         d = b['example']
         thup = b['thumbs_up']
         thdo = b['thumbs_down']
-        dicem = discord.Embed(title=f'{dicsr}', description=f'Definition:{c}\nExample: {d}', color=0x02BDFE)
-        dicem.set_footer(text=f":thumbsup: {thup}, :thumbsdown: {thdo}")
+        dicem = discord.Embed(title=f'{dicsr}', description=f'__Definition__: {c}\nExample: {d}', color=0x02BDFE)
+        dicem.set_footer(text=f"👍 : {thup}, 👎 : {thdo}")
         await eddic.edit(embed=dicem)
 
 # RANDOM FACTS
@@ -414,7 +415,7 @@ async def on_message(message):
     # make own api
     if message.content.startswith("a/ fact") or message.content.startswith("a/ random fact"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        factfile = open("fact.txt", "r")
+        factfile = open("fact.txt", "r", encoding="utf8")
         rndmfctlst = factfile.readlines()
         factfile.close()
         randnumf = random.randint(0, len(rndmfctlst))
@@ -422,10 +423,27 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title=f"{rndmfct} Fact ID: {randnumf}", description=f"Care has been taken to give a quality fact but If you find any inapropriate or unwanted or offensive or nsfw content above just remember the fact ID(Fact ID: **{randnumf}**) and please send it to us using a suggestion(`a/ suggest help`) or a message in our [Support Server](https://discord.gg/teszgSR9yK) and that sentence will be removed and you will be awarded AstroCash. Sorry for the inconvenience.", color=0x02BDFE))
 
 # DeCAN
-    if message.content.startswith("a/ decan"):
+    if message.content.startswith("a/ decan") or message.content.startswith("a/decan"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        # if message.author.guild_permissions.manage_nicknames:
-        await message.channel.send("This Feature will be available in next patch (1 or 2 days)")
+        if message.author.guild_permissions.manage_nicknames:
+            try:
+                target = message.mentions[0]
+                naaame = str(target)
+                namelst = list(naaame)
+                naaame = ""
+                for i in range(0, len(namelst)-5):
+                    if namelst[i] in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']:
+                        naaame += namelst[i]
+                    else:
+                        ranchn = random.choice(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
+                        naaame += ranchn
+                await target.edit(nick=f"{naaame}")
+                await message.channel.send(embed=discord.Embed(title="Name has been DEcancered :microbe:", description=f"{target.mention}", color=0xFD4201))
+            except Exception as e:
+                await message.channel.send(embed=discord.Embed(title="<a:ag_exc:781410611366985748> Error Occured <a:ag_exc:781410611366985748>", description=f"__Possible Reason__:\n<a:ag_arrowgif:781395494127271947> You Did not mention someone\n<a:ag_arrowgif:781395494127271947> I Don't have Manage Nickname Permissions\n<a:ag_arrowgif:781395494127271947> Person mentioned has a Higher Role than Me\n\nError:{e}", color=0xFD4201))
+
+        else:
+            await message.channel.send(embed=discord.Embed(title="You do not have Manage Nickname permissions"))
 
 
 # WEATHER
@@ -591,7 +609,7 @@ async def on_message(message):
             with open("/proc/loadavg", "r") as f:
                 avgload = ("Average Load: " + f.read().strip())
             sysspd = syscpumo.split(" ")[-1]
-            await message.channel.send(embed=discord.Embed(title="CPU STATS :tools:", description=f"\nNode: {nodsds}\nServer Load: {avgload}\n**Processor**\nArchitecture: {sysarch}\nModel: {syscpumo}\nCores = {cpun}\nSpeed = {sysspd} Ghz\nTotal Usage = {cpupert}%\n{cpuppp}\n\nOS: {sysmchn}\nDist: {dist}\n\nDisk:\nTotal: {meminf1}\nFree: {meminf2}\n\n**RAM**\nTotal = {cpuswt} Gb\nUsed = {cpuswu} Gb\nPercentage = {cpuswp}%\nFree = {cpuswf} Gb\n\nUptime: {servuptime}", color=0xFD9E01))
+            await message.channel.send(embed=discord.Embed(title="CPU STATS :tools:", description=f"\nNode: {nodsds}\nServer Load: {avgload}\n**Processor**\nArchitecture: {sysarch}\nModel: {syscpumo}\nCores = {cpun}\nSpeed = {sysspd} Ghz\nTotal Usage = {cpupert}%\n{cpuppp}\n\nOS: {sysmchn}\nDist: {dist}\n\nDisk:\nTotal: {meminf1}\nFree: {meminf2}\n\n**RAM**\nTotal = {cpuswt} Gb\nUsed = {cpuswu} Gb\nPercentage = {cpuswp}%\nFree = {cpuswf} Gb\n\nServer {servuptime}", color=0xFD9E01))
 
 # DATE TIME
     if message.content.find("a/ time") != -1:
@@ -1433,7 +1451,7 @@ async def on_message(message):
     if message.content.find("a/ random") != -1:
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         if message.content == "a/ random":
-            await message.channel.send(embed=discord.Embed(title="Syntax Error <a:ag_exc:781410611366985748>", description="Use Syntax:\n`a/ random <number of options>`\n**Example:**\n`a/ random 5`", color=0xFCBC05))
+            await message.channel.send(embed=discord.Embed(title="Syntax Error <a:ag_exc:781410611366985748>", description="Usage Syntax:\n`a/ random <number of options>`\n**Example:**\n`a/ random 5`\n For more help: `a/ random help`", color=0xFCBC05))
         if message.content.find("a/ random ") != -1:
             randgi = message.content.split(' ')[-1]
             randgi = int(randgi)
@@ -1442,9 +1460,8 @@ async def on_message(message):
 
 # TESTS
     if message.content.startswith("testit"):
-        await message.channel.send(message.channel.category.id)
-        ochan = await message.guild.create_text_channel('anewchan', category=client.get_channel(message.channel.category.id))
-
+        emasbed = discord.Embed(title="testing ")
+        await message.channel.send()
 
 
         # embed=discord.Embed(title="hi how ads u")
@@ -1662,22 +1679,22 @@ async def on_message(message):
         endggl = perf_counter()
         duraggl = (endggl - startggl) * 1000
         duraggl = math.floor(duraggl)
-        enduptime = int(uptime.uptime())
-        uptimm = int(enduptime-strtuptime)
-        upsec = uptimm
-        upmin = 0
-        uphr = 0
-        upday = 0
-        if uptimm > 59:
-            upsec = uptimm%60
-            upmin = int(uptimm/60)
-            if upmin > 60:
-                upmin = int(upmin%60)
-                uphr = int(upmin/60)
-                if uphr > 24:
-                    uphr = uphr%24
-                    upday = int(uphr/24)
-        await mesa.edit(embed=discord.Embed(title="Pings and Pongs <a:ag_ggl:781410701327335445>", description=f":alarm_clock: API Ping: {ping}ms\n:satellite: Latency: {duration}ms\n:hourglass: Total Ping: {ping+duration}ms\n<:ag_gglsym:817776047315091459> Google Ping: {duraggl}ms\n:card_box: DataBase Ping: {duradb}ms\n:scroll: Wikipedia Ping: {durawiki}ms\n<a:ag_book_pgs:781410721397080084> Dictionary Ping: {duradic}ms\n\nUptime: {upday}days {uphr}hrs {upmin}mins {upsec}secs\nNode: US1", color=0x02BDFE))
+        # enduptime = int(uptime.uptime())
+        # uptimm = int(enduptime-strtuptime)
+        # upsec = uptimm
+        # upmin = 0
+        # uphr = 0
+        # upday = 0
+        # if uptimm > 59:
+        #     upsec = uptimm%60
+        #     upmin = int(uptimm/60)
+        #     if upmin > 60:
+        #         upmin = int(upmin%60)
+        #         uphr = int(upmin/60)
+        #         if uphr > 24:
+        #             uphr = uphr%24
+        #             upday = int(uphr/24)
+        await mesa.edit(embed=discord.Embed(title="Pings and Pongs <a:ag_ggl:781410701327335445>", description=f":alarm_clock: API Ping: {ping}ms\n:satellite: Latency: {duration}ms\n:hourglass: Total Ping: {ping+duration}ms\n<:ag_gglsym:817776047315091459> Google Ping: {duraggl}ms\n:card_box: DataBase Ping: {duradb}ms\n:scroll: Wikipedia Ping: {durawiki}ms\n<a:ag_book_pgs:781410721397080084> Dictionary Ping: {duradic}ms\n\nUptime: Error\nNode: US1", color=0x02BDFE))
 
 client.loop.create_task(update_stats())
 
