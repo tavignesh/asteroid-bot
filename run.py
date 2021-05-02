@@ -74,14 +74,14 @@ def randata():
 @client.event
 async def on_ready():
     if toktok == "NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.wAT69iuJQtg81jqU-vrLSKbCVoc":
-        game = discord.Game("v1.8.1 => Having Fun Testing New Features")
+        game = discord.Game("with v1.9.0 and Having Fun Testing New Features")
         # await client.change_presence(status=discord.Status.idle, activity=game)
         # await client.change_presence(status=discord.Status.online, activity=game)
         # await client.change_presence(status=discord.Status.invisible, activity=game)
         await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
     else:
         # game = discord.Game("With 『AG』》Vigne$hᴰᵉᵛ#8351 a/ help")
-        game = discord.Game("in v1.8.1 with Asteroid Music and Lotz of Other New Features!! Try a/ help !")
+        game = discord.Game("in v1.8.3 with Asteroid Music and Lotz of Other New Features try a/ help !!")
         await client.change_presence(status=discord.Status.idle, activity=game)
         # await client.change_presence(status=discord.Status.online, activity=game)
         # await client.change_presence(status=discord.Status.invisible, activity=game)
@@ -423,7 +423,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title=f"{rndmfct} Fact ID: {randnumf}", description=f"Care has been taken to give a quality fact but If you find any inapropriate or unwanted or offensive or nsfw content above just remember the fact ID(Fact ID: **{randnumf}**) and please send it to us using a suggestion(`a/ suggest help`) or a message in our [Support Server](https://discord.gg/teszgSR9yK) and that sentence will be removed and you will be awarded AstroCash. Sorry for the inconvenience.", color=0x02BDFE))
 
 # DeCAN
-    if message.content.startswith("a/ decan") or message.content.startswith("a/decan"):
+    if message.content.startswith("a/ decana") or message.content.startswith("a/decan"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         if message.author.guild_permissions.manage_nicknames:
             try:
@@ -431,9 +431,14 @@ async def on_message(message):
                 naaame = str(target)
                 namelst = list(naaame)
                 naaame = ""
+                splchardic = {'『': '(', '』': ')', '𝑀': 'M', '𝒫': 'P', '𝒮': 'S', '𝒴': 'Y', '𝒞': 'C', '𝐻': 'H', '𝒪': 'O', "ᴅ": "D", "ᴇ": "E", 'Ｂ': 'B', 'Ｏ': 'O', 'Ｓ': 'S', "〃": ".", "м": "M", '◉': 'O', 'ᴳ': 'G', 'ˣ': 'X', 'ᵘ': 'u', 'Ｎ': 'N', 'Ａ': 'A', 'Ｒ': 'R', 'Ｈ': 'H', 'Ｃ': 'C', '🅼': 'M', '🅰': 'C', '🅻': 'L', '🆂': 'S', '🅷': 'H', '𝖎': 'i', '𝖍': 'h', '𝖘': 's', '𝖗': 'r', '𝑹': 'R', '𝑬': 'E', '𝑫': 'D', '𝑼': 'U', '𝑯': 'H', '𝑻': 'T', 'ɪ': 'I', 'ᴠ': 'V', 'ʜ': 'H', 'ᴛ': 'T', 'ʀ': 'R', 'ᴘ': 'P', 'Ｉ': 'I', 'Ｔ': 'T', 'Ｋ': 'K', 'є': 'e', 'я': 'R', 'α': 'a', 'ʑ': 'z', 'ℓ': 'l',"𝒄":"c", "𝒌":"k", 'ι': 'l', 'Z': 'Z', 'Ƭ': 'T', "𝒋":"j", "𝒂":"a", '~': '-', "Ѧ":"A", "₊":",", "⋆":".", "𒆜":"X","Ѵ":"V", "Ǥ":"G", "Л":"N", "Σ":"E", "$":"S","Ƕ":"H", "ᵉ":"e", "ᵛ":"v", "⎰":"/", "⎱":"\\", "⎝":"\\", "⧹":"\\", "⧸":"/", "⎠":"/", "™":"tm", "𝑩":"B", "𝑵":"N", "𝑮":"G", "ᴰ":"D", "ᴱ":"E", "ⱽ":"V", "Ξ":"E"}
                 for i in range(0, len(namelst)-5):
-                    if namelst[i] in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']:
+                    if namelst[i] in ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '_', '`', '{', '|', '}', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']:
                         naaame += namelst[i]
+
+                    elif namelst[i] in splchardic:
+                        naaame += splchardic[namelst[i]]
+
                     else:
                         ranchn = random.choice(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])
                         naaame += ranchn
@@ -447,7 +452,7 @@ async def on_message(message):
 
 
 # WEATHER
-    if message.content.startswith("a/ weather ="):
+    if message.content.startswith("a/ weather =") or message.content.startswith("a/weather ="):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         wethd = await message.channel.send(embed=discord.Embed(title="Searching... <a:ag_ldingwin:781410586138902529>", color=0x09BEFC))
         location = message.content.split("=")[-1]
@@ -528,7 +533,7 @@ async def on_message(message):
             await wethd.edit(embed=discord.Embed(title="Invalid Location <a:ag_exc:781410611366985748>", description="Enter a Valid Location", color=0xFC5F05))
 
 # SYSTEM STATS
-    if message.content.find("a/ cpu") != -1:
+    if message.content.startswith("a/ cpu") or message.content.startswith("a/cpu"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         if str(platform.system()) != "":
             pass
@@ -629,7 +634,7 @@ async def on_message(message):
 
 # AFK Status
     donto = 0
-    if message.content.startswith("a/ afk =") or message.content.startswith("a/ afk="):
+    if message.content.startswith("a/ afk =") or message.content.startswith("a/ afk=") or message.content.startswith("a/afk =") or message.content.startswith("a/afk="):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         fio = collection.find_one({"_id": 222})
         afkdic = fio["afkdic"]
@@ -677,7 +682,7 @@ async def on_message(message):
         afkdic = fio["afkdic"]
         nemaf = len(afkdic)
         afklos = afkdic.keys()
-        await message.channel.send(embed=discord.Embed(title=f"AFK USERS LIST", description=f"{nemaf} Users Are AFK(Incl. of all my Servers)\n\nAfk Users list:"))
+        await message.channel.send(embed=discord.Embed(title=f"AFK USERS LIST", description=f"{nemaf} Users Are AFK(Incl. of all my Servers)"))
 
 # EVAL
     if message.content.find("a/ eval ^") != -1 and message.author.id == 782624720989585409:
@@ -904,7 +909,7 @@ async def on_message(message):
             num2 = int(num2)
             atxr = num2*num1
             atxr = atxr/100
-            await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"**{num2}** Amount\n**{num1}%** tax \nTax Amount = **{atxr}**\nBal Amount = {num2-atxr} <a:ag_tickop:781395575962599445>", color=0x02FE95))
+            await message.channel.send(embed=discord.Embed(title=":1234: CALCULATOR :1234:", description=f"**{num2}** Amount\n**{num1}%** tax \nTax Amount = **{atxr}**\nBal Amount = **{num2-atxr}** <a:ag_tickop:781395575962599445>", color=0x02FE95))
 
 # COMPLEX CALCULATOR 1
     if message.content.find("a/ ceil ") != -1:
