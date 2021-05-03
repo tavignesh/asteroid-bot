@@ -17,7 +17,7 @@ module.exports={
 
         const permissions = channel.permissionsFor(message.client.user);
         if (!permissions.has("CONNECT"))
-          return message.reply("Cannot connect to voice channel, missing permissions");
+          return message.reply("I could not connect to that voice channel, am I missing permissions?");
         if (!permissions.has("SPEAK"))
           return message.reply("I cannot speak in this voice channel, make sure I have the proper permissions!");
 
