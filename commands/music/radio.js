@@ -24,7 +24,7 @@ module.exports={
         const radios = new Discord.MessageEmbed()
         radios.setTitle("Radios available")
         radios.setColor('RANDOM')
-        radios.setDescription('```A. Radio Mirchi -Tamil \n B. Radio Mirchi - Hindi \n C.Radio City - Hindi \n D.AIR FM Rainbow 100.5 - Tamil ```')
+        radios.setDescription('```A. Radio Mirchi - Tamil \n B. Radio Mirchi - Hindi \n C.Radio City - Hindi \n D.AIR FM Rainbow 100.5 - Tamil \n More will be added ```')
         radios.setFooter('React with reaction to select the radio')
 
 try{
