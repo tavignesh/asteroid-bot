@@ -5,6 +5,6 @@ module.exports = {
     utilisation: '{prefix}musicping',
 
     execute(client, message) {
-        message.channel.send();
+        message.channel.send(`${client.emotes.success} - Ping : **${client.ws.ping}ms** !`);
     },
 };
