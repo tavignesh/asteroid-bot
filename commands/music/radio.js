@@ -8,7 +8,7 @@ module.exports={
   run: async(client , message, args)=>{
         const { channel } = message.member.voice;
 
-        if (!channel) return message.reply("You need to join a voice channel first!").catch(console.error);
+        if (!channel) return message.reply("Make sure you Join a Voice channel to enjoy Radio!").catch(console.error);
         //if (client.author.voice && channel !== message.guild.me.voice.channel)
           //return message.reply(`You must be in the same channel as ${message.author.username}`).catch(console.error);
            
