@@ -5,10 +5,10 @@ module.exports={
   name: "radio",
   category: "Radio",
   alias:["rad"],
-  execute: async(client , message, args)=>{
+  run: async(client , message, args)=>{
         const { channel } = message.member.voice;
 
-        if (!channel) return message.reply("Make sure you Join a Voice channel to enjoy Radio!").catch(console.error);
+        if (!channel) return message.reply("You need to join a voice channel first!").catch(console.error);
         //if (client.author.voice && channel !== message.guild.me.voice.channel)
           //return message.reply(`You must be in the same channel as ${message.author.username}`).catch(console.error);
            
@@ -17,14 +17,14 @@ module.exports={
 
         const permissions = channel.permissionsFor(message.client.user);
         if (!permissions.has("CONNECT"))
-          return message.reply("I could not connect to that voice channel, am I missing permissions?");
+          return message.reply("Cannot connect to voice channel, missing permissions");
         if (!permissions.has("SPEAK"))
           return message.reply("I cannot speak in this voice channel, make sure I have the proper permissions!");
 
         const radios = new Discord.MessageEmbed()
         radios.setTitle("Radios available")
         radios.setColor('RANDOM')
-        radios.setDescription('```A. Radio Mirchi - Tamil \n B. Radio Mirchi - Hindi \n C.Radio City - Hindi \n D.AIR FM Rainbow 100.5 - Tamil \n More will be added ```')
+        radios.setDescription('```A. Radio Mirchi -Tamil \n B. Radio Mirchi - Hindi \n C.Radio City - Hindi \n D.AIR FM Rainbow 100.5 - Tamil ```')
         radios.setFooter('React with reaction to select the radio')
 
 try{
