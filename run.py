@@ -423,7 +423,7 @@ async def on_message(message):
         await message.channel.send(embed=discord.Embed(title=f"{rndmfct} Fact ID: {randnumf}", description=f"Care has been taken to give a quality fact but If you find any inapropriate or unwanted or offensive or nsfw content above just remember the fact ID(Fact ID: **{randnumf}**) and please send it to us using a suggestion(`a/ suggest help`) or a message in our [Support Server](https://discord.gg/teszgSR9yK) and that sentence will be removed and you will be awarded AstroCash. Sorry for the inconvenience.", color=0x02BDFE))
 
 # DeCAN
-    if message.content.startswith("a/ decana") or message.content.startswith("a/decan"):
+    if message.content.startswith("a/ decan") or message.content.startswith("a/decan"):
         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         if message.author.guild_permissions.manage_nicknames:
             try:
