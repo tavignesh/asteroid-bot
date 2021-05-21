@@ -82,7 +82,7 @@ async def on_ready():
     else:
         # game = discord.Game("With 『AG』》Vigne$hᴰᵉᵛ#8351 a/ help")
         game = discord.Game("in v1.8.3 with Asteroid Music and Lotz of Other New Features try a/ help !!")
-        await client.change_presence(status=discord.Status.idle, activity=game)
+        await client.change_presence(status=discord.Status.online, activity=game)
         # await client.change_presence(status=discord.Status.online, activity=game)
         # await client.change_presence(status=discord.Status.invisible, activity=game)
         # await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
