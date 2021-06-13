@@ -31,7 +31,7 @@ from PIL import Image
 import play_scraper
 import google_play_scraper
 import pprint
-import pyzbar
+import pyzbar.pyzbar
 import io
 import io
 
@@ -2366,7 +2366,7 @@ async def on_message(message):
                 image_64_encode = urllib.request.urlopen(req).read()
                 qrimage = Image.open(io.BytesIO(image_64_encode))
                 qrimage.save(f"{save_name}")
-                qrdata = pyzbar.decode(Image.open(f'./imgcache/image{nname}.png'))
+                qrdata = pyzbar.pyzbar.decode(Image.open(f'./imgcache/image{nname}.png'))
                 print(qrdata)
                 try:
                     if os.path.exists(save_name):
