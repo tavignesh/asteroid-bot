@@ -91,6 +91,11 @@ global ld_prefix
 ld_prefix = 1
 ncmnd = 0
 
+
+newpath = './imgcache'
+if not os.path.exists(newpath):
+    os.makedirs(newpath)
+
 # nitro emoji nqn
 
 
