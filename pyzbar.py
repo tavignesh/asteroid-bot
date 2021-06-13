@@ -2,9 +2,9 @@ from collections import namedtuple
 from contextlib import contextmanager
 from ctypes import cast, c_void_p, string_at
 
-from .locations import bounding_box, convex_hull, Point, Rect
-from .pyzbar_error import PyZbarError
-from .wrapper import (
+from locations import bounding_box, convex_hull, Point, Rect
+from pyzbar_error import PyZbarError
+from wrapper import (
     zbar_image_scanner_set_config,
     zbar_image_scanner_create, zbar_image_scanner_destroy,
     zbar_image_create, zbar_image_destroy, zbar_image_set_format,
