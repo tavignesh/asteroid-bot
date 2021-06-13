@@ -31,7 +31,7 @@ from PIL import Image
 import play_scraper
 import google_play_scraper
 import pprint
-import pyzbar.pyzbar
+# import pyzbar.pyzbar
 import io
 import io
 
@@ -2345,54 +2345,54 @@ async def on_message(message):
             print(e)
             await qrmsg.edit(embed=discord.Embed(title="An error Occured", description="If this occurs again and again Please Report To our [Support Server](https://discord.gg/teszgSR9yK)", color=0xFF4900))
 
-    if message.content.startswith("a/qrread") or message.content.startswith("a/ qrread") or message.content.startswith("a/qread") or message.content.startswith("a/ qread") or message.content.startswith("a/readqr") or message.content.startswith("a/ readqr"):
-        ncmnda()
-        await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        qrmsg = await message.channel.send(embed=discord.Embed(title="Decoding... <a:ag_ldingwin:781410586138902529>", color=0x09BEFC))
-        try:
-            qrurl = message.attachments[0].url
-        except:
-            try:
-                qrurl = fetch_data(message.content)
-            except:
-                await qrmsg.edit(embed=discord.Embed(title="An error Occured", description="If this occures again and again Please Report To our [Support Server](https://discord.gg/teszgSR9yK)", color=0xFF4900))
-        if qrurl.startswith("https://") or qrurl.startswith("http://"):
-            image_url = f"{qrurl}"
-            nname = randata()
-            save_name = f'./imgcache/image{nname}.png'
-            try:
-                req = urllib.request.Request(f'{qrurl}')
-                req.add_header('User-Agent', 'Mozilla/5.0')
-                image_64_encode = urllib.request.urlopen(req).read()
-                qrimage = Image.open(io.BytesIO(image_64_encode))
-                qrimage.save(f"{save_name}")
-                qrdata = pyzbar.pyzbar.decode(Image.open(f'./imgcache/image{nname}.png'))
-                print(qrdata)
-                try:
-                    if os.path.exists(save_name):
-                        os.remove(save_name)
-                except:
-                    pass
-                if len(qrdata) < 1:
-                    await qrmsg.edit(embed=discord.Embed(title="Failed to detect QR Code in given image", color=0xFF4900))
-                else:
-                    qrmaind = qrdata[0]
-                    qrmaind = str(qrmaind[0])
-                    qrmaind = qrmaind.split(r"'")[1]
-                    qrtyp = qrmaind[1]
-                    qrmbd = discord.Embed(title="QR & BarCode Reader", description=f"__Type:__: {qrtyp} \nImage Link: [Click Here]({qrurl}) \nDecoded Message: {qrmaind}", color=0x09BEFC)
-                    qrmbd.set_footer(text=f"Requested by : {message.author}", icon_url=f"{message.author.avatar_url}")
-                    await qrmsg.edit(embed=qrmbd)
-            except Exception as e:
-                print(e)
-                await qrmsg.edit(embed=discord.Embed(title="An error Occured", description="If this occures again and again Please Report To our [Support Server](https://discord.gg/teszgSR9yK)", color=0xFF4900))
-                try:
-                    if os.path.exists(save_name):
-                        os.remove(save_name)
-                except:
-                    pass
-        else:
-            await qrmsg.edit(embed=discord.Embed(title="Invalid Image Link", description="If you feel this must be a mistake, please report this to [Support Server](https://discord.gg/teszgSR9yK)", color=0xFF4900))
+#     if message.content.startswith("a/qrread") or message.content.startswith("a/ qrread") or message.content.startswith("a/qread") or message.content.startswith("a/ qread") or message.content.startswith("a/readqr") or message.content.startswith("a/ readqr"):
+#         ncmnda()
+#         await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
+#         qrmsg = await message.channel.send(embed=discord.Embed(title="Decoding... <a:ag_ldingwin:781410586138902529>", color=0x09BEFC))
+#         try:
+#             qrurl = message.attachments[0].url
+#         except:
+#             try:
+#                 qrurl = fetch_data(message.content)
+#             except:
+#                 await qrmsg.edit(embed=discord.Embed(title="An error Occured", description="If this occures again and again Please Report To our [Support Server](https://discord.gg/teszgSR9yK)", color=0xFF4900))
+#         if qrurl.startswith("https://") or qrurl.startswith("http://"):
+#             image_url = f"{qrurl}"
+#             nname = randata()
+#             save_name = f'./imgcache/image{nname}.png'
+#             try:
+#                 req = urllib.request.Request(f'{qrurl}')
+#                 req.add_header('User-Agent', 'Mozilla/5.0')
+#                 image_64_encode = urllib.request.urlopen(req).read()
+#                 qrimage = Image.open(io.BytesIO(image_64_encode))
+#                 qrimage.save(f"{save_name}")
+#                 qrdata = pyzbar.pyzbar.decode(Image.open(f'./imgcache/image{nname}.png'))
+#                 print(qrdata)
+#                 try:
+#                     if os.path.exists(save_name):
+#                         os.remove(save_name)
+#                 except:
+#                     pass
+#                 if len(qrdata) < 1:
+#                     await qrmsg.edit(embed=discord.Embed(title="Failed to detect QR Code in given image", color=0xFF4900))
+#                 else:
+#                     qrmaind = qrdata[0]
+#                     qrmaind = str(qrmaind[0])
+#                     qrmaind = qrmaind.split(r"'")[1]
+#                     qrtyp = qrmaind[1]
+#                     qrmbd = discord.Embed(title="QR & BarCode Reader", description=f"__Type:__: {qrtyp} \nImage Link: [Click Here]({qrurl}) \nDecoded Message: {qrmaind}", color=0x09BEFC)
+#                     qrmbd.set_footer(text=f"Requested by : {message.author}", icon_url=f"{message.author.avatar_url}")
+#                     await qrmsg.edit(embed=qrmbd)
+#             except Exception as e:
+#                 print(e)
+#                 await qrmsg.edit(embed=discord.Embed(title="An error Occured", description="If this occures again and again Please Report To our [Support Server](https://discord.gg/teszgSR9yK)", color=0xFF4900))
+#                 try:
+#                     if os.path.exists(save_name):
+#                         os.remove(save_name)
+#                 except:
+#                     pass
+#         else:
+#             await qrmsg.edit(embed=discord.Embed(title="Invalid Image Link", description="If you feel this must be a mistake, please report this to [Support Server](https://discord.gg/teszgSR9yK)", color=0xFF4900))
 
 # Lyrics
 
