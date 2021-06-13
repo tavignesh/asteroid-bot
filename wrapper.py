@@ -6,7 +6,7 @@ from ctypes import (
 )
 from enum import IntEnum, unique
 
-from . import zbar_library
+import zbar_library
 
 
 __all__ = [
