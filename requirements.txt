@@ -1,4 +1,4 @@
-libzbar-dev
+zbarlight
 discord.py[voice]
 pynacl
 asyncio
@@ -17,4 +17,4 @@ pillow
 qrtools
 play_scraper
 google_play_scraper
-zbarlight
+
