@@ -1,4 +1,3 @@
-zbarlight
 discord.py[voice]
 pynacl
 asyncio
