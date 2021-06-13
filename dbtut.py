@@ -1,16 +1,5 @@
-import pickle
-
-tokfile = open("cracker.py", "rb")
-b = {'beta': 'NzgwNzM0MDYwMjQ2MDczMzc0.X7zZQQ.BO_zx8evsBwlYUzECe833V2FvL8', 'main': 'NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.g4uA0qtEOBw4xTFxsOweh2pySW0'}
-a = pickle.load(tokfile)
-print(a)
-
-
-
-
-
-
-
+import pyzbar
+print(help(pyzbar))
 
 
 

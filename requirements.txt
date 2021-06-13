@@ -12,8 +12,8 @@ uptime
 imagescraper
 pandas
 qrcode
+PIL
 pillow
 qrtools
 play_scraper
 google_play_scraper
-
