@@ -1,3 +1,4 @@
+libzbar-dev
 discord.py[voice]
 pynacl
 asyncio
