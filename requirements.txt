@@ -16,5 +16,6 @@ pillow
 qrtools
 play_scraper
 google_play_scraper
+libzbar0
 pyzbar
 zbar
