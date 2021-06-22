@@ -96,6 +96,19 @@ newpath = './imgcache'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
 
+#make chat channel file from db
+
+dbdic = collection.find_one({"_id": 4322})
+dblist = dbdic["ids"]
+chnlfile = open("chatchannellist.dat", "wb")
+try:
+    pplpcl.dump(dblist, chnlfile)
+except Exception as e:
+    print(f"Chat wont work :( Error: {e}")
+chnlfile.close() 
+print("done")
+  
+  
 # nitro emoji nqn
 
 
