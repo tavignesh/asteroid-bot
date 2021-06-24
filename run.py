@@ -39,7 +39,7 @@ import io
 
 from flask import Flask
 
-porta = int(os.environ.get('PORT', 5000))
+porta = 8080
 
 app = Flask(__name__)
 
