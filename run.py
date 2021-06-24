@@ -33,7 +33,26 @@ import google_play_scraper
 import pprint
 # import pyzbar.pyzbar
 import io
-import io
+
+
+
+from flask import Flask
+
+app = Flask(__name__)
+
+# route
+@app.route('/')
+# route function
+def home():
+  # send 'hey!'
+  return 'hey!'
+
+# listen
+if __name__ == "__main__":
+  app.run(port=3000)
+  
+  
+  
 
 version = "1.9.0"
 botingscheme = "main" # beta or main
