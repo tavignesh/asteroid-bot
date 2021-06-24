@@ -1,1 +1,1 @@
-web: python run.py --bind 0.0.0.0:$PORT
+web: python run.py --bind 0.0.0.0:8080
