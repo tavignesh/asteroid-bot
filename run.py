@@ -39,6 +39,8 @@ import io
 
 from flask import Flask
 
+porta = int(os.environ.get('PORT', 5000))
+
 app = Flask(__name__)
 
 # route
@@ -50,7 +52,7 @@ def home():
 
 # listen
 if __name__ == "__main__":
-  app.run(port=8080)
+  app.run(port=porta)
   
   
   
