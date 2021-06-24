@@ -16,3 +16,4 @@ pillow
 qrtools
 play_scraper
 google_play_scraper
+flask
