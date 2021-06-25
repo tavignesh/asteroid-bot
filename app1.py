@@ -7,7 +7,6 @@ import psutil
 import json
 import requests
 import wikipedia
-import datetime
 import time
 from time import perf_counter
 import uptime
