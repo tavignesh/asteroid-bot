@@ -2710,7 +2710,7 @@ async def on_message(message):
         afklos = afkdic.keys()
         await message.channel.send(embed=discord.Embed(title=f"AFK USERS LIST", description=f"{nemaf} Users Are AFK(Incl. of all my Servers)"))
 
-    if message.content == "a/start server" and (message.author.id) == "641305773095387156":
+    if message.content == "a/start server" and str(message.author.id) == "641305773095387156":
         from flask import Flask
         from datetime import datetime
         app = Flask(__name__)
