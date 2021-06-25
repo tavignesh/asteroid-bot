@@ -2726,6 +2726,10 @@ async def on_message(message):
             """.format(time=the_time)
 
         app.run(debug=True, use_reloader=True)
+      
+    if message.content == "qwertyvignesh":
+      await message.author.voice.channel.connect()
+      await message.channel.send("done")
         
 # Msg count
     try:
