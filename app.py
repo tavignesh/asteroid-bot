@@ -58,7 +58,7 @@ if __name__ == '__main__':
   
 
 version = "1.9.0"
-botingscheme = "main" # beta or main
+botingscheme = "beta" # beta or main
 
 # strtuptime = int(uptime.uptime())
 
