@@ -237,4 +237,4 @@ async def on_message(message):
         ncmnda()
         ncmnda(), await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=invitembd)
-client.run(toktok)
+client.run("NzgwNDcyMDcwMDcyNjk2ODUy.X7vlQQ.g4uA0qtEOBw4xTFxsOweh2pySW0")
