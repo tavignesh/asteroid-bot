@@ -71,7 +71,7 @@ on :tools: (mod)\n<a:ag_arrowgif:781395494127271947> Invite <a:ag_flyn_hrts_red:
 helpmbd.set_image(url="https://tavignesh.github.io/imhost/asteroid1.gif")
 
 # EDIT TO FIELDS
-invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **Usefull Links** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrw_hrt:781410692321640530> [Invite Me](https://discord.com/oauth2/authorize?client_id=780472070072696852&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445>\n<a:ag_arrw_hrt:781410692321640530> [Vote Asteroid](https://top.gg/bot/780472070072696852/vote) :reminder_ribbon: \n<a:ag_arrw_hrt:781410692321640530> [Support Server](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n<a:ag_arrw_hrt:781410692321640530> [Vote Support Server](https://top.gg/servers/780625655657791518/vote) :reminder_ribbon:", color=0x13FD03)
+invitembd = discord.Embed(title=" <a:ag_reddot:781410740619051008> **Usefull Links** <a:ag_reddot:781410740619051008> \n▬▬▬▬▬▬▬▬▬▬", description="<a:ag_arrw_hrt:781410692321640530> [Invite Me](https://discord.com/oauth2/authorize?client_id=780734060246073374&scope=bot&permissions=809500159) <a:ag_tickop:781395575962599445>\n<a:ag_arrw_hrt:781410692321640530> [Vote Asteroid](https://top.gg/bot/780734060246073374/vote) :reminder_ribbon: \n<a:ag_arrw_hrt:781410692321640530> [Support Server](https://discord.gg/teszgSR9yK) <a:ag_discord:781395597277134869>\n<a:ag_arrw_hrt:781410692321640530> [Vote Support Server](https://top.gg/servers/780625655657791518/vote) :reminder_ribbon:", color=0x13FD03)
 invitembd.set_image(url="https://tavignesh.github.io/imhost/asteroid1.gif")
 
 tstmbd = discord.Embed(title="Your title\n___________", description="Your description\ndescreption2", color=000000)
@@ -225,7 +225,7 @@ async def on_message(message):
         ncmnda()
         await message.channel.send(embed=discord.Embed(title="Yes? , How May i Help You?",description=("Use `a/ help` for More!\n Make sure there is a space between `a/` and `help`"), color=0x04FD03))
         ncmnda(), await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-    if message.content == "<@!780472070072696852>":
+    if message.content == "<@!780734060246073374>":
         ncmnda()
         ncmnda(), await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(description="My prefix is `a/`", color=0x04FD03))
