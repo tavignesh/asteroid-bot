@@ -90,23 +90,7 @@ ld_prefix = 1
 ncmnd = 0
 
 
-newpath = './imgcache'
-if not os.path.exists(newpath):
-    os.makedirs(newpath)
 
-#make chat channel file from db
-
-dbdic = collection.find_one({"_id": 4322})
-dblist = dbdic["ids"]
-chnlfile = open("chatchannellist.dat", "wb")
-try:
-    pplpcl.dump(dblist, chnlfile)
-except Exception as e:
-    print(f"Chat wont work :( Error: {e}")
-chnlfile.close() 
-print("done")
-  
-  
 # nitro emoji nqn
 
 
@@ -156,18 +140,8 @@ def reload_prefix():
 
 @client.event
 async def on_ready():
-    if botingscheme != "main":
-        game = discord.Game("with v1.9.0 and Having Fun Testing New Features")
-        # await client.change_presence(status=discord.Status.idle, activity=game)
-        # await client.change_presence(status=discord.Status.online, activity=game)
-        # await client.change_presence(status=discord.Status.invisible, activity=game)
-        await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
-    else:
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="a/ help in v1.9.0 with AI Chat !! Invite Me a/ invite"))
-        # await client.change_presence(status=discord.Status.online, activity=game)
-        # await client.change_presence(status=discord.Status.invisible, activity=game)
-        # await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
-    print("{} is ONLINE!!".format(client.user))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Important, New Asteroid! Do a/help and see Very important"))
+
 
 async def update_stats():
     await client.wait_until_ready()
