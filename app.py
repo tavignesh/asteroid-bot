@@ -34,7 +34,7 @@ import pprint
 import io
   
 version = "1.9.0"
-botingscheme = "beta" # beta or main
+botingscheme = "main" # beta or main
 
 # strtuptime = int(uptime.uptime())
 
