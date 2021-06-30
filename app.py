@@ -2543,7 +2543,7 @@ async def on_message(message):
 
 
                     
-     if message.content.startswith("a/ poker help"):
+    if message.content.startswith("a/ poker help"):
         gmhmbd = discord.Embed(title="Poker Night <:ag_poker:854976463962636339>", description="**Game Info:**\nDiscord Poker Night is a Texas hold 'em style game mode with up to 8 players total per game (you + 7 others) played right within a Discord voice channel. You can also have up to 17 additional spectators max.\n\n**Ingame Items:**\n__Poker Pass__:\nPrice: \nWith Nitro: $4.99\nWithout Nitro: $2.99\n__About:__ The Poker Pass is a one-time purchase that gives players special access to themes and customizations for your Poker experience with friends. Poker Pass does not impact the gameplay dynamics or add any value to the cartoon chips.\n\n**How to Play:**\nComming soon")
         gmhmbd.set_image(url="https://cdn.discordapp.com/attachments/829651215235153954/854972045905494046/pokerni8.png")
         await message.channel.send(embed=gmhmbd)
