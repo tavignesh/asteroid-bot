@@ -32,6 +32,7 @@ import google_play_scraper
 import pprint
 # import pyzbar.pyzbar
 import io
+from discordTogether import DiscordTogether
   
 version = "1.9.0"
 botingscheme = "main" # beta or main
