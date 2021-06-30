@@ -2551,7 +2551,7 @@ async def on_message(message):
         await message.channel.send(embed=gmhmbd)
 
     if message.content.startswith("a/ party help") or message.content.startswith("a/party help") or message.content.startswith("a/help party") or message.content.startswith("a/ help party") or message.content.startswith("a/game") or message.content.startswith("a/ game"):
-        gmhmbd = discord.Embed(title="Party Games!! <:ag_poker:854976463962636339>", description="__List of games:__\nPoker - `a/ poker start`\nChess -`a/ chess start` \nFishington `a/ fishington start`\nYoutube Together - `a/ youtube start`\n__Rules:__\nYou should be on a PC version of Discord(Discord Limitation)\nMust join a voice channel.")
+        gmhmbd = discord.Embed(title="Party Games!! <:ag_poker:854976463962636339>", description="__List of games:__\nPoker - `a/ poker start`\nChess -`a/ chess start` \nFishington `a/ fishington start`\nYoutube Together - `a/ youtube start`\n__Rules:__\nYou should be on a PC version of Discord(Discord Limitation)\nMust join a voice channel.\n**Discord together does not load?** \n Sometimes Discord together does not load. To fix this go into settings and Authorised Apps. Then remove Youtube Together, Poker Night, CG 2 Dev, Betrayal.io, or Fishington.io. After that fully close and reopen Discord. This should fix the issue", color=0x00FFFB)
         await message.channel.send(embed=gmhmbd)
     
     if message.content.startswith("a/poker start") or message.content.startswith("a/ poker start") or message.content.startswith("a/start poker") or message.content.startswith("a/ start poker"):
