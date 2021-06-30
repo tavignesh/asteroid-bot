@@ -34,7 +34,7 @@ import pprint
 import io
 from discordTogether import DiscordTogether
   
-version = "1.9.0"
+version = "1.9.1"
 botingscheme = "main" # beta or main
 
 # strtuptime = int(uptime.uptime())
