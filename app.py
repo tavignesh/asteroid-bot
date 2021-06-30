@@ -2541,7 +2541,122 @@ async def on_message(message):
                 except:
                     await message.channel.send(embed=discord.Embed(title="An error Occured", description="If this occures again and again Please Report To our [Support Server](https://discord.gg/teszgSR9yK)", color=0xFF4900))
 
-# MISC
+
+                    
+     if message.content.startswith("a/ poker help"):
+        gmhmbd = discord.Embed(title="Poker Night <:ag_poker:854976463962636339>", description="**Game Info:**\nDiscord Poker Night is a Texas hold 'em style game mode with up to 8 players total per game (you + 7 others) played right within a Discord voice channel. You can also have up to 17 additional spectators max.\n\n**Ingame Items:**\n__Poker Pass__:\nPrice: \nWith Nitro: $4.99\nWithout Nitro: $2.99\n__About:__ The Poker Pass is a one-time purchase that gives players special access to themes and customizations for your Poker experience with friends. Poker Pass does not impact the gameplay dynamics or add any value to the cartoon chips.\n\n**How to Play:**\nComming soon")
+        gmhmbd.set_image(url="https://cdn.discordapp.com/attachments/829651215235153954/854972045905494046/pokerni8.png")
+        await message.channel.send(embed=gmhmbd)
+
+    if message.content.startswith("a/ party help") or message.content.startswith("a/party help") or message.content.startswith("a/help party") or message.content.startswith("a/ help party") or message.content.startswith("a/game") or message.content.startswith("a/ game"):
+        gmhmbd = discord.Embed(title="Party Games!! <:ag_poker:854976463962636339>", description="__List of games:__\nPoker - `a/ poker start`\nChess -`a/ chess start` \nFishington `a/ fishington start`\nYoutube Together - `a/ youtube start`\n__Rules:__\nYou should be on a PC version of Discord(Discord Limitation)\nMust join a voice channel.")
+        await message.channel.send(embed=gmhmbd)
+    
+    if message.content.startswith("a/poker start") or message.content.startswith("a/ poker start") or message.content.startswith("a/start poker") or message.content.startswith("a/ start poker"):
+        try:
+            gmgo = 0
+            try:
+                gmchannel = message.author.voice.channel.id
+                gmgo = 1
+            except:
+                await message.reply(embed=discord.Embed(title="Make sure you have joined a voice channel to Start The game!", color=0xFB1F1F))
+            if gmgo == 1:
+                gamelink = await togetherControl.create_link(gmchannel, 'poker')
+                gamembd = discord.Embed(title="Poker Night <:ag_poker:854976463962636339>", description=f"**Steps to Start Poker:**\n:one: - All the players join a voice channel. \n:two: - [Click Here]({gamelink}) to Start the game!!\n:three: - Enjoy the game", color=0x8000FF)
+                gamembd.set_footer(text="For How to Play and other info use a/ poker help", icon_url=f"{message.author.avatar_url}")
+                gamembd.set_image(url="https://cdn.discordapp.com/attachments/829651215235153954/854972045905494046/pokerni8.png")
+                await message.reply(embed=gamembd)
+        except Exception as e:
+            print(e)
+            await message.reply(embed=discord.Embed(title="An error Occurred", description="If this occurs again and again Please Report to [Support Server](https://discord.gg/teszgSR9yK)", color=0xFB1F1F))
+
+    if message.content.startswith("a/fishing start") or message.content.startswith("a/ fishing start") or message.content.startswith("a/start fishing") or message.content.startswith("a/ start fishing") or message.content.startswith("a/fishington start") or message.content.startswith("a/ fishington start") or message.content.startswith("a/start fishington") or message.content.startswith("a/ start fishington"):
+        try:
+            gmgo = 0
+            try:
+                gmchannel = message.author.voice.channel.id
+                gmgo = 1
+            except:
+                await message.reply(embed=discord.Embed(title="Make sure you have joined a voice channel to Start The game!", color=0xFB1F1F))
+            if gmgo == 1:
+                gamelink = await togetherControl.create_link(gmchannel, 'fishing')
+                gamembd = discord.Embed(title="Fishingtion :tropical_fish: ", description=f"**Steps to Start Fishington:**\n:one: - All the players join a voice channel. \n:two: - [Click Here]({gamelink}) to Start the game!!\n:three: - Enjoy the game", color=0x8000FF)
+                gamembd.set_footer(text="For How to Play and other info use a/ fishington help", icon_url=f"{message.author.avatar_url}")
+                gamembd.set_image(url="https://cdn.discordapp.com/attachments/829651215235153954/854972042637082634/fishington.jpg")
+                await message.reply(embed=gamembd)
+        except Exception as e:
+            print(e)
+            await message.reply(embed=discord.Embed(title="An error Occurred", description="If this occurs again and again Please Report to [Support Server](https://discord.gg/teszgSR9yK)", color=0xFB1F1F))
+
+            
+    if message.content.startswith("a/chess start") or message.content.startswith("a/ chess start") or message.content.startswith("a/start chess") or message.content.startswith("a/ start chess"):
+        try:
+            gmgo = 0
+            try:
+                gmchannel = message.author.voice.channel.id
+                gmgo = 1
+            except:
+                await message.reply(embed=discord.Embed(title="Make sure you have joined a voice channel to Start The game!", color=0xFB1F1F))
+            if gmgo == 1:
+                gamelink = await togetherControl.create_link(gmchannel, 'chess')
+                gamembd = discord.Embed(title="Chess <:ag_chess:854977611264032798>", description=f"**Steps to Start Chess:**\n:one: - All the players join a voice channel. \n:two: - [Click Here]({gamelink}) to Start the game!!\n:three: - Enjoy the game", color=0x8000FF)
+                gamembd.set_footer(text="For How to Play and other info use `a/ chess help`", icon_url=f"{message.author.avatar_url}")
+                gamembd.set_image(url="https://cdn.discordapp.com/attachments/829651215235153954/854975789890928670/chess.png")
+                await message.reply(embed=gamembd)
+        except Exception as e:
+            print(e)
+            await message.reply(embed=discord.Embed(title="An error Occurred", description="If this occurs again and again Please Report to [Support Server](https://discord.gg/teszgSR9yK)", color=0xFB1F1F))
+
+    if message.content.startswith("a/betrayalio start") or message.content.startswith("a/ betrayalio start") or message.content.startswith("a/start betrayalio") or message.content.startswith("a/ start betrayalio") or message.content.startswith("a/betrayal.io start") or message.content.startswith("a/ betrayal.io start") or message.content.startswith("a/start betrayal.io") or message.content.startswith("a/ start betrayal.io") or message.content.startswith("a/betrayal start") or message.content.startswith("a/ betrayal start") or message.content.startswith("a/start betrayal") or message.content.startswith("a/ start betrayal"):
+        try:
+            gmgo = 0
+            try:
+                gmchannel = message.author.voice.channel.id
+                gmgo = 1
+            except:
+                await message.reply(embed=discord.Embed(title="Make sure you have joined a voice channel to Start The game!", color=0xFB1F1F))
+            if gmgo == 1:
+                gamelink = await togetherControl.create_link(gmchannel, 'betrayal')
+                gamembd = discord.Embed(title="Betrayal.io <:ag_betrayal:855368649682190367>", description=f"**Steps to Start Betrayal.io:**\n:one: - All the players join a voice channel. \n:two: - [Click Here]({gamelink}) to Start the game!!\n:three: - Enjoy the game", color=0x8000FF)
+                gamembd.set_footer(text="For How to Play and other info use `a/ betrayalio help`", icon_url=f"{message.author.avatar_url}")
+                gamembd.set_image(url="https://cdn.discordapp.com/attachments/829651215235153954/855367754269196328/co2hnz.png")
+                await message.reply(embed=gamembd)
+        except Exception as e:
+            print(e)
+            await message.reply(embed=discord.Embed(title="An error Occurred", description="If this occurs again and again Please Report to [Support Server](https://discord.gg/teszgSR9yK)", color=0xFB1F1F))
+
+    if message.content.startswith("a/youtube start") or message.content.startswith("a/ youtube start") or message.content.startswith("a/start youtube") or message.content.startswith("a/ start youtube") or message.content.startswith("a/yt together start") or message.content.startswith("a/ yt together start") or message.content.startswith("a/start yt together") or message.content.startswith("a/ start yt together") or message.content.startswith("a/ytt start") or message.content.startswith("a/ ytt start") or message.content.startswith("a/start ytt") or message.content.startswith("a/ start ytt"):
+        try:
+            gmgo = 0
+            try:
+                gmchannel = message.author.voice.channel.id
+                gmgo = 1
+            except:
+                await message.reply(embed=discord.Embed(title="Make sure you have joined a voice channel to Start The game!", color=0xFB1F1F))
+            if gmgo == 1:
+                gamelink = await togetherControl.create_link(gmchannel, 'youtube')
+                gamembd = discord.Embed(title="Youtube Together <a:ag_youtubegif:855369950604951572>", description=f"**Steps to Start Youtube Together:**\n:one: - All the players join a voice channel. \n:two: - [Click Here]({gamelink}) to Start the game!!\n:three: - Enjoy the game", color=0x8000FF)
+                gamembd.set_footer(text="For How to Use and other info use `a/ youtube help`", icon_url=f"{message.author.avatar_url}")
+                gamembd.set_image(url="https://cdn.discordapp.com/attachments/829651215235153954/855371877127421952/ytparty.jpg")
+                await message.reply(embed=gamembd)
+        except Exception as e:
+            print(e)
+            await message.reply(embed=discord.Embed(title="An error Occurred", description="If this occurs again and again Please Report to [Support Server](https://discord.gg/teszgSR9yK)", color=0xFB1F1F))
+
+
+    if message.content == "a/rrdc":
+        try:
+            vc = await message.guild.voice_client.disconnect()
+        except:
+            await message.reply(embed=discord.Embed(title="An error Occurred", description="If this occurs again and again Please Report to [Support Server](https://discord.gg/teszgSR9yK)", color=0xFB1F1F))
+
+    if message.content == "a/rrdc":
+        try:
+            await message.author.voice.channel.connect()
+        except:
+            await message.reply(embed=discord.Embed(title="An Error Occurred", description="Are you Connected to a Voice Channel??\nIf this occurs again and again Please Report to [Support Server](https://discord.gg/teszgSR9yK)", color=0xFB1F1F))
+                   
+ # MISC
     if (message.content == ("a/ clear ram") or message.content == ("a/ clean ram")) and str(message.author.id) == "641305773095387156":
         gc.collect()
         await message.channel.send("RAM Cleared!")
