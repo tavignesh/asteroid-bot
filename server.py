@@ -8,6 +8,7 @@ def home():
     return "This Node is Online"
 
 def run():
+  os.environ['$port']
   app.run(host='0.0.0.0',port=8080)
 
 def uptime_server():
