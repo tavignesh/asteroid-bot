@@ -18,3 +18,4 @@ play_scraper
 google_play_scraper
 flask
 gunicorn
+discord-together
