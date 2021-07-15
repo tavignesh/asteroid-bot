@@ -9,7 +9,7 @@ def home():
     return "This Node is Online"
 
 def run():
-  hport = os.environ['port']
+  hport = os.environ['PORT']
   app.run(host='0.0.0.0',port=hport)
 
 def uptime_server():
