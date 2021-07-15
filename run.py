@@ -33,7 +33,7 @@ import google_play_scraper
 import pprint
 # import pyzbar.pyzbar
 import io
-
+from server import uptime_server
 
 version = "1.9.0"
 botingscheme = "main" # beta or main
@@ -2732,4 +2732,5 @@ async def on_message(message):
 
 client.loop.create_task(update_stats())
 
+uptime_server()
 client.run(toktok)
