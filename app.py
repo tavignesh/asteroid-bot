@@ -33,7 +33,7 @@ import pprint
 # import pyzbar.pyzbar
 import io
 from discordTogether import DiscordTogether
-from server import uptime_server
+from server import keep_alive
 from discord_components import DiscordComponents, Button, Select, SelectOption
 
   
