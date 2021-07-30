@@ -34,6 +34,7 @@ import pprint
 import io
 from discordTogether import DiscordTogether
 from server import uptime_server
+from discord_components import DiscordComponents, Button, Select, SelectOption
 
   
 version = "1.9.1"
@@ -160,6 +161,7 @@ def reload_prefix():
 
 @client.event
 async def on_ready():
+    DiscordComponents(client)
     if botingscheme != "main":
         game = discord.Game("with v1.9.0 and Having Fun Testing New Features")
         # await client.change_presence(status=discord.Status.idle, activity=game)
@@ -2697,8 +2699,7 @@ async def on_message(message):
 
 # TESTS
     if message.content.startswith("a/ testit") or message.content.startswith("a/testit"):
-
-        print(message.attachments[0].url)
+        await message.channel.send("click fast hmm",components = [Button(label = "Website", disabled=False, style=5, url="https://asteroidbot.xyz")])
 
 # PING
     if message.content.find("a/ ping") != -1 or message.content.find("a/ uptime") != -1 or message.content.find("a/ping") != -1 or message.content.find("a/uptime") != -1:
