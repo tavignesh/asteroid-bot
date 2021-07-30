@@ -238,11 +238,11 @@ async def on_message(message):
     if message.content == "a/ help" or message.content == "a/help" or message.content == "A/help" or message.content == "A/ help" or message.content == "A/ info" or message.content == "a/info" or message.content == "a/ info":
         ncmnda()
         ncmnda(), await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=helpmbd)
+        await message.channel.send(embed=helpmbd, components = [Button(label = "Website", disabled=False, style=5, url="https://asteroidbot.xyz"),Button(label = "INVITE", disabled=False, style=5, url="https://discord.com/oauth2/authorize?client_id=780734060246073374&scope=applications.commands%20bot&permissions=809500159")])
     if message.content.find("a/ invite") != -1 or message.content == "a/invite" or message.content == 'a/vote' or message.content == 'a/ vote' or message.content == "a/ support" or message.content == "a/support":
         ncmnda()
         ncmnda(), await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=invitembd)
+        await message.channel.send(embed=invitembd, components = [Button(label = "Website", disabled=False, style=5, url="https://asteroidbot.xyz"),Button(label = "INVITE", disabled=False, style=5, url="https://discord.com/oauth2/authorize?client_id=780734060246073374&scope=applications.commands%20bot&permissions=809500159")])
     if message.content == "a/ delete" or message.content == "a/delete":
         ncmnda()
         ncmnda(), await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
