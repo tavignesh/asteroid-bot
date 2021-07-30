@@ -19,3 +19,4 @@ google_play_scraper
 flask
 gunicorn
 discord-together
+discord-components
