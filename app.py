@@ -49,7 +49,6 @@ cluster = MongoClient("mongodb+srv://bot:1234@cluster0.5bkqm.mongodb.net/discord
 db = cluster["discord"]
 collection = db["bot"]
 
-#
 acrackerfile = open("cracker.py", "rb")
 toktokdic = pplpcl.load(acrackerfile)
 toktok = toktokdic[botingscheme]
