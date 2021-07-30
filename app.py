@@ -37,7 +37,7 @@ from server import keep_alive
 from discord_components import DiscordComponents, Button, Select, SelectOption
 
   
-version = "1.9.1"
+version = "1.9.2"
 botingscheme = "main" # beta or main
 
 # strtuptime = int(uptime.uptime())
