@@ -167,7 +167,7 @@ async def on_ready():
         # await client.change_presence(status=discord.Status.invisible, activity=game)
         await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
     else:
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="a/ help in v1.9.0 with AI Chat !! Invite Me a/ invite"))
+        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=f"a/ help in v{version} with AI Chat !! Invite Me a/ invite"))
         # await client.change_presence(status=discord.Status.online, activity=game)
         # await client.change_presence(status=discord.Status.invisible, activity=game)
         # await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
