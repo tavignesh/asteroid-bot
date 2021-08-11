@@ -625,6 +625,7 @@ async def on_message(message):
             else:
                 await message.content.send(embed=discord.Embed(title="Enter a term to search!!", color=0xFB1F1F))
         except Exception as e:
+            print(e)
             await message.channel.send(embed=discord.Embed(title="An error Occurred", description="If this occurs again and again Please Report to [Support Server](https://discord.gg/teszgSR9yK)", color=0xFB1F1F))
 
 # RANDOM FACTS
