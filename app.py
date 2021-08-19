@@ -2854,5 +2854,5 @@ async def on_message(message):
 
 client.loop.create_task(update_stats())
 
-keep_alive()
+#keep_alive()
 client.run(toktok)
