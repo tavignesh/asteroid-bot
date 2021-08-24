@@ -37,7 +37,7 @@ from server import keep_alive
 from discord_components import DiscordComponents, Button, Select, SelectOption
 
   
-version = "1.9.2"
+version = "1.9.3"
 botingscheme = "main" # beta or main
 
 # strtuptime = int(uptime.uptime())
@@ -162,7 +162,7 @@ def reload_prefix():
 async def on_ready():
     DiscordComponents(client)
     if botingscheme != "main":
-        game = discord.Game("with v1.9.0 and Having Fun Testing New Features")
+        game = discord.Game("with v1.9.3 and Having Fun Testing New Features")
         # await client.change_presence(status=discord.Status.idle, activity=game)
         # await client.change_presence(status=discord.Status.online, activity=game)
         # await client.change_presence(status=discord.Status.invisible, activity=game)
@@ -241,9 +241,11 @@ async def on_message(message):
         ncmnda(), await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=helpmbd, components = [[Button(label = "Website", emoji=wwweb, disabled=False, style=5, url="https://asteroidbot.xyz"),Button(label = "INVITE", disabled=False, emoji=emojiFromServer, style=5, url="https://discord.com/oauth2/authorize?client_id=780734060246073374&scope=applications.commands%20bot&permissions=809500159"), Button(label = "Support", disabled=False, emoji=suppop, style=5, url="https://discord.gg/pDzrEyGpxE")]])
     if message.content.find("a/ invite") != -1 or message.content == "a/invite" or message.content == 'a/vote' or message.content == 'a/ vote' or message.content == "a/ support" or message.content == "a/support":
-        ncmnda()
+        emojiFromServer = client.get_emoji(879633637312720947)
+        wwweb = client.get_emoji(879633220809936896)
+        suppop = client.get_emoji(879634882249252875)
         ncmnda(), await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=invitembd, components = [Button(label = "Website", disabled=False, style=5, url="https://asteroidbot.xyz"),Button(label = "INVITE", disabled=False, style=5, url="https://discord.com/oauth2/authorize?client_id=780734060246073374&scope=applications.commands%20bot&permissions=809500159")])
+        await message.channel.send(embed=invitembd, components = [[Button(label = "Website", emoji=wwweb, disabled=False, style=5, url="https://asteroidbot.xyz"),Button(label = "INVITE", disabled=False, emoji=emojiFromServer, style=5, url="https://discord.com/oauth2/authorize?client_id=780734060246073374&scope=applications.commands%20bot&permissions=809500159"), Button(label = "Support", disabled=False, emoji=suppop, style=5, url="https://discord.gg/pDzrEyGpxE")]])
     if message.content == "a/ delete" or message.content == "a/delete":
         ncmnda()
         ncmnda(), await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
