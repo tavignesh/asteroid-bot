@@ -162,13 +162,13 @@ def reload_prefix():
 async def on_ready():
     DiscordComponents(client)
     if botingscheme != "main":
-        game = discord.Game("with v1.9.3 and Having Fun Testing New Features")
+        game = discord.Game("with v2.0.0 and Having Fun Testing New Features")
         # await client.change_presence(status=discord.Status.idle, activity=game)
         # await client.change_presence(status=discord.Status.online, activity=game)
         # await client.change_presence(status=discord.Status.invisible, activity=game)
         await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
     else:
-        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="a/ help in v1.9.0 with AI Chat !! Invite Me a/ invite"))
+        await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="a/ help in v1.9.3 with AI Chat !! Invite Me a/ invite"))
         # await client.change_presence(status=discord.Status.online, activity=game)
         # await client.change_presence(status=discord.Status.invisible, activity=game)
         # await client.change_presence(status=discord.Status.do_not_disturb, activity=game)
