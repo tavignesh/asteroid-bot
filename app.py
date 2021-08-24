@@ -235,9 +235,11 @@ async def on_message(message):
         ncmnda(), await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
         await message.channel.send(embed=discord.Embed(description="My prefix is `a/`", color=0x04FD03))
     if message.content == "a/ help" or message.content == "a/help" or message.content == "A/help" or message.content == "A/ help" or message.content == "A/ info" or message.content == "a/info" or message.content == "a/ info":
-        ncmnda()
+        emojiFromServer = client.get_emoji(879633637312720947)
+        wwweb = client.get_emoji(879633220809936896)
+        suppop = client.get_emoji(879634882249252875)
         ncmnda(), await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
-        await message.channel.send(embed=helpmbd, components = [[Button(label = "Website", disabled=False, style=5, url="https://asteroidbot.xyz"),Button(label = "INVITE", disabled=False, style=5, url="https://discord.com/oauth2/authorize?client_id=780734060246073374&scope=applications.commands%20bot&permissions=809500159")]])
+        await message.channel.send(embed=helpmbd, components = [[Button(label = "Website", emoji=wwweb, disabled=False, style=5, url="https://asteroidbot.xyz"),Button(label = "INVITE", disabled=False, emoji=emojiFromServer, style=5, url="https://discord.com/oauth2/authorize?client_id=780734060246073374&scope=applications.commands%20bot&permissions=809500159"), Button(label = "Support", disabled=False, emoji=suppop, style=5, url="https://discord.gg/pDzrEyGpxE")]])
     if message.content.find("a/ invite") != -1 or message.content == "a/invite" or message.content == 'a/vote' or message.content == 'a/ vote' or message.content == "a/ support" or message.content == "a/support":
         ncmnda()
         ncmnda(), await message.add_reaction("<a:ag_flyn_hrts_cyn:781395468978356235>")
